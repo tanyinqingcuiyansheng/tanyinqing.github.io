@@ -20,4 +20,7 @@ Idea > File > Settings... > Keymap
 Main menu > Code > Completion > Basic
 Add Keyboard Shortcut: Alt+斜杠   设置自动补全的快捷键
 
-
+Idea > File > Settings > Editor > General > Code Completion
+Case sensitive completion: None  提示不区分大小写
+ 
+ 
