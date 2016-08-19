@@ -15,3 +15,9 @@ Exlipse 快捷键
 Alt+左右键  表明前进和后退
 ctrl+D  删除本行
 
+idea 软件工具的使用
+Idea > File > Settings... > Keymap
+Main menu > Code > Completion > Basic
+Add Keyboard Shortcut: Alt+斜杠
+
+
