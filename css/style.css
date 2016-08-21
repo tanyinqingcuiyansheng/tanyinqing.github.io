@@ -1,9 +1,26 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
 .BiaoTi{
     color:#f00 ;
-    font-size: 30px;
+    font-size: 40px;
     background: #aaa;
 }
 .WeiZi{
     color:#f00 ;
-    font-size: 30px;
+    font-size: 40px;
 }
+div {
+    margin: 10px;
+    padding: 5px;
+    border:red solid 1px;
+}
+a {
+    font-size: 2em;
+}
+h1#DiYi {
+    margin: 30px 10px 10px 30px;
+}
+
