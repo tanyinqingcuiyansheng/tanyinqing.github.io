@@ -1,26 +1,22 @@
 
 * {
-    margin: 0;
+    margin: 10px 10px 5px 5px;
     padding: 0;
 }
 .BiaoTi{
     color:#f00 ;
-    font-size: 40px;
+    font-size: 2em;
     background: #aaa;
 }
 .WeiZi{
     color:#f00 ;
-    font-size: 40px;
+    font-size: 2em;
 }
 div {
-    margin: 10px;
-    padding: 5px;
     border:red solid 1px;
 }
 a {
     font-size: 2em;
 }
-h1#DiYi {
-    margin: 30px 10px 10px 30px;
-}
+
 
