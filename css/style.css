@@ -14,12 +14,15 @@
 }
 div {
     border:#aaaaaa solid 1px;
+    padding: 0px 0px 0px 0px;
 }
 a {
     font-size: 1em;
+    margin: 0px;
 }
 span {
     margin: 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 
