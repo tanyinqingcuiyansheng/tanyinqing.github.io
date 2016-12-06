@@ -1,9 +1,8 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 # tanyinqing.github.io
 ```
 http://www.bejson.com/  标准的json格式网站
-
-
-
 
 
     唐山燃气工程的项目思路
