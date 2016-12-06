@@ -1,4 +1,7 @@
 
+text = '# 大标题 ## 第二号 ... ' 
+md = unicode(text, 'utf-8') 
+markdown.markdown(md).encode('utf-8')
 
 # tanyinqing.github.io
 ```
