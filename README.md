@@ -1,7 +1,9 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
 # tanyinqing.github.io
 ```
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 http://www.bejson.com/  标准的json格式网站
 
 
