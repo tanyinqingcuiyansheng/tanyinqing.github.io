@@ -1,0 +1,5140 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>谈模板代码</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<style type="text/css">
+
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+
+/* Author: Nicolas Hery - http://nicolashery.com */
+
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+
+
+/* RESET
+
+=============================================================================*/
+
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+}
+
+
+
+/* BODY
+
+=============================================================================*/
+
+
+
+body {
+
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  color: #333;
+
+  background-color: #fff;
+
+  padding: 20px;
+
+  max-width: 960px;
+
+  margin: 0 auto;
+
+}
+
+
+
+body>*:first-child {
+
+  margin-top: 0 !important;
+
+}
+
+
+
+body>*:last-child {
+
+  margin-bottom: 0 !important;
+
+}
+
+
+
+/* BLOCKS
+
+=============================================================================*/
+
+
+
+p, blockquote, ul, ol, dl, table, pre {
+
+  margin: 15px 0;
+
+}
+
+
+
+/* HEADERS
+
+=============================================================================*/
+
+
+
+h1, h2, h3, h4, h5, h6 {
+
+  margin: 20px 0 10px;
+
+  padding: 0;
+
+  font-weight: bold;
+
+  -webkit-font-smoothing: antialiased;
+
+}
+
+
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+
+  font-size: inherit;
+
+}
+
+
+
+h1 {
+
+  font-size: 28px;
+
+  color: #000;
+
+}
+
+
+
+h2 {
+
+  font-size: 24px;
+
+  border-bottom: 1px solid #ccc;
+
+  color: #000;
+
+}
+
+
+
+h3 {
+
+  font-size: 18px;
+
+}
+
+
+
+h4 {
+
+  font-size: 16px;
+
+}
+
+
+
+h5 {
+
+  font-size: 14px;
+
+}
+
+
+
+h6 {
+
+  color: #777;
+
+  font-size: 14px;
+
+}
+
+
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+
+  margin-top: 0;
+
+  padding-top: 0;
+
+}
+
+
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+
+  margin-top: 0;
+
+  padding-top: 0;
+
+}
+
+
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+
+  margin-top: 10px;
+
+}
+
+
+
+/* LINKS
+
+=============================================================================*/
+
+
+
+a {
+
+  color: #4183C4;
+
+  text-decoration: none;
+
+}
+
+
+
+a:hover {
+
+  text-decoration: underline;
+
+}
+
+
+
+/* LISTS
+
+=============================================================================*/
+
+
+
+ul, ol {
+
+  padding-left: 30px;
+
+}
+
+
+
+ul li > :first-child, 
+
+ol li > :first-child, 
+
+ul li ul:first-of-type, 
+
+ol li ol:first-of-type, 
+
+ul li ol:first-of-type, 
+
+ol li ul:first-of-type {
+
+  margin-top: 0px;
+
+}
+
+
+
+ul ul, ul ol, ol ol, ol ul {
+
+  margin-bottom: 0;
+
+}
+
+
+
+dl {
+
+  padding: 0;
+
+}
+
+
+
+dl dt {
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  font-style: italic;
+
+  padding: 0;
+
+  margin: 15px 0 5px;
+
+}
+
+
+
+dl dt:first-child {
+
+  padding: 0;
+
+}
+
+
+
+dl dt>:first-child {
+
+  margin-top: 0px;
+
+}
+
+
+
+dl dt>:last-child {
+
+  margin-bottom: 0px;
+
+}
+
+
+
+dl dd {
+
+  margin: 0 0 15px;
+
+  padding: 0 15px;
+
+}
+
+
+
+dl dd>:first-child {
+
+  margin-top: 0px;
+
+}
+
+
+
+dl dd>:last-child {
+
+  margin-bottom: 0px;
+
+}
+
+
+
+/* CODE
+
+=============================================================================*/
+
+
+
+pre, code, tt {
+
+  font-size: 12px;
+
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+
+}
+
+
+
+code, tt {
+
+  margin: 0 0px;
+
+  padding: 0px 0px;
+
+  white-space: nowrap;
+
+  border: 1px solid #eaeaea;
+
+  background-color: #f8f8f8;
+
+  border-radius: 3px;
+
+}
+
+
+
+pre>code {
+
+  margin: 0;
+
+  padding: 0;
+
+  white-space: pre;
+
+  border: none;
+
+  background: transparent;
+
+}
+
+
+
+pre {
+
+  background-color: #f8f8f8;
+
+  border: 1px solid #ccc;
+
+  font-size: 13px;
+
+  line-height: 19px;
+
+  overflow: auto;
+
+  padding: 6px 10px;
+
+  border-radius: 3px;
+
+}
+
+
+
+pre code, pre tt {
+
+  background-color: transparent;
+
+  border: none;
+
+}
+
+
+
+kbd {
+
+    -moz-border-bottom-colors: none;
+
+    -moz-border-left-colors: none;
+
+    -moz-border-right-colors: none;
+
+    -moz-border-top-colors: none;
+
+    background-color: #DDDDDD;
+
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+
+    background-repeat: repeat-x;
+
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+
+    border-image: none;
+
+    border-radius: 2px 2px 2px 2px;
+
+    border-style: solid;
+
+    border-width: 1px;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    line-height: 10px;
+
+    padding: 1px 4px;
+
+}
+
+
+
+/* QUOTES
+
+=============================================================================*/
+
+
+
+blockquote {
+
+  border-left: 4px solid #DDD;
+
+  padding: 0 15px;
+
+  color: #777;
+
+}
+
+
+
+blockquote>:first-child {
+
+  margin-top: 0px;
+
+}
+
+
+
+blockquote>:last-child {
+
+  margin-bottom: 0px;
+
+}
+
+
+
+/* HORIZONTAL RULES
+
+=============================================================================*/
+
+
+
+hr {
+
+  clear: both;
+
+  margin: 15px 0;
+
+  height: 0px;
+
+  overflow: hidden;
+
+  border: none;
+
+  background: transparent;
+
+  border-bottom: 4px solid #ddd;
+
+  padding: 0;
+
+}
+
+
+
+/* TABLES
+
+=============================================================================*/
+
+
+
+table th {
+
+  font-weight: bold;
+
+}
+
+
+
+table th, table td {
+
+  border: 1px solid #ccc;
+
+  padding: 6px 13px;
+
+}
+
+
+
+table tr {
+
+  border-top: 1px solid #ccc;
+
+  background-color: #fff;
+
+}
+
+
+
+table tr:nth-child(2n) {
+
+  background-color: #f8f8f8;
+
+}
+
+
+
+/* IMAGES
+
+=============================================================================*/
+
+
+
+img {
+
+  max-width: 100%
+
+}
+
+</style>
+
+<style type="text/css">
+
+.highlight  { background: #ffffff; }
+
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+
+.highlight .k { font-weight: bold } /* Keyword */
+
+.highlight .o { font-weight: bold } /* Operator */
+
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+
+.highlight .ge { font-style: italic } /* Generic.Emph */
+
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+
+.highlight .gh { color: #999999 } /* Generic.Heading */
+
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+
+.highlight .go { color: #888888 } /* Generic.Output */
+
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+
+.highlight .m { color: #009999 } /* Literal.Number */
+
+.highlight .s { color: #d14 } /* Literal.String */
+
+.highlight .na { color: #008080 } /* Name.Attribute */
+
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+
+.highlight .no { color: #008080 } /* Name.Constant */
+
+.highlight .ni { color: #800080 } /* Name.Entity */
+
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+
+.highlight .nn { color: #555555 } /* Name.Namespace */
+
+.highlight .nt { color: #000080 } /* Name.Tag */
+
+.highlight .nv { color: #008080 } /* Name.Variable */
+
+.highlight .ow { font-weight: bold } /* Operator.Word */
+
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+.pl-c {
+
+    color: #969896;
+
+}
+
+
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+
+    color: #0086b3;
+
+}
+
+
+
+.pl-e,.pl-en {
+
+    color: #795da3;
+
+}
+
+
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+
+    color: #333;
+
+}
+
+
+
+.pl-ent {
+
+    color: #63a35c;
+
+}
+
+
+
+.pl-k,.pl-s,.pl-st {
+
+    color: #a71d5d;
+
+}
+
+
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+
+    color: #df5000;
+
+}
+
+
+
+.pl-id {
+
+    color: #b52a1d;
+
+}
+
+
+
+.pl-ii {
+
+    background-color: #b52a1d;
+
+    color: #f8f8f8;
+
+}
+
+
+
+.pl-sr .pl-cce {
+
+    color: #63a35c;
+
+    font-weight: bold;
+
+}
+
+
+
+.pl-ml {
+
+    color: #693a17;
+
+}
+
+
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+
+    color: #1d3e81;
+
+    font-weight: bold;
+
+}
+
+
+
+.pl-mq {
+
+    color: #008080;
+
+}
+
+
+
+.pl-mi {
+
+    color: #333;
+
+    font-style: italic;
+
+}
+
+
+
+.pl-mb {
+
+    color: #333;
+
+    font-weight: bold;
+
+}
+
+
+
+.pl-md,.pl-mdhf {
+
+    background-color: #ffecec;
+
+    color: #bd2c00;
+
+}
+
+
+
+.pl-mdht,.pl-mi1 {
+
+    background-color: #eaffea;
+
+    color: #55a532;
+
+}
+
+
+
+.pl-mdr {
+
+    color: #795da3;
+
+    font-weight: bold;
+
+}
+
+
+
+.pl-mo {
+
+    color: #1d3e81;
+
+}
+
+.task-list {
+
+padding-left:10px;
+
+margin-bottom:0;
+
+}
+
+
+
+.task-list li {
+
+    margin-left: 20px;
+
+}
+
+
+
+.task-list-item {
+
+list-style-type:none;
+
+padding-left:10px;
+
+}
+
+
+
+.task-list-item label {
+
+font-weight:400;
+
+}
+
+
+
+.task-list-item.enabled label {
+
+cursor:pointer;
+
+}
+
+
+
+.task-list-item+.task-list-item {
+
+margin-top:3px;
+
+}
+
+
+
+.task-list-item-checkbox {
+
+display:inline-block;
+
+margin-left:-20px;
+
+margin-right:3px;
+
+vertical-align:1px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="2017-07-18">2017 07 18</h1>
+<blockquote>
+<p> <a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3" title="查看">文档地址</a>   <a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%2FAndBaseDemo%E6%A1%86%E6%9E%B6" title="查看">源文件相关</a></p>
+</blockquote>
+<h1 id="00">简介</h1>  
+
+<p><a href="#001">1. 最常用的调用方法代码</a> ——  <a href="#002">2. 浏览器常用的快捷键</a> —— <a href="#003">3. 结构命名规则</a>        </p>
+<h1 id="1">1. 存储模块</h1> 
+
+<blockquote>
+<p><a href="#01">01. 数据库存储</a> </p>
+<blockquote>
+<p><a href="#011">011. db文件夹负责建立数据库</a> —— <a href="#012">012. databass文件夹负责写入数据</a> —— <a href="#013">013. databass文件夹中的特定方法</a><Br></p>
+</blockquote>
+<p><a href="#0102">02. 缓存数据存储</a></p>
+<blockquote>
+<p><a href="#014">014. 缓存数据存储</a></p>
+</blockquote>
+</blockquote>
+<h1 id="2">2. 访问网络模块</h1> 
+
+<blockquote>
+<p><a href="#021">021. listener文件夹 回调类</a></p>
+<blockquote>
+<p><a href="#0211">0211. DataListener回调类</a></p>
+</blockquote>
+<p><a href="#022">022. impl文件夹 接口类</a></p>
+<blockquote>
+<p><a href="#0221">0221. 写一个接口的清单</a></p>
+</blockquote>
+<p><a href="#023">023. web文件夹 定义类</a>.</p>
+<blockquote>
+<p><a href="#0231">0231. 定义父类</a> —— <a href="#0232">0232. 定义子类</a></p>
+</blockquote>
+<p><a href="#024">024. 调用网络  其他处调用</a></p>
+<blockquote>
+<p><a href="#0241">0241. 调用网络  其他处调用 返回字符串</a></p>
+</blockquote>
+</blockquote>
+<h1 id="3">3. 多媒体模块</h1>
+
+<blockquote>
+<p><a href="#03">03. 图片</a><br><a href="#0301">0301. 访问网络  返回图片</a></p>
+</blockquote>
+<h1 id="4">4. 四大组件模块</h1>
+
+<blockquote>
+<p><a href="#04">04. 常用技巧</a></p>
+<blockquote>
+<p><a href="#0401">0401. activity文件夹</a><br><a href="#040101">040101. activity父类</a> —— <a href="#040102">040102. activity标题类</a> —— <a href="#040103">040103. activity带适配器的模板类</a> —— <a href="#040104">040104. activity不带适配器的模板类</a> —— <a href="#040105">5. activity之间跳转</a></p>
+</blockquote>
+<p><a href="#0402">0402. model文件夹</a></p>
+<blockquote>
+<p><a href="#040201">040201. model父类</a></p>
+</blockquote>
+<p><a href="#0403">0403. adapter文件夹</a></p>
+<blockquote>
+<p><a href="#040301">040301. adapter父类</a></p>
+</blockquote>
+</blockquote>
+<h1 id="05">5. 常量与配置模块</h1>
+
+<blockquote>
+<ol>
+<li><p>常量<br><a href="#0501">常量</a></p>
+</li><li><p>配置模块<br><a href="#0502">配置模块build.gradle(Module:app)</a></p>
+</li></ol>
+</blockquote>
+<h1 id="06">6. 资源模块</h1>
+
+<blockquote>
+<ol>
+<li>常用的资源配置<br><a href="#0601">colors.xml</a> —— <a href="#0602">dimens.xml</a> —— <a href="#0603">styles.xml</a> —— <a href="#0604">drawable下的xml资源</a> —— <a href="#0605">5. layout文件夹下的xml资源</a> —— <a href="#0606">6. 动画</a></li></ol>
+</blockquote>
+<h1 id="07">7. 常规控件模块</h1>
+
+<blockquote>
+<ol>
+<li>常用的控件模板<br><a href="#0701">1. 常用控件</a> —— <a href="#0702">2. 常用布局</a></li></ol>
+</blockquote>
+<h1 id="8">8. 工具文件夹</h1>
+
+<blockquote>
+<p> <a href="#08">08. utils文件夹</a><br><a href="#0801">0801. 控制台日志的打印模板</a> —— <a href="#0802">0802. 把日志打印到内存卡上</a> —— <a href="#0803">0803. 把连续的日志打印到内存卡的一个文件上</a> —— <a href="#0804">0804. 像素和dp和sp单位的换算</a> —— <a href="#0805">0805. 对象和Json字符串的相互转化</a> —— <a href="#0806">0806. 日期APi的工具类</a> —— <a href="#0807">7. 缓存数据的工具类</a> —— <a href="#0808">8. 按钮加入3次点击的监听</a></p>
+</blockquote>
+<h1 id="-">参考文档</h1>
+<blockquote>
+<p><a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97" title="查看">百度项目地址</a><br><a href="https://github.com/tanyinqing/MarkDown/tree/master/app/src/main/java/codewarehouse/yzkj/com/markdown" title="查看">云端地址</a><br><a href="https://github.com/tanyinqing/MarkDown/blob/master/app/src/main/java/codewarehouse/yzkj/com/markdown/%E5%8C%BB%E7%96%97%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84%E5%9B%BE.md" title="查看">医疗框架结构图.md</a><br><a href="526541" title="查看"></a><br><a href="526541" title="查看"></a></p>
+ <h1 id="001">1. 最常用的调用方法代码</h1>
+
+</blockquote>
+<p> <a href="#00">返回目录</a> </p>
+<pre><code>//控制台日志
+ MyLog.ShowLog(json);  
+
+//土司
+PublicUtil.ShowToast(&quot;3次点击设置成功&quot;);
+
+//把注释做到内存卡中
+ LogTxt.writeLog(json, &quot;网络下载返回的数据&quot;); 
+
+// 缓存数据
+ mPrefUtil.putSetting(&quot;isLog&quot;, true);
+
+     @ViewInject(R.id.editPhone)
+    private EditText editPhone; 
+
+     @OnClick(R.id.buttonLogin)
+    public void login(View view)
+    {       
+    }
+
+
+ //这个是打印接口和参数日志
+      StringBuilder mStringBuilder=new StringBuilder(LoginUrl);
+        mStringBuilder.append(&quot;?phoneNum=&quot;);
+        mStringBuilder.append(phoneNum);
+        mStringBuilder.append(&quot;&amp;password=&quot;);
+        mStringBuilder.append(password);
+        LogTxt.writeLog(mStringBuilder.toString(), &quot;登录接口&quot;);
+
+LogTxt.writeLog(json, &quot;登录接口返回的数据&quot;);
+
+if (&quot;&quot;.equals()) {
+
+        }else if (&quot;&quot;.equals()) {
+
+        }else {
+
+        }
+
+
+        switch (){
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+
+//下载图片
+     private static ImageLoader imageLoader;
+    imageLoader = PublicUtil.getImageLoader();
+    String pic=address.getPhotoUrl();
+   if(null != pic &amp;&amp; !pic.equals(&quot;&quot;) &amp;&amp; !pic.equals(&quot;null&quot;))
+   {       
+       imageLoader.displayImage(Constant.URLBASE+pic, imageHead,PublicUtil.getGoodsOption());
+   }
+
+
+     /**
+     * 获取配送员账号的列表
+     * http://211.149.169.221:8080/umijoyappsvr/distribution/DistributionUserList.do?start=0&amp;limit=15
+     */
+
+    private static String AccountListUrl = BaseUrl +&quot;/distribution/DistributionUserList.do&quot;;
+
+    /**
+     * 获取配送员账号的列表
+     *
+     * @param phoneNum
+     * @param dataListener
+     */
+    public void getAccountList(String phoneNum,final DataListener&lt;List&lt;User&gt;&gt; dataListener)
+    {
+        RequestParams params = new RequestParams();
+        params.addBodyParameter(&quot;start&quot;, &quot;0&quot;);
+        params.addBodyParameter(&quot;limit&quot;, &quot;15&quot;);
+        post(AccountListUrl, params, new IRequestListener() {
+            public void onSuccess(String json) {
+                Type type = new TypeToken&lt;List&lt;User&gt;&gt;(){}.getType();
+                parse(json,type, dataListener);
+            }
+            @Override
+            public void onFailed() {
+                dataListener.onFailed();
+            }
+        });
+    }
+</code></pre><blockquote>
+<h1 id="002">2. 浏览器常用的快捷键</h1>
+
+</blockquote>
+<p><a href="#00">返回目录</a></p>
+<pre><code>00
+</code></pre><blockquote>
+<h1 id="003">3. 结构命名规则</h1>
+
+</blockquote>
+<p><a href="#00">返回目录</a></p>
+<pre><code>登录LoginAcitvity activity_login editPhone buttonLogin textForget
+账号管理  AccountManagementAcitvity imageHead
+添加账号 AddAccountAcitvity
+</code></pre><h1 id="1">1. 存储模块</h1>  
+
+<h2 id="-1-"><a href="#1">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-011-011-db-h1-"><h1 id="011">011. db文件夹负责建立数据库</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
+/**
+ * 建立数据库和数据表
+ */
+public class DBHelper extends SQLiteOpenHelper {
+    public static final int DATABASE_VERSION = 1;
+    //这个是建立的数据库的库名
+    public static final String DATABASE_NAME = &quot;shujuku.db&quot;;   //数据库名称
+    //拷贝数据库时用到的路径名
+    private static final String DATABASE_PATH = &quot;/data/data/com.gas.Securitycheck/databases/&quot;;
+    /*
+    *  main表建表语句
+    */
+    public static final String CREATE_PROVINCE = &quot;create table main (&quot;
+            + &quot;id integer NOT NULL primary key autoincrement,&quot;//注释
+            + &quot;[depantment] VARCHAR(50), &quot;
+           // + &quot;[alarmId] INTEGER NOT NULL, &quot;
+            //+ &quot;[alarmTime] LONG, &quot;
+          //  + &quot;[setTime] LONG, &quot;
+            + &quot;[time] VARCHAR(100), &quot;
+            + &quot;[data] VARCHAR(100), &quot;
+            + &quot;[name] VARCHAR(100), &quot;
+            //+ &quot;[yaoId] INTEGER, &quot;
+            + &quot;[remarksDetail] text, &quot;
+            + &quot;[isUpLoad] text, &quot;
+            + &quot;[photoRoute] text, &quot;  //这个是图片的保存
+            + &quot;[rejectReason] VARCHAR(100))&quot;;
+     /*
+    *    photo表建表语句
+    */
+    public static final String CREATE_PHOTO = &quot;create table photo (&quot;
+            + &quot;id integer NOT NULL primary key autoincrement,&quot;//注释
+            + &quot;[photo] VARCHAR(100), &quot;   //这个是图片的路径
+            + &quot;[rmd5] VARCHAR(100), &quot;    //这个是图片的MD5值
+            + &quot;[time] VARCHAR(100))&quot;;
+
+    /*
+     * CoolWeatherOpenHelper的4参数构造方法
+     * 第一个参数:Context
+     * 第二个参数:数据库名
+     * 第三个参数:Cursor,通常传人null
+     * 第四个参数:数据库版本Version
+     */
+    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        //执行建立数据表的语句
+        sqLiteDatabase.execSQL(CREATE_PROVINCE);
+        sqLiteDatabase.execSQL(CREATE_PHOTO);
+    }
+
+    @Override //重写数据库升级的方法
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        if (newVersion &gt; oldVersion) {
+            for (int i = (oldVersion + 1); i &lt;= newVersion; i++) {
+                upGrade(sqLiteDatabase, i);//升级程序时，修改了数据库，需要在以下用sql语句去修改
+            }
+        }
+
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        if (this != null) {
+            this.close();
+        }
+        super.finalize();
+    }
+
+    /*
+     * 升级程序时，修改了数据库，需要在以下用sql语句去修改
+     */
+    private void upGrade(SQLiteDatabase db, int version) {
+        switch (version) {
+            case 1:
+                break;
+            case 2:
+                db.beginTransaction();
+//添加字段  必须开启事务
+                //db.execSQL(&quot;alter table BaseUrl add column tanyinqing INTEGER default 0&quot;);
+                //添加字段
+//            db.execSQL(&quot;alter table yao add column yaoTest INTEGER default 0&quot;);
+                //添加表
+//            db.execSQL(&quot;create table MyBaodianFavorite ([Id] INTEGER DEFAULT &#39;0&#39; PRIMARY KEY AUTOINCREMENT,[NewsId] INTEGER NOT NULL,[AppType] VARCHAR(50) NOT NULL,[ImageUrl] VARCHAR(50),[Introduction] TEXT NOT NULL,[Title] VARCHAR(50) NOT NULL,[Author] VARCHAR(50) NOT NULL,[PubDate] VARCHAR(50) NOT NULL)&quot;);
+                //db.execSQL(&quot;create table image ([content] VARCHAR(100),[image] VARCHAR(100),[newId] VARCHAR(100))&quot;);
+                //db.setVersion(version);//设置版本号
+                db.setTransactionSuccessful();//事务成功  否则可以回滚事务的
+                db.endTransaction();  //事务结束
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
+        }
+    }
+
+    // 复制数据库到sd卡中
+    public static void copyDB(Context context) {
+        // DBHelper.context = context;
+        // 没有file先创建文件夹
+        File dbFile = new File(DATABASE_PATH);
+        if (!dbFile.exists()) {
+            dbFile.mkdirs();
+        } else {
+            File dbContentFile = new File(DATABASE_PATH, DATABASE_NAME);
+            if (dbContentFile.exists()) {
+                return;
+            }
+        }
+
+        InputStream is = null;
+        FileOutputStream fos = null;
+        try {
+            AssetManager am = context.getAssets();  //管理器
+            // 得到.db file
+            File saveFile = new File(DATABASE_PATH, DATABASE_NAME);
+            // 获取数据库本地资源
+            is = am.open(&quot;securityCheckOne.db&quot;);
+            // 获取数据库输入流
+            fos = new FileOutputStream(saveFile);
+            byte[] buffer = new byte[8192];
+            int count = 0;
+            while ((count = is.read(buffer)) &gt; 0) {
+                fos.write(buffer, 0, count);
+            }
+
+        } catch (Exception e) {
+            Log.i(&quot;Exception&quot;, Log.getStackTraceString(e));
+        } finally {
+            try {
+                if (fos != null)
+                    fos.close();
+                if (is != null)
+                    is.close();
+            } catch (Exception e) {
+                Log.i(&quot;Exception&quot;, Log.getStackTraceString(e));
+            }
+        }
+    }
+}
+</code></pre><blockquote>
+<h2 id="-h1-id-012-012-databass-h1-"><h1 id="012">012. databass文件夹负责写入数据</h1></h2>
+</blockquote>
+<h2 id="-1-"><a href="#1">返回目录</a></h2>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+
+import java.util.ArrayList;
+
+/**
+ * Created by Administrator on 2017/4/18 0018.
+ */
+public class MainDB {
+    private Context context;
+    private DBHelper dbHelper;
+
+    public MainDB(Context context) {
+        this.context = context;
+        dbHelper = new DBHelper(context,DBHelper.DATABASE_NAME,null,DBHelper.DATABASE_VERSION);
+    }
+//插入数据表中的数据
+    public void insertAlarm(RenWu renWu) {
+       SQLiteDatabase db=dbHelper.getWritableDatabase();
+       /* db.execSQL(&quot;insert into main_1 (depantment,time,data,name,remarksDetail,isUpLoad,rejectReason，photoRoute) values (?,?,?,?,?,?,?,?);&quot;,
+                new Object[]{renWu.getDepantment(),renWu.getTime(),renWu.getData(),renWu.getName(),renWu.getRemarksDetail(),renWu.getIsUpLoad(),renWu.getRejectReason(),renWu.getPhotoRoutePath()});*/
+        ContentValues values = new ContentValues();
+        values.put(&quot;depantment&quot;, renWu.getDepantment());
+        values.put(&quot;time&quot;, renWu.getTime());
+        values.put(&quot;data&quot;, renWu.getData());
+        values.put(&quot;name&quot;, renWu.getName());
+        values.put(&quot;remarksDetail&quot;, renWu.getRemarksDetail());
+        values.put(&quot;isUpLoad&quot;, renWu.getIsUpLoad());
+        values.put(&quot;rejectReason&quot;, renWu.getRejectReason());
+        values.put(&quot;photoRoute&quot;, renWu.getPhotoRoutePath());
+        db.insert(&quot;main&quot;, null, values);
+        db.close();// 记得关闭数据库操作
+    }
+//修改数据表
+    public int upData(RenWu renWu) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(&quot;depantment&quot;, renWu.getDepantment());
+        values.put(&quot;time&quot;, renWu.getTime());
+        values.put(&quot;name&quot;, renWu.getName());
+        values.put(&quot;remarksDetail&quot;, renWu.getRemarksDetail());
+        int result=db.update(&quot;main&quot;,values,&quot;id=?&quot;,new String[]{String.valueOf(renWu.getId())});
+        db.close();
+        return result;
+    }
+//清空数据表
+    public void delete() {
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+        db.execSQL(&quot;delete from main;&quot;);
+        db.close();
+    }
+
+    //获取全部的数据
+    public ArrayList&lt;RenWu&gt; getAlarmListByTime() {
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+        ArrayList&lt;RenWu&gt; arr=new ArrayList&lt;&gt;();
+        Cursor cursor=db.query(&quot;main&quot;, new String[]{&quot;*&quot;}, null, null, null, null, null);
+        cursorMethed(cursor, arr);
+        cursor.close();
+        db.close();
+        return arr;
+    }
+    //通过id来获取数据
+    public RenWu getElementListByid(String id) {
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+        RenWu alarm=new RenWu();
+        Cursor cursor=db.query(&quot;main&quot;,new String[]{&quot;*&quot;},&quot;id=?&quot;,new String[]{id},null,null,null);
+        while (cursor.moveToNext()){
+            alarm.setId(cursor.getLong(cursor.getColumnIndex(&quot;id&quot;)));
+            alarm.setDepantment(cursor.getString(cursor.getColumnIndex(&quot;depantment&quot;)));
+            alarm.setTime(cursor.getString(cursor.getColumnIndex(&quot;time&quot;)));
+            alarm.setData(cursor.getString(cursor.getColumnIndex(&quot;data&quot;)));
+
+            alarm.setRejectReason(cursor.getString(cursor.getColumnIndex(&quot;rejectReason&quot;)));
+            alarm.setIsUpLoad(cursor.getString(cursor.getColumnIndex(&quot;isUpLoad&quot;)));
+            alarm.setName(cursor.getString(cursor.getColumnIndex(&quot;name&quot;)));
+            alarm.setRemarksDetail(cursor.getString(cursor.getColumnIndex(&quot;remarksDetail&quot;)));
+            alarm.setPhotoRoutePath(cursor.getString(cursor.getColumnIndex(&quot;photoRoute&quot;)));
+        }
+        cursor.close();
+        db.close();
+        return alarm;
+    }
+
+//数据组装
+    private void cursorMethed(Cursor cursor, ArrayList&lt;RenWu&gt; arr) {
+        while (cursor.moveToNext()){
+            RenWu alarm=new RenWu();
+            alarm.setId(cursor.getLong(cursor.getColumnIndex(&quot;id&quot;)));
+            alarm.setDepantment(cursor.getString(cursor.getColumnIndex(&quot;depantment&quot;)));
+            alarm.setTime(cursor.getString(cursor.getColumnIndex(&quot;time&quot;)));
+            alarm.setData(cursor.getString(cursor.getColumnIndex(&quot;data&quot;)));
+
+            alarm.setRejectReason(cursor.getString(cursor.getColumnIndex(&quot;rejectReason&quot;)));
+            alarm.setIsUpLoad(cursor.getString(cursor.getColumnIndex(&quot;isUpLoad&quot;)));
+            alarm.setName(cursor.getString(cursor.getColumnIndex(&quot;name&quot;)));
+            alarm.setRemarksDetail(cursor.getString(cursor.getColumnIndex(&quot;remarksDetail&quot;)));
+            alarm.setPhotoRoutePath(cursor.getString(cursor.getColumnIndex(&quot;photoRoute&quot;)));
+
+            arr.add(alarm);
+        }
+    }
+}
+</code></pre><blockquote>
+<h2 id="-h1-id-013-013-databass-h1-"><h1 id="013">013. databass文件夹中的特定方法</h1></h2>
+</blockquote>
+<h2 id="-1-"><a href="#1">返回目录</a></h2>
+<pre><code>//获得新插入的数据的id
+public String getid() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor=db.query(&quot;photo&quot;,new String[]{&quot;*&quot;},null,null,null,null,null);
+        cursor.moveToLast();
+        int id=cursor.getInt(cursor.getColumnIndex(&quot;id&quot;));
+        cursor.close();
+        db.close();
+        return String.valueOf(id);
+    }
+
+
+//删除某种定时
+    public void delete(int yaoId) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete(&quot;alarm&quot;, &quot;yaoId=?&quot;,new String[] {String.valueOf(yaoId)});
+        db.close();
+    }
+
+
+/*Cursor cursor = db.query(
+         * &quot;celingData&quot;,   数据的表名
+         *  new String[] { &quot;id&quot;, &quot;uid&quot;,&quot;sync&quot;, &quot;date&quot;,
+                &quot;dateMonth&quot;, &quot;day&quot;, &quot;time&quot;, &quot;type&quot;,&quot;result&quot;, &quot;state&quot;, &quot;diag&quot; },   要查询出来的列明
+                 &quot;uid=?&quot;,   查询的条件子句
+                 new String[] {uid},   为子句中的占位符提供参数值
+                 null,   用于控制分组
+                 null,    用于对分组进行过滤
+                 &quot;date desc,time desc&quot;  用于对记录进行排序
+                 );*/
+
+
+/**
+     * 获取是否有未同步的数据
+     */
+    public boolean haveNoSync(String uid) {
+        boolean isHave = false;
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor = db.query(&quot;celingData&quot;, new String[] { &quot;id&quot;, &quot;uid&quot;,&quot;sync&quot;, &quot;date&quot;,
+                &quot;dateMonth&quot;, &quot;day&quot;, &quot;time&quot;, &quot;type&quot;,&quot;result&quot;, &quot;state&quot;, &quot;diag&quot; }, &quot;sync=? and uid=?&quot;, new String[] { String.valueOf(ConstantUtil.SYNC_NO), uid}, null, null,null);
+        if(cursor.moveToFirst() == false){
+            isHave = false;
+        }else{
+            isHave = true;
+        }
+        cursor.close();
+        db.close();
+        return isHave;
+    }
+
+
+/*判断是否有点赞的条目*/
+    public boolean isHave(String goodId) {
+        boolean isHave = false;
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor = db.query(&quot;good&quot;, new String[] { &quot;id&quot;, &quot;goodId&quot;}, &quot;goodId=?&quot;, 
+                new String[] {goodId}, null, null, null);
+        if(cursor.moveToFirst() == false){
+            isHave = false;
+        }else{
+            isHave = true;
+        }
+        cursor.close();
+        db.close();
+        return isHave;
+    }
+
+
+//把一个链表的数据插入数据库
+    public void insertList(ArrayList&lt;HelpHeart&gt; list) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        for(int i = 0; i&lt; list.size() ; i++){
+            ContentValues values = new ContentValues();
+            HelpHeart helpHeart = list.get(i);
+            values.put(&quot;uid&quot;, helpHeart.uid);
+            values.put(&quot;sync&quot;, helpHeart.sync);
+            values.put(&quot;date&quot;, helpHeart.date);
+            values.put(&quot;dateMonth&quot;, helpHeart.dateMonth);
+            values.put(&quot;day&quot;, helpHeart.day);
+            values.put(&quot;time&quot;, helpHeart.time);
+            values.put(&quot;timeMill&quot;, helpHeart.timeMill);
+            values.put(&quot;heart&quot;, helpHeart.heart);
+            db.insert(&quot;heart&quot;, null, values);
+        }
+        db.close();
+    }
+
+
+/**新该
+     * 查询  当前时间   所在周 的一周内的数据  时间段
+    * &lt;p&gt;Title: getHeartListByTime&lt;/p&gt;
+    * &lt;p&gt;Description: &lt;/p&gt;
+    * @param date
+    * @param uid
+    * @param startTime
+    * @param endTime
+    * @return
+     */
+    public ArrayList&lt;HelpHeart&gt; getHeartListByTime(Date date, String uid, long startTime, long endTime){
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        ArrayList&lt;HelpHeart&gt; helpHeartArray = new ArrayList&lt;HelpHeart&gt;();
+
+        SimpleDateFormat sdf=new SimpleDateFormat(&quot;yyyy-MM:dd&quot;);  //格式化时间的类
+
+        Calendar cal = Calendar.getInstance();  
+        cal.setTime(date);  
+        //cal.get(Calendar.DAY_OF_WEEK);
+        //----------------从星期天开始计算，如果今天星期二，那么返回3  
+        // 1代表是星期天
+        int dayWeek = cal.get(Calendar.DAY_OF_WEEK);  
+        if(1 == dayWeek) {  
+        //代表如果是星期天   就返回一天前的日期
+            cal.add(Calendar.DAY_OF_MONTH, -1);  
+        }  
+      //将本周的星期一设为日历的时间  星期第一天是星期一：
+        cal.setFirstDayOfWeek(Calendar.MONDAY);  
+        //一周中的第几天 就不用减1了
+        int day = cal.get(Calendar.DAY_OF_WEEK);  
+        //让日历中的天数提前几天
+        //getFirstDayOfWeek() 获取一星期的第一天；例如，在美国，这一天是 SUNDAY，而在法国，这一天是 MONDAY。
+        // 想前推算到星期一的时间
+        cal.add(Calendar.DATE, cal.getFirstDayOfWeek()-day);  
+
+        //利用循环将现在时间的一周之内的数据抽取出来
+        // 通过这个循环取出一周内的数据
+        for(int i = 0;i&lt;=6;i++){
+            if(i!=0){
+                //只有不是第一个数据，日期就不断加1
+                cal.add(Calendar.DATE, 1);  
+            }
+
+            //将月份和日期格式化  yyyy-MM:dd
+            String imptimeEnd = sdf.format(cal.getTime());  
+            //这个是年和月
+            String dateMonth = imptimeEnd.substring(0, imptimeEnd.indexOf(&quot;:&quot;));
+                //这个是日期
+            String dayString = imptimeEnd.substring(imptimeEnd.lastIndexOf(&quot;:&quot;)+1,imptimeEnd.length());
+
+            Cursor cursor = db.query(&quot;heart&quot;, new String[] { &quot;id&quot;, &quot;uid&quot;, &quot;sync&quot;,&quot;date&quot;,
+                    &quot;dateMonth&quot;, &quot;day&quot;, &quot;time&quot;, &quot;timeMill&quot;, &quot;heart&quot;}, 
+                    &quot;uid=? and dateMonth=? and day= ?&quot;, new String[] {uid, dateMonth, 
+                    dayString}, null, null,null);
+            if (cursor.moveToNext()) {
+                HelpHeart helpHeart = new HelpHeart();
+                helpHeart.id = cursor.getInt(cursor.getColumnIndex(&quot;id&quot;));
+                helpHeart.uid = cursor.getString(cursor.getColumnIndex(&quot;uid&quot;));
+                helpHeart.sync = cursor.getInt(cursor.getColumnIndex(&quot;sync&quot;));
+                helpHeart.date = cursor.getString(cursor.getColumnIndex(&quot;date&quot;));
+                helpHeart.dateMonth = cursor.getString(cursor.getColumnIndex(&quot;dateMonth&quot;));
+                helpHeart.day = cursor.getString(cursor.getColumnIndex(&quot;day&quot;));
+                helpHeart.time = cursor.getString(cursor.getColumnIndex(&quot;time&quot;));
+                helpHeart.timeMill = cursor.getLong(cursor.getColumnIndex(&quot;timeMill&quot;));
+                helpHeart.heart = cursor.getInt(cursor.getColumnIndex(&quot;heart&quot;));
+                //helpHeartArray 这个是全局变量  每增加一个数据，就添加一个值
+                helpHeartArray.add(helpHeart);
+            }
+            cursor.close();
+        }
+
+
+        db.close();
+        return helpHeartArray;
+    }
+
+
+//查询  区间内  时间段  的数据
+    public ArrayList&lt;HelpHeart&gt; getHeartListByTime(String uid, long startTime, long endTime){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ArrayList&lt;HelpHeart&gt; helpHeartArray = new ArrayList&lt;HelpHeart&gt;();
+        Cursor cursor = db.query(&quot;heart&quot;, new String[] { &quot;id&quot;, &quot;uid&quot;, &quot;sync&quot;,&quot;date&quot;,
+                &quot;dateMonth&quot;, &quot;day&quot;, &quot;time&quot;, &quot;timeMill&quot;, &quot;heart&quot;}, 
+                &quot;uid=? and timeMill&gt;? and timeMill&lt;?&quot;, new String[] {uid, String.valueOf(startTime), 
+                String.valueOf(endTime)}, null, null, &quot;date asc&quot;);
+        cursorMethod(helpHeartArray, cursor);
+        cursor.close();
+        db.close();
+        return helpHeartArray;
+    }
+
+
+//查询对象的列表
+    public ArrayList&lt;ZiXun&gt; getImageList() {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ArrayList&lt;ZiXun&gt; alarmArray = new ArrayList&lt;ZiXun&gt;();
+        Cursor cursor = db.query(&quot;image&quot;, new String[] { &quot;content&quot;, &quot;image&quot;,&quot;newId&quot;}, null, null, null, null, null);
+        while (cursor.moveToNext()) {
+            ZiXun ziXun = new ZiXun();
+            ziXun.content = cursor.getString(cursor.getColumnIndex(&quot;content&quot;));
+            ziXun.image = cursor.getString(cursor.getColumnIndex(&quot;image&quot;));
+            ziXun.newId = cursor.getString(cursor.getColumnIndex(&quot;newId&quot;));
+            alarmArray.add(ziXun);
+        }
+        cursor.close();
+        db.close();
+        return alarmArray;
+    }
+
+
+/**
+     * 查询数据   只查要的类型  并且类型不能重复  set的数据不重复 类似分组
+     HashSet类，是存在于java.util包中的类。同时也被称为集合，该容器中只能存储不重复的对象
+     */
+    public ArrayList&lt;String&gt; getTypeList() {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ArrayList&lt;Yao&gt; yaoArray = new ArrayList&lt;Yao&gt;();
+        Cursor cursor = db.query(&quot;yao&quot;, new String[] { &quot;id&quot;, &quot;uid&quot;,&quot;yaoId&quot;,&quot;name&quot;, &quot;type&quot;,
+                &quot;typeName&quot;, &quot;firm&quot;, &quot;content&quot;, &quot;contentText&quot;}, null, null, null, null, null);
+        cursorMethod(yaoArray, cursor);
+        cursor.close();
+        db.close();
+        Set&lt;String&gt; hashSet = new HashSet&lt;String&gt;(); 
+        ArrayList&lt;String&gt; arrayList;
+        for(int i=0; i&lt;yaoArray.size(); i++){
+            hashSet.add(yaoArray.get(i).typeName);
+        }
+        arrayList = new ArrayList&lt;String&gt;(hashSet);
+        return arrayList;
+    }
+
+//最后一个添加的数据的id
+    public int getLastId(){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        Cursor cursor = db.query(&quot;yongyaoRemind&quot;, new String[] { &quot;id&quot;, &quot;uid&quot;,&quot;time&quot;, &quot;timeShow&quot;,
+                &quot;name&quot;, &quot;usage&quot;, &quot;sideEffect&quot;}, null, null, null, null, null);
+        cursor.moveToLast();
+        int lastId = cursor.getInt(cursor.getColumnIndex(&quot;id&quot;));
+        cursor.close();
+        db.close();
+        return lastId;
+
+    }
+</code></pre><blockquote>
+<h2 id="-h1-id-014-014-h1-"><h1 id="014">014. 缓存数据存储</h1></h2>
+</blockquote>
+<h2 id="-1-"><a href="#1">返回目录</a></h2>
+<pre><code>可以在父类中初始化  在子类中调用
+ public static PreferenceUtil mPrefUtil;  //用于配制信息的业务类  继成了各种方法
+
+ mPrefUtil = new PreferenceUtil(this, Constant.prefName, Context.MODE_PRIVATE);
+        Date mDate=new Date();
+        mPrefUtil.putSetting(&quot;tan&quot;,mDate);
+
+
+package codewarehouse.yzkj.com.ceshi;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.text.TextUtils;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
+import java.util.HashMap;
+import java.util.Iterator;
+
+/**
+ * 
+ * 配置存储工具类
+ * 
+ * @author zeroangus
+ * 
+ */
+public class PreferenceUtil {
+
+    private SharedPreferences preferences;
+
+    public PreferenceUtil(Context context, String name, int Mode) {
+        preferences = context.getSharedPreferences(name, Mode);
+    }
+
+    /**
+     * 保存对象  将对象序列化后再转化为16进制的字符串保存
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, Object value) {
+        Editor editor = preferences.edit();
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(value);
+            // 将序列化的数据转为16进制保存
+            String value2 = bytesToHexString(baos.toByteArray());
+            editor.putString(key, value2);
+            editor.commit();
+        } catch (Exception e) {
+            System.out.println(&quot;putSetting ----&gt; &quot;+e.toString());
+        }
+    }
+
+    /**
+     * desc:将数组转为16进制  将数组转化为字符串
+     * 
+     * @param bArray
+     * @return modified:
+     */
+    public static String bytesToHexString(byte[] bArray) {
+        if (bArray == null) {
+            return null;
+        }
+        if (bArray.length == 0) {
+            return &quot;&quot;;
+        }
+        StringBuffer sb = new StringBuffer(bArray.length);
+        String sTemp;
+        for (int i = 0; i &lt; bArray.length; i++) {
+            sTemp = Integer.toHexString(0xFF &amp; bArray[i]);
+            if (sTemp.length() &lt; 2)
+                sb.append(0);
+            sb.append(sTemp.toUpperCase());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * desc:获取保存的Object对象
+     * 
+     * @param key
+     * @return modified:
+     */
+    public Object readObject(String key) {
+        try {
+            if (preferences.contains(key)) {
+                System.out.println(&quot;配置信息preferences.contains -------------&gt; &quot; + key);
+                String string = preferences.getString(key, &quot;&quot;);
+                if (TextUtils.isEmpty(string)) {
+
+                    System.out.println( key + &quot;配置信息 -----&gt; is empty&quot;  );
+                    return null;
+                } else {
+
+                    System.out.println( key + &quot; 配置信息-----&gt; is not empty&quot;  );
+                    // 将16进制的数据转为数组，准备反序列化
+                    byte[] stringToBytes = StringToBytes(string);
+                    ByteArrayInputStream bis = new ByteArrayInputStream(
+                            stringToBytes);
+                    ObjectInputStream is = new ObjectInputStream(bis);
+                    // 返回反序列化得到的对象
+                    Object readObject = is.readObject();
+                    return readObject;
+                }
+            }
+        } catch (StreamCorruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // 所有异常返回null
+        return null;
+
+    }
+
+    /**
+     * desc:将16进制的数据转为数组  也就是把字符串转化为数组 一个单词一个组
+     * &lt;p&gt;
+     * 创建人：聂旭阳 , 2014-5-25 上午11:08:33
+     * &lt;/p&gt;
+     * 
+     * @param data
+     * @return modified:
+     */
+    public static byte[] StringToBytes(String data) {
+        String hexString = data.toUpperCase().trim();
+        if (hexString.length() % 2 != 0) {
+            return null;
+        }
+        byte[] retData = new byte[hexString.length() / 2];
+        for (int i = 0; i &lt; hexString.length(); i++) {
+            int int_ch; // 两位16进制数转化后的10进制数
+            char hex_char1 = hexString.charAt(i); // //两位16进制数中的第一位(高位*16)
+            int int_ch1;
+            if (hex_char1 &gt;= &#39;0&#39; &amp;&amp; hex_char1 &lt;= &#39;9&#39;)
+                int_ch1 = (hex_char1 - 48) * 16; // // 0 的Ascll - 48
+            else if (hex_char1 &gt;= &#39;A&#39; &amp;&amp; hex_char1 &lt;= &#39;F&#39;)
+                int_ch1 = (hex_char1 - 55) * 16; // // A 的Ascll - 65
+            else
+                return null;
+            i++;
+            char hex_char2 = hexString.charAt(i); // /两位16进制数中的第二位(低位)
+            int int_ch2;
+            if (hex_char2 &gt;= &#39;0&#39; &amp;&amp; hex_char2 &lt;= &#39;9&#39;)
+                int_ch2 = (hex_char2 - 48); // // 0 的Ascll - 48
+            else if (hex_char2 &gt;= &#39;A&#39; &amp;&amp; hex_char2 &lt;= &#39;F&#39;)
+                int_ch2 = hex_char2 - 55; // // A 的Ascll - 65
+            else
+                return null;
+            int_ch = int_ch1 + int_ch2;
+            retData[i / 2] = (byte) int_ch;// 将转化后的数放入Byte里
+        }
+        return retData;
+    }
+
+    /**
+     * 
+     * 插入单个配置信息（string,string）
+     * 
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, String value) {
+        Editor editor = preferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    /**
+     * 
+     * 插入单个配置信息（string,int）
+     * 
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, int value) {
+        Editor editor = preferences.edit();
+        editor.putInt(key, value);
+        editor.commit();
+    }
+
+    /**
+     * 插入单个配置信息（string,boolean）
+     * 
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, Boolean value) {
+
+        Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
+    /**
+     * 
+     * 插入多个配置信息
+     * Java学习之Iterator(迭代器)的一般用法 （转）
+     * @param params
+     */
+    public void putSettings(HashMap&lt;String, Object&gt; params) {
+        Editor editor = preferences.edit();
+        Iterator&lt;String&gt; iter = params.keySet().iterator();
+        while (iter.hasNext()) {
+            String name = (String) iter.next();
+            if (params.get(name).getClass() == Boolean.class) {
+                editor.putBoolean(name, (Boolean) params.get(name));
+            } else {
+                editor.putString(name, (String) params.get(name));
+            }
+        }
+        editor.commit();
+    }
+
+    /**
+     * 缺省返回-1
+     * 
+     * @param key
+     * @return
+     */
+    public int getIntSetting(String key) {
+        return preferences.getInt(key, -1);
+    }
+
+    /**
+     * 缺省返回null
+     * 
+     * @param key
+     * @return
+     */
+    public String getStrSetting(String key) {
+        return preferences.getString(key, null);
+    }
+
+    /**
+     * 缺省返回false
+     * 
+     * @param key
+     * @return
+     */
+    public boolean getBoolean(String key) {
+        return preferences.getBoolean(key, false);
+    }
+
+}
+</code></pre><h1 id="02">02. 访问网络模块</h1>  
+
+<h2 id="-2-"><a href="#2">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0211-0211-datalistener-h1-"><h1 id="0211">0211. DataListener回调类</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+/**
+ * 数据相关
+ * @author 志强
+ *
+ * @param &lt;T&gt;
+ */
+public class DataListener&lt;T&gt; {
+
+    public void onSuccess() {
+    };
+
+    public void onSuccess(T data) {
+    };
+
+    public void onFailed() {
+    };
+
+    public void onFailed(T data) {
+    };
+}
+</code></pre><h2 id="-2-"><a href="#2">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0221-0221-h1-"><h1 id="0221">0221. 写一个接口的清单</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+
+import java.util.List;
+
+public interface ICommonWeb {
+    /**
+     * 获取区域列表
+     * @param dataListener
+     */
+    /*public void findDistrict(final DataListener&lt;List&lt;District&gt;&gt; dataListener);
+
+    *//*获取店铺的商品的类别*//*
+    public void findClass(String storeid, final DataListener&lt;List&lt;Classfication&gt;&gt; dataListener);
+
+    *//**
+     * 广告
+     * @param dataListener
+     *//*
+    public void findAdvertisementList(final DataListener&lt;List&lt;Advertisement&gt;&gt; dataListener);
+
+    *//**
+     * 获取评论列表
+     * @param goodsId
+     * @param limit
+     * @param start
+     *//*
+    public void findGoodsCommentsByCon(String goodsId, String limit, String start, final DataListener&lt;List&lt;Comment&gt;&gt; dataListener);
+
+*/
+    /**
+     * 忘记密码
+     * @param phoneNum
+     * @param phoneCode
+     * @param dataListener
+     */
+    public void forgetPassword(String phoneNum, String phoneCode, DataListener&lt;String&gt; dataListener);
+}
+</code></pre><h2 id="-2-"><a href="#2">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0231-0231-h1-"><h1 id="0231">0231. 定义父类</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
+
+
+import org.apache.http.client.CookieStore;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.cookie.BasicClientCookie;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.util.List;
+
+/**
+ * Web请求基类
+ * 
+ * @author zeroangus
+ * 
+ */
+public class BaseWeb&lt;T&gt; {
+    //protected static String BaseUrl = &quot;http://211.149.169.221:8080&quot; + &quot;/umijoy&quot;;
+    //无线服务器
+    //protected static String BaseUrl = &quot;http://192.168.10.122:8080&quot; + &quot;/umijoy&quot;;
+    //有线服务器
+    //protected static String BaseUrl = &quot;http://210.56.209.74:9080&quot; + &quot;/umijoy&quot;;
+    //真正的服务器
+    protected static String BaseUrl = &quot;http://211.149.169.221:8080&quot; + &quot;/umijoyappsvr&quot;;
+    private static String TAG = &quot;BaseWeb&quot;;
+    private HttpUtils mHttpUtil = null;//网络请求的实例
+    private Context mContext;
+
+    /*public static PreferenceUtil mPrefUtil; //用于配制信息的业务类 继成了各种方法
+    protected ServiceApplication serviceApplication;*/
+
+    private static String JSESSIONID = &quot;&quot;;//作用是换页面的情况下，不要重新登录
+            /*private static String JSESSIONID = ServiceApplication.getInstance()
+            .readSession();//作用是换页面的情况下，不要重新登录*/
+
+    public BaseWeb(Context context) {
+        this.mContext = context;
+        /*mPrefUtil = new PreferenceUtil(context, Constant.prefName, Context.MODE_PRIVATE);
+        serviceApplication=ServiceApplication.getInstance();*/
+    }
+
+    /**
+     * 获取Http实例的方法
+     * 
+     * @return
+     */
+    private HttpUtils getHttpUtil() {
+        if (mHttpUtil == null) {
+            mHttpUtil = new HttpUtils();
+            //mHttpUtil.configCurrentHttpCacheExpiry(1000 * 10); //设置当前请求的缓存时间
+            mHttpUtil.configCurrentHttpCacheExpiry(600000 * 10); //设置当前请求的缓存时间
+        }
+        return mHttpUtil;
+    }
+
+    /**
+     * 解析json串   T是外部类定义的泛型
+     * 
+     * @param json
+     * @param type
+     * @param listener
+     */
+    protected void parse(String json, Type type, DataListener&lt;T&gt; listener) {
+
+        //System.out.println(&quot;从服务端返回的原始数据字符串  ----------&gt; &quot; + json);    //正式版关闭
+        //MyLog.ShowLog(json);
+        //LogTxt.writeLog(json,&quot;邻优网网络返回的数据&quot;);
+        //PromptManager.showDialogTest1(mContext, &quot;从服务端返回的原始数据字符串 ----------&gt; &quot; + json);
+
+        JSONObject jsonObject;
+        try {
+            jsonObject = new JSONObject(json);//把字符串转化成一个json对象
+            if (&quot;true&quot;.equals(jsonObject.getString(&quot;success&quot;))) {
+                // jsonObject = new JSONObject(jsonObject.getString(&quot;data&quot;));
+                Gson gson = new Gson();
+
+            /*    System.out
+                        .println(&quot;从字符串解析的data字段对应的数据 ----------&gt; &quot;
+                                + jsonObject.getString(&quot;data&quot;));    正式版关闭 */
+                //PromptManager.showDialogTest1(mContext, &quot;从字符串解析的data字段对应的数据  ----------&gt; &quot;
+                //        + jsonObject.getString(&quot;data&quot;));
+
+                T obj = gson.fromJson(jsonObject.getString(&quot;data&quot;), type);
+                listener.onSuccess(obj);
+                //listener.onFailed(obj);
+            } else {
+                /*switch (serviceApplication.mPrefUtil.getIntSetting(&quot;tiShi&quot;)){
+//                    弹出的提示是公共的
+                    case 0:
+                        PublicUtil.ShowToast(&quot;访问网络失败，请重新访问&quot;);
+                        serviceApplication.mPrefUtil.putSetting(&quot;tiShi&quot;,10);
+                        break;
+                    //                    不弹出的提示是公共的
+                    case 1:
+                        serviceApplication.mPrefUtil.putSetting(&quot;tiShi&quot;,10);
+                        break;
+                    //                    弹出的服务端的提示
+                    default:
+                        PublicUtil.ShowToast(&quot;&quot; + jsonObject.getString(&quot;msg&quot;));
+                        break;
+                }*/
+                listener.onFailed();
+            }
+        } catch (Exception e) {
+            listener.onFailed();
+            //PublicUtil.ShowToast(&quot;&quot; + e.toString());
+            Log.e(TAG, &quot;json parse failed : &quot; + e.toString());
+            //PromptManager.showDialogTest1(mContext, &quot;解析失败，弹出解析失败的原因 : &quot; + e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 解析json串
+     * 
+     * @param json
+     * @param listener
+     */
+    protected void parse(String json, DataListener&lt;String&gt; listener) {
+
+        System.out.println(&quot;parse ----------&gt; &quot; + json);    //正式版关闭
+    //    LogTxt.writeLog(json,&quot;邻优网网络返回的数据2&quot;);
+        //PromptManager.showToastTest1(mContext, &quot;从服务端返回的原始数据字符串 ----------&gt; &quot; + json);
+
+        JSONObject jsonObject;
+        try {
+            jsonObject = new JSONObject(json);
+            if (&quot;true&quot;.equals(jsonObject.getString(&quot;success&quot;))) {
+                listener.onSuccess();
+                listener.onSuccess(&quot;&quot; + jsonObject.getString(&quot;msg&quot;));
+            } else {
+            //    PublicUtil.ShowToast(&quot;&quot; + jsonObject.getString(&quot;msg&quot;));
+                listener.onFailed();
+            }
+        } catch (Exception e) {
+            listener.onFailed();
+            Log.e(TAG, &quot;json parse failed : &quot; + e.toString());
+        //    PromptManager.showDialogTest1(mContext, &quot;json parse failed : &quot; + e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 请求  IRequestListener是被类定义的一个内部回调接口
+     * 
+     * @param url
+     * @param params
+     */
+    protected void post(String url, RequestParams params,
+            final IRequestListener listener) {
+    //    LogTxt.writeLog(url,&quot;邻优网访问&quot;);
+        // HttpUtils mHttpUtil = getHttpUtil();
+        // mHttpUtil.configCurrentHttpCacheExpiry(1000 * 10);
+        // mHttpUtil.configTimeout(5000);
+        if (null != JSESSIONID) {    //如果cookie不为空，带上cookie 服务器端叫session
+            System.out.println(&quot;JSESSIONID ----&gt; &quot; + JSESSIONID);
+            //运用构造方法  创建一个实例  cookie和settion是一个键值对
+            BasicClientCookie c = new BasicClientCookie(Constant.session_pref,
+                    JSESSIONID);
+            c.setVersion(0);
+            c.setPath(&quot;/&quot;);
+            //c.toString() 相当于省份识别码
+            c.setDomain(Constant.COOKIE_DOMAIN);
+                               System.out.println(&quot;JSESSIONID ----&gt; &quot; + c.toString());
+            //获得访问网络的http对象
+            DefaultHttpClient dh = (DefaultHttpClient) getHttpUtil()
+                    .getHttpClient();
+            CookieStore cookieStore = dh.getCookieStore();
+            cookieStore.addCookie(c);
+            getHttpUtil().configCookieStore(cookieStore);
+        }
+        Log.e(&quot;tanyinqing post&quot;, url);
+        //PromptManager.showDialogTest1(mContext,url+&quot;   &quot;+params.toString());
+        //RequestCallBack&lt;String&gt;()是工具本身自带的内置回调方法
+        showProgressDialog();
+        getHttpUtil().send(HttpMethod.POST, url, params,
+                new RequestCallBack&lt;String&gt;() {
+
+                    @Override
+                    public void onFailure(HttpException arg0, String arg1) {
+                        Log.e(&quot;post&quot;, arg0.toString() + &quot;  &quot; + arg1);
+                        /*PublicUtil.ShowToast(&quot;网络请求出错，请稍后再试!&quot;);*/
+                        /*if (serviceApplication.mPrefUtil.getIntSetting(&quot;PhoneCode&quot;)==1){
+                            serviceApplication.mPrefUtil.putSetting(&quot;PhoneCode&quot;,2);
+                        }else {
+                            //PublicUtil.ShowToast(&quot;网络不畅，请刷新下哦&quot;);
+                        }*/
+                        closeProgressDialog();
+                        listener.onFailed();
+                    }
+
+                    @Override
+                    public void onSuccess(ResponseInfo&lt;String&gt; responseInfo) {
+                        closeProgressDialog();
+                        DefaultHttpClient dh = (DefaultHttpClient) getHttpUtil()
+                                .getHttpClient();
+                        CookieStore cs = dh.getCookieStore();
+                        //返回的数据是一个Cookie的集合
+                        List&lt;Cookie&gt; cookies = cs.getCookies();
+                        for (int i = 0; i &lt; cookies.size(); i++) {
+                            //从返回的Cookie集合里找到一个名字为&quot;JSESSIONID&quot;的保存到本地
+                            if (&quot;JSESSIONID&quot;.equals(cookies.get(i).getName())) {
+                                JSESSIONID = cookies.get(i).getValue();
+                            /*    ServiceApplication.getInstance()
+                                        .saveSession(JSESSIONID);*/
+                                break;
+                            }
+                        }
+                        Log.d(&quot;jack&quot;, &quot;比较sessionid  &quot; + JSESSIONID);
+                        //PromptManager.showDialogTest1(mContext,responseInfo.result.toString());
+                        listener.onSuccess(responseInfo.result);
+                    }
+                });
+    }
+
+    private ProgressDialog pd;
+
+    protected void closeProgressDialog() {
+        if (pd != null) {
+            try {
+                pd.dismiss();
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    protected void showProgressDialog() {
+        if (pd != null) {
+            pd.dismiss();
+        }
+        pd = ProgressDialog.show(mContext, &quot;&quot;, &quot;数据加载中...&quot;, true, false);
+        pd.show();
+
+    }
+
+    protected void showProgressDialog(String title, String content) {
+        if (pd != null) {
+            pd.dismiss();
+        }
+        pd = ProgressDialog.show(mContext, title, content, true, false);
+        pd.show();
+    }
+
+    //定义网络访问的回调方法
+    protected interface IRequestListener {
+        public void onSuccess(String json);
+        public void onFailed();
+    }
+
+    //从assets文件夹中获得模拟的返回数据
+    protected String getAssetsData(String name) {
+        String result = &quot;&quot;;
+        try {
+            //获取输入流
+            InputStream mAssets = mContext.getAssets().open(name);
+
+            //获取文件的字节数
+            int lenght = mAssets.available();
+            //创建byte数组
+            byte[] buffer = new byte[lenght];
+            //将文件中的数据写入到字节数组中
+            mAssets.read(buffer);
+            mAssets.close();
+            result = new String(buffer);
+            return result;
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e(&quot;fuck&quot;, &quot;error&quot;);
+            LogTxt.writeLog(e.toString(), &quot;getAssetsData  发生异常&quot;);
+            return result;
+        }
+    }
+
+
+}
+</code></pre><h2 id="-2-"><a href="#2">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0232-0232-h1-"><h1 id="0232">0232. 定义子类</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.content.Context;
+
+import com.lidroid.xutils.http.RequestParams;
+
+/**
+ *广告、区域相关
+ * @author 志强
+ *
+ */
+public class CommonWeb extends BaseWeb implements ICommonWeb{
+
+    private static String CommonUrl = BaseUrl + &quot;/common/&quot;;
+
+    private static String FindDistrictUrl = CommonUrl + &quot;findDistrict.do&quot;;
+
+    //private static String FindClass = CommonUrl + &quot;findClass.do&quot;;
+    private static String FindClass = &quot;http://211.149.169.221:8080/umijoyappsvr/goods/findServiceTypeByDistrict.do&quot;;
+
+    /*http://211.149.169.221:8080/umijoyappsvr/goods/findServiceTypeByDistrict.do?storeId=10*/
+
+    private static String FindAdvertisementList = CommonUrl + &quot;findAdvertisementList.do&quot;;
+
+    private static String FindGoodsCommentsList = CommonUrl + &quot;findGoodsCommentsByCon.do&quot;;
+
+    /**
+     * 忘记密码
+     */
+    private static String ForgetPasswordUrl = &quot;http://211.149.169.221:8080/umijoyappsvr/common/findDistrict.do&quot;;
+
+    private Context context;
+    //对参数  网址可以打印个日志  不用多次实例化
+    private static StringBuilder mStringBuilder;
+
+    public CommonWeb(Context context) {
+        super(context);
+         mStringBuilder=new StringBuilder();
+    }
+
+    /*
+    * 获取店铺类别的信息
+    */
+    /*@Override
+    public void findClass(String storeid, final DataListener&lt;List&lt;Classfication&gt;&gt; dataListener) {
+
+        RequestParams params=new RequestParams();
+        params.addBodyParameter(&quot;storeId&quot;,storeid);
+        p.L(&quot;获得产品类别时传递的参数&quot;, storeid);
+        //把访问的url改了，目的是访问网络成功  等接口写好后再把网址该过来
+        post(FindClass, params, new IRequestListener() {
+            public void onSuccess(String json) {    //利用模拟数据进行测试 数据处理能力的方法
+                Type type = new TypeToken&lt;List&lt;Classfication&gt;&gt;() {
+                }.getType();
+                parse(json, type, dataListener);
+            }
+
+            @Override
+            public void onFailed() {
+                //如果访问网络失败要在主页回应   则调用该方法
+                dataListener.onFailed();
+            }
+
+        });
+    }*/
+
+
+    /**
+     * 获取区域列表
+     * @param dataListener
+     */
+    /*public void findDistrict(final DataListener&lt;List&lt;District&gt;&gt; dataListener)
+    {
+        //RequestParams就是一个请求是携带的一个数据参数  以键值对的形式
+        RequestParams params = new RequestParams();
+        post(FindDistrictUrl, params, new IRequestListener() {
+
+            @Override
+            public void onFailed() {
+                *//*
+                 //dataListener.onFailed();
+                String json=&quot;{\&quot;data\&quot;:[{\&quot;createTime\&quot;:\&quot;2015-02-14T14:41:46\&quot;,\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;模拟数据\n&quot; +
+                        &quot;1\&quot;},{\&quot;createTime\&quot;:\&quot;2015-02-14T14:41:46\&quot;,\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;模拟数据2\&quot;}],\&quot;msg\&quot;:\&quot;查询成功\n&quot; +
+                        &quot;！\&quot;,\&quot;success\&quot;:true}&quot;;
+                Type type = new TypeToken&lt;List&lt;District&gt;&gt;() {
+                }.getType();
+                parse(json, type, dataListener);
+                 *//*
+
+            }
+            public void onSuccess(String json) {
+                String json1=&quot;&quot;; //这个是模拟数据
+                Type type = new TypeToken&lt;List&lt;District&gt;&gt;() {
+                }.getType();
+                parse(json, type, dataListener);
+            }
+        });
+    }
+
+
+
+    public void findAdvertisementList(final DataListener&lt;List&lt;Advertisement&gt;&gt; dataListener)
+    {
+        RequestParams params = new RequestParams();
+        serviceApplication.mPrefUtil.putSetting(&quot;tiShi&quot;,1);
+        post(FindAdvertisementList, params, new IRequestListener() {
+            @Override
+            public void onFailed() {
+                dataListener.onFailed();
+            }
+            public void onSuccess(String json) {
+                Type type = new TypeToken&lt;List&lt;Advertisement&gt;&gt;() {
+                }.getType();
+                parse(json, type, dataListener);
+            }
+        });
+    }*/
+/*
+    获取评论列表
+ */
+    /*@Override
+    public void findGoodsCommentsByCon(String goodsId, String limit,
+            String start, final DataListener&lt;List&lt;Comment&gt;&gt; dataListener) {
+        RequestParams params = new RequestParams();
+        params.addBodyParameter(&quot;goodsId&quot;, goodsId);
+        params.addBodyParameter(&quot;limit&quot;, limit);
+        params.addBodyParameter(&quot;start&quot;, start);
+                post(FindGoodsCommentsList, params, new IRequestListener() {
+
+                    @Override
+                    public void onFailed() {
+                        dataListener.onFailed();
+                    }
+
+                    public void onSuccess(String json) {
+                        Type type = new TypeToken&lt;List&lt;Comment&gt;&gt;() {
+                        }.getType();
+                        parse(json, type, dataListener);
+                    }
+                });
+
+    }*/
+
+    @Override
+    public void forgetPassword(String phoneNum, String phoneCode,
+                               final DataListener&lt;String&gt; dataListener) {
+        RequestParams params = new RequestParams();
+        params.addBodyParameter(&quot;phoneNum&quot;, phoneNum);
+        params.addBodyParameter(&quot;phoneCode&quot;, phoneCode);
+
+        mStringBuilder.delete(0,mStringBuilder.length());
+        mStringBuilder.append(&quot;携带的参数是：&quot;);
+        mStringBuilder.append(&quot;phoneNum:&quot;+phoneNum+&quot;;&quot;);
+        mStringBuilder.append(&quot;phoneCode:&quot;+phoneCode+&quot;;&quot;);
+        mStringBuilder.append(&quot;访问的网址是：&quot;);
+        mStringBuilder.append(ForgetPasswordUrl);
+        LogTxt.writeLog(mStringBuilder.toString(), &quot;忘记密码访问的方法&quot;);
+
+        post(ForgetPasswordUrl, params, new IRequestListener() {
+
+            public void onSuccess(String json) {
+
+                json=getAssetsData(&quot;ceshi.txt&quot;);
+
+
+                LogTxt.writeLog(json,&quot;忘记密码 返回的数据&quot;);
+                /*Type type = new TypeToken&lt;String&gt;() {
+                }.getType();
+                parse(json, type, dataListener);*/
+
+                dataListener.onSuccess(json);
+            }
+
+            @Override
+            public void onFailed() {
+                dataListener.onFailed();
+            }
+        });
+    }
+
+
+
+
+}
+</code></pre><h2 id="-2-"><a href="#2">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0241-0241-h1-"><h1 id="0241">0241. 调用网络  其他处调用 返回字符串</h1></h2>
+</blockquote>
+<pre><code> private CommonWeb mCommonWeb;
+
+ mCommonWeb = new CommonWeb(this);
+
+       mCommonWeb.forgetPassword(&quot;2&quot;, &quot;3&quot;, new DataListener&lt;String&gt;() {
+
+            @Override
+            public void onSuccess(String data) {
+//                PublicUtil.ShowToast(&quot;重置密码成功，请重新登陆！&quot;);
+//                PublicUtil.ShowToast(&quot;随机密码：&quot;+data);
+
+                Toast.makeText(MainActivity.this, data, Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailed() {
+
+            }
+
+        });
+</code></pre><h1 id="03">多媒体模块</h1>  
+
+<h2 id="-3-"><a href="#3">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0301-0301-h1-"><h1 id="0301">0301. 访问网络  返回图片</h1></h2>
+</blockquote>
+<pre><code>首先引入jar包
+universal-image-loader-1.9.3.jar  引入这个jar包
+
+其次进行初始，ImageLoader进行初始化，DisplayImageOptions，进行配置
+
+就可以调用了，调用的方法
+
+private static ImageLoader imageLoader;
+    private static ImageView imageView;
+
+
+
+ imageView= (ImageView) findViewById(R.id.imageView);
+
+        imageLoader = PublicUtil.getImageLoader();
+
+        String pic=&quot;http://upload-images.jianshu.io/upload_images/5358439-e03c26b421532d55.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;;
+        if (null!=pic&amp;&amp;!pic.equals(&quot;&quot;))
+        {
+            //imageLoader.displayImage(Constant.URLBASE+pics.get(0).getPic(), imageGoods,PublicUtil.getGoodsOption());
+            imageLoader.displayImage(pic, imageView,PublicUtil.getGoodsOption());
+        }
+        else
+        {
+            imageView.setImageResource(R.drawable.default_goods);
+        }
+
+
+
+配置初始化
+package codewarehouse.yzkj.com.ceshi;
+
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+
+
+public class PublicUtil {
+
+    /**
+     * 将时间转化
+     *
+     * @param content
+     *            内容
+     */
+   /* public static String zhuanhuan(String content) {
+        p.L(&quot;从数据库传入的时间&quot;,content);
+
+        p.L(&quot;从数据库传入的时间方法2转化后的时间&quot;,DateUtil.TimeStamp2Date(content, &quot; yyyy-MM-dd HH:mm:ss &quot;));
+
+        return  DateUtil.TimeStamp2Date(content, &quot;yyyy-MM-dd HH:mm:ss &quot;);
+    }*/
+    /**
+     * 将字符串的后两位用**代替
+     *
+     * @param content
+     *            内容
+     */
+    public static String tiHuan(String content) {
+        int a=0;
+        if (content.length()&gt;3){
+            a=3;
+        }else if(content.length()&gt;1&amp;&amp;content.length()&lt;=3){
+            a=1;
+        }
+
+        String b=content.substring(0,content.length()-a);
+        StringBuffer result = new StringBuffer();
+        result.append(b);
+        result.append(&quot;***&quot;);
+        return result.toString();
+        //return  content;
+    }
+
+    /**
+     * Toast提醒
+     * 
+     * @param content
+     *            内容
+     */
+    /*public static void ShowToast(String content) {
+        Toast.makeText(ServiceApplication.getInstance(), content, Toast.LENGTH_SHORT)
+                .show();
+    }*/
+
+    /**
+     * 获取设备宽度
+     * @return
+     */
+/*    public static int getDeviceWidth() {
+        return ServiceApplication.getInstance().getResources().getDisplayMetrics().widthPixels;
+    }*/
+
+    /**
+     * 获取设备高度
+     * @return
+     */
+    /*public static int getDeviceHeight() {
+        return ServiceApplication.getInstance().getResources().getDisplayMetrics().heightPixels;
+    }*/
+
+/*    public static int getResColor(int resid)
+    {
+        Resources rs = ServiceApplication.getInstance().getResources();
+        return rs.getColor(resid);
+    }*/
+
+    /**
+     * 判断输入合法性
+     * @param name
+     * @param addr
+     * @param phone
+     * @return
+     */
+    public static boolean isLegal(String name ,String addr,String phone)
+    {
+        if(&quot;&quot;.equals(name))
+        {
+           // PublicUtil.ShowToast(&quot;请输入联系人姓名&quot;);
+            return false;
+        }
+        if(&quot;&quot;.equals(addr))
+        {
+           // PublicUtil.ShowToast(&quot;请输入联系人地址&quot;);
+            return false;
+        }
+     /*   if(&quot;&quot;.equals(phone) || !RegexUtil.isPhone(phone))
+        {
+            PublicUtil.ShowToast(&quot;请输入正确的联系人电话&quot;);
+            return false;
+        }*/
+        return true;
+    }
+
+
+    //图片下载的参数的配置
+    private static DisplayImageOptions classOption;
+    public static DisplayImageOptions getClassOption()
+    {
+        if (null==classOption)
+        {
+            classOption=new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).showImageOnFail(R.drawable.class_default).showImageOnLoading(R.drawable.class_default).imageScaleType(ImageScaleType.EXACTLY).cacheOnDisk(true).build();
+        }
+        return classOption;
+    }
+
+    private static DisplayImageOptions adsOption;
+    public static DisplayImageOptions getAdsOption()
+    {
+        if(null == adsOption)
+        {
+            adsOption = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).showImageOnFail(R.drawable.default_ad).showImageOnLoading(R.drawable.default_ad).imageScaleType(ImageScaleType.EXACTLY).cacheOnDisk(true).build();
+        }
+        return  adsOption;
+    }
+    private static DisplayImageOptions goodsOption;
+
+    public static DisplayImageOptions getGoodsOption()
+    {
+        if(null == goodsOption)
+        {
+            goodsOption = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).showImageOnFail(R.drawable.default_goods).showImageOnLoading(R.drawable.default_goods).imageScaleType(ImageScaleType.EXACTLY).cacheOnDisk(true).build();
+        }
+        return  goodsOption;
+    }
+
+    private static DisplayImageOptions headOption;
+
+    public static DisplayImageOptions getHeadOption()
+    {
+        if(null == headOption)
+        {
+            headOption = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).showImageOnFail(R.drawable.default_head).showImageOnLoading(R.drawable.default_head).imageScaleType(ImageScaleType.EXACTLY).cacheOnDisk(true).build();
+        }
+        return  headOption;
+    }
+
+
+    private static ImageLoader mImageLoader;
+
+    public static ImageLoader getImageLoader() {
+        if (mImageLoader == null) {
+            mImageLoader = ImageLoader.getInstance();
+            ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(ServiceApplication.getInstance()).threadPoolSize(3).memoryCache(new WeakMemoryCache()).build();
+            mImageLoader.init(configuration);
+        }
+
+        return mImageLoader;
+    }
+
+    public static void closeKeyBoard(Context context)
+    {
+        /**隐藏软键盘**/
+        View view = ((Activity)context).getWindow().peekDecorView();
+        if (view != null) {
+            InputMethodManager inputmanger = (InputMethodManager) ((Activity)context).getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputmanger.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    /**
+     * 将字符串价格 转换为 显示2位小数的字符串
+     *
+     * @param str
+     * @return
+     */
+    public static String priceFormat(String str)
+    {
+        float price = Float.valueOf(str);
+        return String.format(&quot;%.2f &quot;, price);
+    }
+}
+</code></pre><h1 id="04">04. 常用技巧</h1>  
+
+<h2 id="-4-"><a href="#4">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0401-0401-activity-h1-"><h1 id="0401">0401. activity文件夹</h1></h2>
+<blockquote>
+<h2 id="-h1-id-040101-040101-activity-h1-"><h1 id="040101">040101. activity父类</h1></h2>
+</blockquote>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.lidroid.xutils.ViewUtils;
+
+
+public abstract class BaseActivity extends FragmentActivity
+{
+
+    protected  static Context context;
+    /*protected ServiceApplication application = null;
+    protected RiZhiDB riZhiDB;*/
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        /*application = ServiceApplication.getInstance();
+        application.register(this);*/
+        context = this;
+        //这是进行注解绑定的初始化  xUtils-2.6.14.jar中的方法
+        ViewUtils.inject(this);
+       // riZhiDB=new RiZhiDB(this);
+
+        createView();
+
+        setListeners();
+
+        initDatas();
+
+
+    }
+
+    /**
+     * 通过Class启动Activity
+     * 
+     * @param cls
+     */
+    protected void startActivityByClass(Class cls)
+    {
+        Intent intent = new Intent();
+        intent.setClass(this, cls);
+        startActivity(intent);
+    }
+
+    /**
+     * 设置事件监听
+     */
+    abstract void setListeners();
+
+    /**
+     * 初始化设置
+     */
+    abstract void initDatas();
+
+    /**
+     * 初始化
+     */
+    abstract void createView();
+
+    @Override
+    protected void onStart()
+    {
+        // TODO Auto-generated method stub
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        // TODO Auto-generated method stub
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause()
+    {
+        // TODO Auto-generated method stub
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop()
+    {
+        // TODO Auto-generated method stub
+        super.onStop();
+    }
+
+    public void p(String title,String msg) {
+        if (true) {
+            new AlertDialog.Builder(BaseActivity.this).setTitle(title).setMessage(msg).show();
+        }
+    }
+
+    public  void tt(String msg) {
+        if (true) {
+            Toast.makeText(BaseActivity.this, msg, Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+}
+</code></pre><h2 id="-4-"><a href="#4">返回目录</a></h2>
+<blockquote>
+<blockquote>
+<h2 id="-h1-id-040102-040102-activity-h1-"><h1 id="040102">040102. activity标题类</h1></h2>
+</blockquote>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.os.SystemClock;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+
+/**
+ * 标题的内容添加左右标题的代码
+ *  mLinearTitleContent.addView(mButtonLeft);
+ mLinearTitleContent.addView(mImgeTitle);
+ mLinearTitleContent.addView(mButtonRight);
+ */
+public abstract class TitleBarActivity extends BaseActivity {
+    private LinearLayout mLinearTitle; 
+    private LinearLayout mLinearDivider;//这个是分割线
+    private LinearLayout mMainView;
+    private FrameLayout mContentView;
+
+    // 这个是左右按钮 中间标题栏
+    private RelativeLayout mLinearTitleContent;
+    private ImageButton mButtonLeft;
+    private TextView mImgeTitle;
+    public Button mButtonRight;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+    }
+
+    protected void createView() {
+        System.out.println(&quot; -----&gt; initView&quot;);
+        mMainView = new LinearLayout(this);
+        mMainView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        mMainView.setOrientation(LinearLayout.VERTICAL);
+
+        initTitleView();
+        mMainView.addView(mLinearTitle);
+        mContentView = (FrameLayout) getWindow().getDecorView().findViewById(android.R.id.content);
+        View v = null;
+        if (mContentView.getChildCount() &gt; 0) {
+            v = mContentView.getChildAt(0);
+            ViewGroup parent = (ViewGroup) v.getParent();
+            if (parent != null) {
+                parent.removeView(v);
+            }
+            mMainView.addView(v);
+        }
+        setContentView(mMainView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+
+    }
+
+    /**
+     * 设置title
+     */
+    public void setTitle(String resid) {
+        mImgeTitle.setText(resid);
+    }
+
+    /**
+     * 设置左侧按钮
+     *
+     * @param content
+     * @param resid
+     * @param listener
+     */
+    public void setButtonLeft(String content, int resid, View.OnClickListener listener) {
+        //mButtonLeft.setText(content);
+        mButtonLeft.setBackgroundResource(resid);
+        mButtonLeft.setOnClickListener(listener);
+    }
+
+    /**
+     * 设置左侧按钮
+     *
+     * @param content
+     * @param
+     */
+    public void setButtonLeft(String content) {
+        mButtonLeft.setVisibility(View.VISIBLE);
+        //mButtonLeft.setText(content);
+    }
+
+    /**
+     * 设置右侧按钮
+     *
+     * @param content
+     * @param resid
+     */
+    public void setButtonRight(String content, int resid) {
+        mButtonRight.setText(content);
+        mButtonRight.setBackgroundResource(resid);
+        mButtonRight.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 设置右侧按钮
+     *
+     * @param content
+     * @param
+     */
+    public void setButtonRight(String content) {
+        if (&quot;&quot;.equals(content)) {
+            mButtonRight.setVisibility(View.GONE);
+        } else {
+            mButtonRight.setText(content);
+            mButtonRight.setVisibility(View.VISIBLE);
+        }
+    }
+
+    void initTitleView() {
+        /* title */
+        mLinearTitle = new LinearLayout(this);
+        LayoutParams mTitleLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, DensityUtil.dip2px(this, 49));
+        mLinearTitle.setLayoutParams(mTitleLayoutParams);
+        mLinearTitle.setOrientation(LinearLayout.VERTICAL);
+
+        /* start title divider  这个是分割线，高位1像素*/
+        mLinearDivider = new LinearLayout(this);
+        LayoutParams mTitleDividerParams = new LayoutParams(LayoutParams.MATCH_PARENT, DensityUtil.dip2px(this, 1));
+        mLinearDivider.setLayoutParams(mTitleDividerParams);
+        mLinearDivider.setBackgroundColor(Color.LTGRAY);
+        /* end title divider*/
+
+        /* start title content  这个是标题内容的布局  高被限制在48像素高*/
+        mLinearTitleContent = new RelativeLayout(this);
+       RelativeLayout.LayoutParams mTitleContentLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, DensityUtil.dip2px(this, 48));
+       // mTitleContentLayoutParams.gravity = Gravity.CLIP_VERTICAL;
+       // mLinearTitleContent.setOrientation(LinearLayout.HORIZONTAL);
+        mLinearTitleContent.setLayoutParams(mTitleContentLayoutParams);
+       // mLinearTitleContent.setBackgroundColor(Color.DKGRAY);
+      // mLinearTitleContent.setBackgroundColor(PublicUtil.getResColor(R.color.saletoexamineaar_biaoTiLan_color));
+        mLinearTitleContent.setGravity(Gravity.CENTER_VERTICAL);
+
+//这个是左边的按钮
+        LayoutParams buttonParamsLeft = new LayoutParams(LayoutParams.WRAP_CONTENT, DensityUtil.dip2px(this, 48));
+         buttonParamsLeft.gravity=Gravity.CENTER;
+
+        mButtonLeft = new ImageButton(this);
+        mButtonLeft.setLayoutParams(buttonParamsLeft);
+        /*mButtonLeft.setText(&quot;左侧&quot;);
+        mButtonLeft.setTextColor(PublicUtil.getResColor(R.color.app_color));
+        mButtonLeft.setGravity(Gravity.CENTER_VERTICAL);*/
+        //mButtonLeft.setBackgroundResource(R.drawable.back_selector);
+       // mButtonLeft.setBackgroundColor(PublicUtil.getResColor(R.color.saletoexamineaar_biaoTiLan_color));
+       // mButtonLeft.setImageResource(R.drawable.left_arrow);
+        mButtonLeft.setVisibility(View.GONE);
+        mButtonLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                LeftButtonClicked();
+            }
+        });
+
+        //这个是中间的标题
+        mImgeTitle = new TextView(this);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.CENTER_IN_PARENT);
+        mImgeTitle.setLayoutParams(params);
+       // mImgeTitle.setTextColor(PublicUtil.getResColor(R.color.saletoexamineaar_biaoTiLan_ziti_color));
+        mImgeTitle.setTextSize(18);
+
+        //这个是右边的按钮
+        RelativeLayout.LayoutParams buttonParamsRight = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonParamsRight.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+       //buttonParamsRight.setMarginEnd(10);
+
+        mButtonRight = new Button(this);
+        mButtonRight.setLayoutParams(buttonParamsRight);
+        mButtonRight.setText(&quot;右侧按钮&quot;);
+        mButtonRight.setTextSize(16);
+       // mButtonRight.setTextColor(PublicUtil.getResColor(R.color.saletoexamineaar_biaoTiLan_ziti_color));
+        mButtonRight.setGravity(Gravity.CENTER);
+        mButtonRight.setVisibility(View.INVISIBLE);
+      //  mButtonRight.setBackgroundResource(R.color.saletoexamineaar_biaoTiLan_color);
+        mButtonRight.getBackground().setAlpha(0);//0~255透明度值  0全透明
+        mButtonRight.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                RightButtonClicked();
+            }
+        });
+
+        //按钮加入 3次点击的监听
+        mImgeTitle.setOnClickListener(new View.OnClickListener() {
+            //需要监听几次点击事件数组的长度就为几
+            //如果要监听双击事件则数组长度为2，如果要监听3次连续点击事件则数组长度为3...
+            long[] mHints = new long[2];//初始全部为0
+
+            @Override
+            public void onClick(View v) {
+                //将mHints数组内的所有元素左移一个位置
+                System.arraycopy(mHints, 1, mHints, 0,
+                        mHints.length - 1);
+                //获得当前系统已经启动的时间
+                mHints[mHints.length - 1] =
+                        SystemClock.uptimeMillis();
+                if (SystemClock.uptimeMillis() - mHints[0] &lt;= 500) {
+                 //  Toast.makeText(TitleBarActivity.this, &quot;点击了2次&quot;, Toast.LENGTH_SHORT).show();
+                 //跳转到自定义的开发者页面
+                    // startActivityByClass(Develope.class);
+                }
+            }
+        });
+
+        mLinearTitleContent.addView(mButtonLeft);
+        mLinearTitleContent.addView(mImgeTitle);
+        mLinearTitleContent.addView(mButtonRight);
+
+       // mLinearTitleContent.setBackgroundColor(Color.WHITE);
+        /* end title content*/
+
+        mLinearTitle.addView(mLinearTitleContent);
+        mLinearTitle.addView(mLinearDivider);
+    }
+
+    /**
+     * 左侧按钮事件
+     */
+    protected abstract void RightButtonClicked();
+
+    /**
+     * 右侧按钮事件
+     */
+    protected abstract void LeftButtonClicked();
+}
+</code></pre><blockquote>
+<blockquote>
+<h2 id="-h1-id-040103-040103-activity-h1-"><h1 id="040103">040103. activity带适配器的模板类</h1></h2>
+</blockquote>
+</blockquote>
+<h2 id="-4-"><a href="#4">返回目录</a></h2>
+<pre><code>Activity注册
+         &lt;activity
+            android:name=&quot;.activity.activity.AccountManagementAcitvity&quot;
+            android:label=&quot;账号管理&quot;
+            android:screenOrientation=&quot;portrait&quot;
+            android:theme=&quot;@android:style/Theme.Light.NoTitleBar&quot; &gt;
+        &lt;/activity&gt;
+
+
+
+
+package codewarehouse.yzkj.com.ceshi;
+
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ContentView;
+import com.lidroid.xutils.view.annotation.ViewInject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@ContentView(R.layout.activity_main)
+public class mobanActivity extends TitleBarActivity{
+
+注意：清单文件中注册
+     private MobanModel mMobanModel;
+
+    @ViewInject(R.id.listDistrict)
+    private ListView listDistrict;
+
+     @Override
+        void setListeners() {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        void initDatas() {    
+             setTitle(&quot;拜访详情&quot;);
+                setButtonLeft(&quot;1&quot;);
+                setButtonRight(&quot;编辑&quot;);
+
+             if(mMobanModel == null)
+                {
+                 mMobanModel = new MobanModel(this);
+                }            
+
+            //向适配器中填充数据
+            mMobanModel.requestDistrict();
+            //数据适配布局
+            listDistrict.setAdapter(mMobanModel.getDistrictAdapter());
+
+
+        }
+
+        @Override
+        protected void RightButtonClicked() {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        protected void LeftButtonClicked() {
+            // TODO Auto-generated method stub
+             finish();
+        }
+
+        //这个是主导器
+    private class MobanModel&lt;T&gt; extends BaseModel{
+        private MybanAdapter mymobanAdapter;        
+        public MobanModel(Context mContext) {
+            super(mContext);
+            // TODO Auto-generated constructor stub
+             mymobanAdapter=new MybanAdapter(mContext);
+        }
+
+        public MybanAdapter getDistrictAdapter()
+        {
+            return mymobanAdapter;
+        }
+
+        /**
+         * 请求数据,并把数据写入适配器中
+         */
+        public void requestDistrict()
+        {
+            List&lt;String&gt; tan=new ArrayList&lt;&gt;();
+            tan.add(&quot;tan1&quot;);
+            tan.add(&quot;tan2&quot;);
+            tan.add(&quot;tan3&quot;);
+            mymobanAdapter.appendToListAndClear(tan);
+
+            /*mDistrictWeb.findDistrict(new DataListener&lt;List&lt;District&gt;&gt;(){
+
+
+                @Override
+                public void onSuccess(List&lt;District&gt; data) {
+                    for(District d:data){
+                        //p.dd(context,d.toString());
+                        p.L(&quot;地址信息的对象&quot;, d.toString());
+                    }
+                    if(null != data)
+                    {
+                        mDistrictAdapter.appendToListAndClear(data);
+                    }
+                }
+
+                @Override
+                public void onFailed(List&lt;District&gt; data) {
+
+                }
+            });*/
+        }
+
+    }
+
+    //这个是适配器
+     private static class MybanAdapter extends AdapterBase {
+            private static Context mContext;
+            public MybanAdapter(Context baseContext) {
+                super(baseContext);
+                this.mContext = context;
+            }
+
+            @Override
+            protected View getExView(int position, View convertView, ViewGroup parent) {
+                //getItem是父类中的方法 从父类中的方法里得到数据 在这里运用
+                String address = (String) getItem(position);
+                ViewHolder holder;
+                if(convertView == null)
+                {
+                    holder = new ViewHolder();
+                    convertView = mInflater.inflate(R.layout.district_item, null);
+                   ViewUtils.inject(holder, convertView);
+                    convertView.setTag(holder);
+                }
+                else
+                {
+                    holder = (ViewHolder) convertView.getTag();
+                }
+
+                holder.update(address);
+                return convertView;
+            }
+            private static class ViewHolder    {
+
+               @ViewInject(R.id.textDistrict)
+                private TextView iv_head;
+
+                String address;
+
+                void update(String address){
+                    this.address = address;
+                    iv_head.setText(address);
+                }
+
+              /*  @OnClick(R.id.iv_head)
+                private void getPhoto(View view){
+
+    MyLog.ShowLog(&quot;点击被响应了2&quot;);
+                }*/
+
+            }
+        }    
+}
+
+
+
+对应的布局文件
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:gravity=&quot;center_vertical&quot;
+    android:orientation=&quot;horizontal&quot; &gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/textDistrict&quot;
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_weight=&quot;1&quot;
+        android:text=&quot;成达小区&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><blockquote>
+<blockquote>
+<h2 id="-h1-id-040104-040104-activity-h1-"><h1 id="040104">040104. activity不带适配器的模板类</h1></h2>
+</blockquote>
+</blockquote>
+<h2 id="-4-"><a href="#4">返回目录</a></h2>
+<pre><code>package com.linyou.lifedelivery.activity.activity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ContentView;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.linyou.lifedelivery.R;
+import com.linyou.lifedelivery.activity.adapter.AdapterBase;
+import com.linyou.lifedelivery.activity.model.BaseModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@ContentView(R.layout.activity_addaccount)
+public class AddAccountAcitvity extends TitleBarActivity {
+
+
+    private MobanModel mMobanModel;
+
+    @ViewInject(R.id.listDistrict)
+    private ListView listDistrict;
+
+    @Override
+    void setListeners() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    void initDatas() {
+        setTitle(&quot;拜访详情&quot;);
+        setButtonLeft(&quot;1&quot;);
+        setButtonRight(&quot;编辑&quot;);
+
+        if (mMobanModel == null) {
+            mMobanModel = new MobanModel(this);
+        }
+
+    }
+
+    @Override
+    protected void RightButtonClicked() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    protected void LeftButtonClicked() {
+        // TODO Auto-generated method stub
+             finish();
+    }
+
+    //这个是主导器
+    private class MobanModel&lt;T&gt; extends BaseModel {
+
+        public MobanModel(Context mContext) {
+            super(mContext);
+            // TODO Auto-generated constructor stub
+        }
+
+
+    }
+}
+</code></pre><blockquote>
+<blockquote>
+<h2 id="-h1-id-040105-5-activity-h1-"><h1 id="040105">5. activity之间跳转</h1></h2>
+</blockquote>
+</blockquote>
+<h2 id="-4-"><a href="#4">返回目录</a></h2>
+<pre><code>    Intent i = new Intent();
+        i.setAction(Constant.addr_sel);
+        i.setClass(this, AddrManageActivity.class);
+        startActivityForResult(i, Code.requestCode);
+
+
+         @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent 
+    data) {
+
+        if (Code.requestCode == requestCode &amp;&amp; Code.addrSelResult == 
+        resultCode) {
+            mDeliveryAddress = (DeliveryAddress) 
+            data.getBundleExtra(Constant.INTENT_ADDR).get(Constant.INTENT_ADDR)
+            ;
+            mConfirmModel.setDeliveryAddress(mDeliveryAddress);
+            editName.setText(&quot;&quot; + mDeliveryAddress.getReciever());
+            editPhone.setText(&quot;&quot; + mDeliveryAddress.getRecieverPhone());
+            textAddr.setText(&quot;&quot; + mDeliveryAddress.getAddress());
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+        action = getIntent().getAction();
+        if(Constant.addr_sel.equals(action) )        
+        {
+            mAddrManageModel.selectAddr(position);
+        }
+
+
+        Intent data = new Intent();
+        DeliveryAddress address = 
+        (DeliveryAddress)mAddrAdapter.getItem(position);        
+        Bundle b = new Bundle();
+        b.putSerializable(Constant.INTENT_ADDR,address);
+        data.putExtra(Constant.INTENT_ADDR, b);
+        ((Activity) mContext).setResult(Code.addrSelResult, data);
+        closeActivity();
+
+        //这个是把代码抽取出来
+        public class Code {    
+            public static int requestCode = 0;    
+            public static int addrSelResult = 10;    
+        }
+</code></pre><blockquote>
+<h2 id="-h1-id-0402-0402-model-h1-"><h1 id="0402">0402. model文件夹</h1></h2>
+</blockquote>
+<h2 id="-4-"><a href="#4">返回目录</a></h2>
+<blockquote>
+<blockquote>
+<h2 id="-h1-id-040201-040201-model-h1-"><h1 id="040201">040201. model父类</h1></h2>
+</blockquote>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+
+public class BaseModel {
+
+    protected Context mContext;
+
+    /*protected ServiceApplication serviceApplication;//全局 成员变量 成员方法
+
+    protected RiZhiDB riZhiDB;*/
+
+    public BaseModel(Context mContext)
+    {
+        this.mContext = mContext;
+        //serviceApplication = ServiceApplication.getInstance();
+        //riZhiDB=new RiZhiDB(mContext);
+    }
+
+
+    /*public boolean isLogin()//判断是否登录
+    {
+        User user = serviceApplication.readUser();
+        if(null != user)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    protected User getUser()//获取用户
+    {
+        return serviceApplication.readUser();
+    }*/
+
+    /**
+     * 关闭当前activity
+     */
+    protected void closeActivity()
+    {
+        ((Activity)mContext).finish();
+    }
+
+    /**
+     * 跳转到其他activity
+     * @param cls
+     */
+    protected void startAcitityByClass(Class cls)
+    {
+        Intent intent = new Intent();
+        intent.setClass(mContext, cls);
+        mContext.startActivity(intent);
+    }
+
+
+}
+</code></pre><h2 id="-4-"><a href="#4">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0403-0403-adapter-h1-"><h1 id="0403">0403. adapter文件夹</h1></h2>
+<blockquote>
+<h2 id="-h1-id-040301-040301-adapter-h1-"><h1 id="040301">040301. adapter父类</h1></h2>
+</blockquote>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public abstract class AdapterBase&lt;T&gt; extends BaseAdapter
+{
+    /*
+      但对于一些容器类型（比如，ArrayList、HashMap）的实例变量，
+    不可以改变容器变量本身，但可以修改容器中存放的对象，这一点在编程中用到很多
+     */
+    //运用List&lt;T&gt;这个对象集合存放多种形式的对象，运用了泛型替代
+    public final List&lt;T&gt; mList = new ArrayList&lt;T&gt;();
+    public Context context;
+    //布局适配器  将布局转化成对象 从而和数据一一对应
+    public LayoutInflater mInflater;
+
+    public AdapterBase(Context baseContext)
+    {
+        this.context = baseContext;
+        mInflater = LayoutInflater.from(baseContext);
+
+    }
+
+    public List&lt;T&gt; getList()
+    {
+        return mList;
+    }
+
+    //将一个对象添加到集合中
+    public void appendToList(T t)
+    {
+        if (t == null)
+        {
+            return;
+        }
+        mList.add(t);
+        notifyDataSetChanged();
+    }
+
+    //将一个对象集合添加到集合中
+    public void appendToList(List&lt;T&gt; list)
+    {
+        if (list == null)
+        {
+            return;
+        }
+        mList.addAll(list);
+        notifyDataSetChanged();
+    }
+    //先清空结合  在把一个新的集合添加到集合中
+    public void appendToListAndClear(List&lt;T&gt; list)
+    {
+        mList.clear();
+        this.appendToList(list);
+    }
+
+    //在把一个新的集合添加到集合的最上层
+    public void appendToTopList(List&lt;T&gt; list)
+    {
+        if (list == null)
+        {
+            return;
+        }
+        mList.addAll(0, list);
+        notifyDataSetChanged();
+    }
+
+    //请空集合
+    public void clear()
+    {
+        mList.clear();
+        notifyDataSetChanged();
+    }
+
+    @Override  //返回集合个个数
+    public int getCount()
+    {
+        return mList.size();
+    }
+
+    @Override //返回集合中的某个元素
+    public Object getItem(int position)
+    {
+        if (position &gt; mList.size() - 1)
+        {
+            return null;
+        }
+        return mList.get(position);
+    }
+    //移除集合中的某个位置的元素
+    public void removeItem(int position)
+    {
+        if (position &gt;= 0 &amp;&amp; position &lt; mList.size())
+        {
+            mList.remove(position);
+            notifyDataSetChanged();
+        }
+    }
+    //移除集合中的某个指定元素
+    public void removeItem(T item)
+    {
+        if (mList.contains(item))
+        {
+            mList.remove(item);
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public long getItemId(int position)
+    {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
+        return getExView(position, convertView, parent);
+    }
+    //abstract加入这个关键词表示是抽象的方法，子类中必须进行重写这个方法
+
+    protected abstract View getExView(int position, View convertView, ViewGroup parent);
+
+}
+</code></pre><ol>
+<li>常量与配置模块</li></ol>
+<h2 id="-05-"><a href="#05">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0501-h1-"><h1 id="0501">常量</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+public class Constant {
+    //下载图片是用到的网址
+    //public static final String URLBASE = &quot;http://210.56.209.74:9080/&quot;;
+    // 下载图片是用到的网址
+    public static final String URLBASE = &quot;http://211.149.169.221/&quot;;
+
+
+    //微信的真实数据 注册码
+    public static final String APP_ID = &quot;wx405f674449bed855&quot;;
+
+
+    public static final String prefName = &quot;umijoy_pref&quot;;
+
+    //配置信息中用户值对应的键
+    public static final String user_pref = &quot;user&quot;;
+    //配置信息中用户名字值对应的键
+    public static final String user_name = &quot;userName&quot;;
+
+    //配置信息中session值对应的键
+    public static final String session_pref = &quot;JSESSIONID&quot;;
+    //public static final String COOKIE_DOMAIN = &quot;210.56.209.74:9080&quot;;
+    public static final String COOKIE_DOMAIN = &quot;211.149.169.221:8080&quot;;
+
+    public static final String district_pref = &quot;district&quot;;
+    //配置信息中地址值对应的键
+    public static final String address_pref = &quot;address&quot;;
+
+    //第一个图片对应的商品的type  用于区分四种不同的类型
+    public static final String type_market = &quot;1&quot;;
+    public static final String type_food = &quot;2&quot;;
+    public static final String type_wash = &quot;3&quot;;
+    public static final String type_pack = &quot;4&quot;;
+
+//    public static final String ActionType = &quot;type&quot;;
+
+    public static final String addr_manage = &quot;5&quot;;
+    public static final String addr_sel = &quot;6&quot;;
+
+    public static final String INTENT_ADDR = &quot;addr&quot;;
+    public static final String INTENT_GOODS_ID = &quot;goods_id&quot;;
+    public static final String INTENT_ORDER_ID = &quot;order_id&quot;;
+    public static final String INTENT_ADS = &quot;ads&quot;;
+
+    public static final String ACTION_FORM_ORDER = &quot;from_order&quot;;
+    //测试的时候10个数据  真实的时候可以用到15个数据 Log只能打印10个量的数据
+    public static final String DEFAULT_LIMIT = &quot;15&quot;;
+
+
+    public static final int ORDER_CHANGED = 7;
+
+    public static final String leiXing_numbe =&quot;leiXing_numbe&quot;;//选择商品的类型是第几个
+    public static final int dianPu_numbe = 7;//选择商品的店铺代号
+
+
+
+}
+</code></pre><blockquote>
+<h2 id="-h1-id-0502-build-gradle-module-app-h1-"><h1 id="0502">配置模块build.gradle(Module:app)</h1></h2>
+</blockquote>
+<h2 id="-05-"><a href="#05">返回目录</a></h2>
+<pre><code>apply plugin: &#39;com.android.application&#39;
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion &quot;22.0.1&quot;
+
+    defaultConfig {
+        applicationId &quot;codewarehouse.yzkj.com.ceshi&quot;
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName &quot;1.0&quot;
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
+        }
+    }
+
+    //配置自定义打包名称  这个也是必须加上的
+    repositories {
+        flatDir {
+            dirs &#39;libs&#39;
+        }
+    }
+
+    //配置自定义打包名称
+    applicationVariants.all { variant -&gt;
+        variant.outputs.each { output -&gt;
+            def outputFile = output.outputFile
+            def fileName
+            if (outputFile != null &amp;&amp; outputFile.name.endsWith(&#39;.apk&#39;)) {
+                if (variant.buildType.name.equals(&#39;release&#39;)) {
+                    variant.mergedFlavor.versionName = getVersionName()
+                    //fileName = &quot;XXXX_${variant.mergedFlavor.versionName}_release.apk&quot;
+                    fileName = &quot;GasVerv100r001b170630.apk&quot;//   让图片放开 改ip 关闭log与内存卡的log
+                    //  fileName = &quot;app-release.apk&quot;// 内测版 让图片放开 改ip 关闭log与内存卡的log
+                } else if (variant.buildType.name.equals(&#39;debug&#39;)) {
+                    //variant.mergedFlavor.versionName = getVersionName()+&quot;.&quot;+releaseTime()
+                    variant.mergedFlavor.versionName = getVersionName()
+                    fileName = &quot;XXXX_${variant.mergedFlavor.versionName}_debug.apk&quot;
+                }
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }  //配置的部分到这里为止
+}
+
+dependencies {
+    compile fileTree(include: [&#39;*.jar&#39;], dir: &#39;libs&#39;)
+    compile &#39;com.android.support:appcompat-v7:22.1.1&#39;
+    compile files(&#39;libs/xUtils-2.6.14.jar&#39;)
+    compile files(&#39;libs/andbase.jar&#39;)
+    compile files(&#39;libs/universal-image-loader-1.9.3.jar&#39;)
+}
+</code></pre><h2 id="06-">06. 资源模块</h2>
+<blockquote>
+<h2 id="-06-"><a href="#06">返回目录</a></h2>
+<h2 id="-h1-id-0601-1-colors-xml-h1-"><h1 id="0601">1. colors.xml</h1></h2>
+</blockquote>
+<pre><code>建立colors文件夹 右键-New-values resource File建立
+
+    &lt;!-- 白色  这是白背景的颜色--&gt;
+    &lt;color name=&quot;white&quot;&gt;#ffffff&lt;/color&gt;
+
+     &lt;color name=&quot;primaryGreen&quot;&gt;#33B5E5&lt;/color&gt;
+    &lt;color name=&quot;baise&quot;&gt;#ffffff&lt;/color&gt;
+    &lt;color name=&quot;darkGreen&quot;&gt;#0a7e07&lt;/color&gt;
+    &lt;color name=&quot;accentGreen&quot;&gt;#d0f8ce&lt;/color&gt;
+    &lt;color name=&quot;accentPink&quot;&gt;#E91E63&lt;/color&gt;
+    &lt;color name=&quot;accentedPink&quot;&gt;#FFFFFF&lt;/color&gt;
+
+    &lt;color name=&quot;primaryBlue&quot;&gt;#00BCD4&lt;/color&gt;
+    &lt;color name=&quot;primaryDarkBlue&quot;&gt;#0097A7&lt;/color&gt;
+
+    &lt;color name=&quot;controlNormalGreen&quot;&gt;#81C784&lt;/color&gt;
+    &lt;color name=&quot;controlActivatedGreen&quot;&gt;#4CAF50&lt;/color&gt;
+</code></pre><blockquote>
+<h2 id="-06-"><a href="#06">返回目录</a></h2>
+<h2 id="-h1-id-0602-2-dimens-xml-h1-"><h1 id="0602">2. dimens.xml</h1></h2>
+</blockquote>
+<pre><code>&lt;!-- 按钮大小尺寸 --&gt;
+    &lt;dimen name=&quot;buttonHeight&quot;&gt;48dp&lt;/dimen&gt;
+
+    &lt;!-- 按钮文本大小 --&gt;
+    &lt;dimen name=&quot;buttonTextSize&quot;&gt;16sp&lt;/dimen&gt;
+
+    &lt;dimen name=&quot;widgetPadding&quot;&gt;8dp&lt;/dimen&gt;
+</code></pre><blockquote>
+<h2 id="-06-"><a href="#06">返回目录</a></h2>
+<h2 id="-h1-id-0603-3-styles-xml-h1-"><h1 id="0603">3. styles.xml</h1></h2>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;!-- Base application theme. --&gt;
+    &lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;
+        &lt;!--&lt;style name=&quot;AppTheme&quot; parent=&quot;android:Theme.Holo&quot;&gt;--&gt;
+        &lt;!-- Customize your theme here. --&gt;
+        &lt;!--动画效果是旋转进入退出--&gt;
+        &lt;item name=&quot;android:windowAnimationStyle&quot;&gt;@style/ActivityAnimationRotateSlid&lt;/item&gt;
+       &lt;!--这个是标题栏的颜色--&gt;
+        &lt;item name=&quot;colorPrimary&quot;&gt;@color/primaryGreen&lt;/item&gt;
+        &lt;!--状态栏上的背景的颜色--&gt;
+        &lt;item name=&quot;colorPrimaryDark&quot;&gt;@color/darkGreen&lt;/item&gt;
+        &lt;item name=&quot;colorAccent&quot;&gt;@color/accentPink&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!-- 自定义theme --&gt;
+    &lt;style name=&quot;myAppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;
+        &lt;item name=&quot;colorPrimary&quot;&gt;#aa6633&lt;/item&gt;
+        &lt;item name=&quot;colorPrimaryDark&quot;&gt;#669933&lt;/item&gt;
+        &lt;item name=&quot;colorAccent&quot;&gt;#99cc99&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!-- 自定义theme --&gt;
+    &lt;style name=&quot;myAppTheme2&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;
+        &lt;item name=&quot;colorPrimary&quot;&gt;#cc3366&lt;/item&gt;
+        &lt;item name=&quot;colorPrimaryDark&quot;&gt;#009999&lt;/item&gt;
+        &lt;item name=&quot;colorAccent&quot;&gt;#cccc00&lt;/item&gt;
+    &lt;/style&gt;
+
+
+    &lt;!-- 窗口进入和退出效果 --&gt;
+    &lt;style name=&quot;WindowPopupAnimation&quot;&gt;
+        &lt;item name=&quot;android:windowEnterAnimation&quot;&gt;@android:anim/slide_in_left&lt;/item&gt;
+        &lt;item name=&quot;android:windowExitAnimation&quot;&gt;@android:anim/slide_out_right&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;!-- activity转场动画 - 下方滑入滑出 --&gt;
+    &lt;style name=&quot;ActivityAnimationBottom&quot; parent=&quot;@android:style/Animation.Activity&quot;&gt;
+        &lt;!-- activity2进入 --&gt;
+        &lt;item name=&quot;android:activityOpenEnterAnimation&quot;&gt;@anim/slide_bottom_in&lt;/item&gt;
+        &lt;!-- activity1退出 --&gt;
+        &lt;item name=&quot;android:activityOpenExitAnimation&quot;&gt;@anim/retain&lt;/item&gt;
+        &lt;!-- activity1返回进入 --&gt;
+        &lt;item name=&quot;android:activityCloseEnterAnimation&quot;&gt;@anim/retain&lt;/item&gt;
+        &lt;!-- activity2在activity1返回后退出 --&gt;
+        &lt;item name=&quot;android:activityCloseExitAnimation&quot;&gt;@anim/slide_bottom_out&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;!-- activity转场动画 - 旋转进入退出 --&gt;
+    &lt;style name=&quot;ActivityAnimationRotate&quot; parent=&quot;@android:style/Animation.Activity&quot;&gt;
+        &lt;item name=&quot;android:activityOpenEnterAnimation&quot;&gt;@anim/activity_open_enter&lt;/item&gt;
+        &lt;item name=&quot;android:activityOpenExitAnimation&quot;&gt;@anim/activity_open_exit&lt;/item&gt;
+        &lt;item name=&quot;android:activityCloseEnterAnimation&quot;&gt;@anim/activity_close_enter&lt;/item&gt;
+        &lt;item name=&quot;android:activityCloseExitAnimation&quot;&gt;@anim/activity_close_exit&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;!-- activity转场动画 - 左右侧滑入滑出 --&gt;
+    &lt;style name=&quot;ActivityAnimationRotateSlid&quot; parent=&quot;@android:style/Animation.Activity&quot;&gt;
+        &lt;item name=&quot;android:activityOpenEnterAnimation&quot;&gt;@anim/in_from_left&lt;/item&gt;
+        &lt;item name=&quot;android:activityOpenExitAnimation&quot;&gt;@anim/out_from_right&lt;/item&gt;
+        &lt;item name=&quot;android:activityCloseEnterAnimation&quot;&gt;@anim/in_from_right&lt;/item&gt;
+        &lt;item name=&quot;android:activityCloseExitAnimation&quot;&gt;@anim/out_from_left&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!-- Widget Styles 按钮的样式  使用方法  style=&quot;@style/MenuButton&quot; --&gt;
+    &lt;style name=&quot;MenuButton&quot; parent=&quot;android:Widget.Button&quot;&gt;
+        &lt;item name=&quot;android:minHeight&quot;&gt;@dimen/buttonHeight&lt;/item&gt;
+        &lt;item name=&quot;android:textSize&quot;&gt;@dimen/buttonTextSize&lt;/item&gt;
+        &lt;item name=&quot;android:textColor&quot;&gt;@drawable/text_color_button&lt;/item&gt;
+        &lt;item name=&quot;android:background&quot;&gt;@drawable/background_button&lt;/item&gt;
+        &lt;item name=&quot;android:layout_margin&quot;&gt;5dp&lt;/item&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;
+</code></pre><blockquote>
+<h2 id="-06-"><a href="#06">返回目录</a></h2>
+<h2 id="-h1-id-0604-4-drawable-xml-h1-"><h1 id="0604">4. drawable下的xml资源</h1></h2>
+</blockquote>
+<pre><code>文字 颜色选择器
+text_color_button.xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;!-- 按下时的文本颜色 --&gt;
+    &lt;item android:state_pressed=&quot;true&quot; android:color=&quot;@color/accentedPink&quot; /&gt;
+    &lt;!-- 默认的文本颜色 --&gt;
+    &lt;item android:color=&quot;@color/accentPink&quot; /&gt;
+&lt;/selector&gt;
+
+
+按钮背景颜色选择器   background_button.xml
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;!-- 按下时的颜色和背景 --&gt;
+    &lt;item android:state_pressed=&quot;true&quot;&gt;
+        &lt;shape android:shape=&quot;rectangle&quot;&gt;
+            &lt;solid android:color=&quot;@color/accentPink&quot; /&gt;
+            &lt;corners android:radius=&quot;10dp&quot;/&gt;
+        &lt;/shape&gt;
+    &lt;/item&gt;
+    &lt;!-- 默认的颜色和背景 --&gt;
+    &lt;item&gt;
+        &lt;shape android:shape=&quot;rectangle&quot;&gt;
+             &lt;solid android:color=&quot;@color/primaryBlue&quot; /&gt;
+        &lt;/shape&gt;
+    &lt;/item&gt;
+&lt;/selector&gt;
+</code></pre><blockquote>
+<h2 id="-h1-id-0605-5-layout-xml-h1-"><h1 id="0605">5. layout文件夹下的xml资源</h1></h2>
+<h2 id="-06-"><a href="#06">返回目录</a></h2>
+</blockquote>
+<pre><code>占位符
+</code></pre><blockquote>
+<h2 id="-h1-id-0606-6-h1-"><h1 id="0606">6. 动画</h1></h2>
+<h2 id="-06-"><a href="#06">返回目录</a></h2>
+</blockquote>
+<pre><code>从代码的角度去加载动画
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;translate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:duration=&quot;300&quot;
+    android:fromXDelta=&quot;0&quot;
+    android:fromYDelta=&quot;0&quot;
+    android:toXDelta=&quot;-1000&quot;
+    android:toYDelta=&quot;0&quot; /&gt;
+
+ /**
+         * 删除item动画
+         * @param index
+         * @param v
+         */
+        private void del(final int index, View v){
+            final Animation animation = (Animation) AnimationUtils.loadAnimation(v.getContext(), R.anim.list_anim);
+
+            animation.setAnimationListener(new Animation.AnimationListener() {
+                public void onAnimationStart(Animation animation) {}
+                public void onAnimationRepeat(Animation animation) {}
+                public void onAnimationEnd(Animation animation) {
+                    LogTxt.writeLog(&quot;&quot;, String.valueOf(index) + &quot;个普通的配送员被删除了&quot;);
+                    String id=data.get(index).getId();                   
+                    animation.cancel();
+                }
+            });//监听的方法到此为止
+
+            v.startAnimation(animation);
+        }
+
+
+从xml的方法去加载动画
+ &lt;ImageView
+            android:id=&quot;@+id/xlistview_header_progressbar&quot;
+            android:layout_width=&quot;34dp&quot;
+            android:layout_height=&quot;34dp&quot;
+            android:layout_centerVertical=&quot;true&quot;
+            android:layout_marginLeft=&quot;-55dp&quot;
+            android:visibility=&quot;gone&quot;
+            android:layout_alignLeft=&quot;@id/xlistview_header_text&quot;
+            android:layout_marginRight=&quot;10dip&quot;
+            android:src=&quot;@drawable/bga_refresh_loding&quot;/&gt;
+
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:oneshot=&quot;false&quot; &gt;
+
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading01&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading02&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading03&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading04&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading05&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading06&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading07&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading08&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading09&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading10&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading11&quot;
+        android:duration=&quot;100&quot;/&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/bga_refresh_loading12&quot;
+        android:duration=&quot;100&quot;/&gt;
+
+&lt;/animation-list&gt;
+</code></pre><h2 id="07-">07. 资源模块</h2>
+<blockquote>
+<h2 id="-h1-id-0701-1-h1-"><h1 id="0701">1. 常用控件</h1></h2>
+<h2 id="-07-"><a href="#07">返回目录</a></h2>
+</blockquote>
+<pre><code>
+&lt;EditText
+        android:id=&quot;@+id/editPhone&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_margin=&quot;12dp&quot;
+        android:layout_marginTop=&quot;24dp&quot;
+        android:background=&quot;@drawable/border_empty_shape&quot;
+        android:drawableLeft=&quot;@drawable/ic_login_acc&quot;
+        android:hint=&quot;请输入手机号&quot;
+        /&gt;
+         android:inputType=&quot;textPassword&quot;  输入的类型是密码形式
+
+        //代码加入对控件的监听
+        editRemark.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                textCount.setText(&quot;&quot; + (100 - editRemark.getText().length()) + &quot;字&quot;);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+这个是背景的图片
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; &gt;
+    &lt;stroke
+        android:width=&quot;1dp&quot;
+        android:color=&quot;@color/lightgray&quot; /&gt;
+    &lt;corners android:radius=&quot;4dp&quot; /&gt;
+&lt;/shape&gt;
+
+ &lt;Button
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;@dimen/buttonHeight&quot;
+        android:text=&quot;  使用指南&quot;
+        android:drawableEnd=&quot;@mipmap/arrow&quot;
+        android:drawableRight=&quot;@mipmap/arrow&quot;
+        android:drawableStart=&quot;@mipmap/more&quot;
+        android:drawableLeft=&quot;@mipmap/more&quot;
+        android:paddingLeft=&quot;15dp&quot;
+        style=&quot;@style/MenuButton&quot;
+        android:id=&quot;@+id/button3&quot;
+        android:gravity=&quot;left|center_vertical&quot;/&gt;
+
+ &lt;TextView
+        android:id=&quot;@+id/textForget&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;right&quot;   这个表明该控件在布局的右侧
+        android:layout_marginRight=&quot;24dp&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:drawableBottom=&quot;@color/app_color&quot;
+        android:text=&quot;忘记密码?&quot;
+        android:textColor=&quot;@color/app_color&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+&lt;ListView
+        android:id=&quot;@+id/listDistrict&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginTop=&quot;12dp&quot;
+        android:background=&quot;@color/white&quot;
+        android:divider=&quot;@color/lightgrey&quot;
+        android:dividerHeight=&quot;1dp&quot; /&gt;
+
+相对布局
+ android:layout_alignParentRight=&quot;true&quot;
+ android:layout_toLeftOf=&quot;@+id/textAddPerson&quot;
+</code></pre><p><img src="http://i.imgur.com/Dj4bwrW.jpg" alt="忘记密码的位置"></p>
+<blockquote>
+<h2 id="-h1-id-0702-1-h1-"><h1 id="0702">1. 常用布局</h1></h2>
+<h2 id="-07-"><a href="#07">返回目录</a></h2>
+</blockquote>
+<pre><code>这个是线性布局
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:background=&quot;@color/white&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><h1 id="08">08. utils文件夹</h1>  
+
+<h2 id="-8-"><a href="#8">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0801-0801-h1-"><h1 id="0801">0801. 控制台日志的打印模板</h1></h2>
+</blockquote>
+<pre><code>//这个是该工具的调用
+MyLog.ShowLog(json);
+
+
+package com.linyou.lifeservice.utils;
+
+import android.util.Log;
+
+/**
+ * Created by Administrator on 2016/9/27 
+ * 0027.
+ */
+public class MyLog {
+    //过滤 返回的所有数据
+    private static String TAG=&quot;tanyinqing&quot;;
+    //过滤 接口返回的网络相关的数据
+    private static String TAG1=&quot;tanyinqingWangLuoJieKou&quot;;
+
+    //关闭所有的Log数据的打印
+    private static Boolean ifShow=true;
+
+    public static void ShowLog(String content){
+        if (ifShow){
+            Log.d(TAG,content);
+        }
+    }
+}
+</code></pre><h2 id="-8-"><a href="#8">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0802-h1-"><h1 id="0802">把日志打印到内存卡上</h1></h2>
+</blockquote>
+<pre><code>
+// 前面是内容  后面是文件名  日志写到内存卡上
+ LogTxt.writeLog(&quot;小谈你好&quot;,&quot;小谈测试&quot;);  
+
+
+package utils;
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Created by Administrator on 2016/11/6 0006.
+ */
+public class LogTxt {
+    public static long xuhao=1;
+
+
+    public static void writeLog(String context,String fileName){
+        if (true){  //这个值该为false后就不会在打印日志了
+
+            // String filePath = &quot;/sdcard/Test/&quot;;
+            if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+//            Toast.makeText(getApplicationContext(),
+//                    &quot;没有SD卡,无法保存图像.&quot;, Toast.LENGTH_SHORT).show();
+                Log.e(&quot;ImagesUtil.java&quot;, &quot;没有SD卡,无法保存图像.&quot;);
+                return ;
+            }
+
+            //文件命名的时间成分
+            Calendar calendar=Calendar.getInstance();
+            Date data=calendar.getTime();
+            // SimpleDateFormat format=new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+            SimpleDateFormat format=new SimpleDateFormat(&quot;_HH:mm:ss&quot;);
+            String time=format.format(data);
+
+            // 获得外部SD卡,创建本应用程序的保存目录,保存相片
+            File sdCard = Environment.getExternalStorageDirectory();
+            // File photoDir = new1 File(sdCard.getAbsolutePath() + &quot;/mycamera&quot;);
+            File photoDir = new File(sdCard.getAbsolutePath() + &quot;/&quot;+&quot;LogTan&quot;);
+            // MyLog.ShowLog(&quot;保存图像地址&quot;+photoDir.getAbsolutePath());
+            if(!photoDir.exists()){
+                photoDir.mkdirs();
+            }
+
+        /*File photo = new1 File(photoDir,fileName+time+&quot;.txt&quot;);
+        MyLog.ShowLog(&quot;创建photo文件&quot;);
+*/
+            // 每次写入时，都换行写
+            String strContent = context + &quot;\r\n&quot;;
+            //String strContent = context;
+            try {
+                File file = new File(photoDir,String.valueOf(xuhao)+&quot;_&quot;+fileName+time+&quot;.txt&quot;);
+                if (!file.exists()) {
+                    //Log.d(&quot;TestFile&quot;, &quot;Create the file:&quot; + strFilePath);
+                    file.createNewFile();
+                }
+           /* RandomAccessFile raf = new1 RandomAccessFile(file, &quot;rwd&quot;);
+            raf.seek(file.length());
+            raf.write(strContent.getBytes());
+            raf.close();*/
+                OutputStream outstream = new FileOutputStream(file);
+                OutputStreamWriter out = new OutputStreamWriter(outstream);
+                out.write(strContent);
+                if (xuhao&lt;=10){
+                    xuhao++;
+                }else {
+                    xuhao=1;
+                    //删除缓存的Log信息 每次启动时
+                    String  DATABASE_NAME=&quot;LogTan&quot;;   //数据的存储路径
+                    File sdCard1 = Environment.getExternalStorageDirectory();
+                    String DATABASE_PATH= sdCard1.getAbsolutePath()+&quot;/&quot;+DATABASE_NAME+&quot;/&quot;;
+                    File dbContentFile = new File(DATABASE_PATH);
+                    Boolean tan=true;
+                    if (dbContentFile.exists()) {
+                        //dbContentFile.delete();
+                        if (tan){
+                            delete(dbContentFile);
+                        }
+                    }
+                }
+
+                out.close();
+            } catch (Exception e) {
+                Log.e(&quot;TestFile&quot;, &quot;Error on write File:&quot; + e);
+            }
+        }
+    }
+
+
+    //删除一个文件夹
+    public static void delete(File file) {
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
+
+        if (file.isDirectory()) {
+            File[] childFiles = file.listFiles();
+            if (childFiles == null || childFiles.length == 0) {
+                file.delete();
+                return;
+            }
+
+            for (int i = 0; i &lt; childFiles.length; i++) {
+                delete(childFiles[i]);
+            }
+            // file.delete(); 删除这个文件夹
+        }
+    }
+}
+</code></pre><h2 id="-8-"><a href="#8">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0803-0803-h1-"><h1 id="0803">0803. 把连续的日志打印到内存卡的一个文件上</h1></h2>
+</blockquote>
+<pre><code>
+// 前面是内容，后面是文件名 会把日志累加起来
+   LogTxtLeiJi.writeLog(&quot;3&quot;,&quot;记录推送下来的订单号&quot;);
+
+
+
+package utils;
+
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Created by Administrator on 2016/11/6 0006.
+ */
+public class LogTxtLeiJi {
+
+
+    public static void writeLog(String context,String fileName){
+        if (true){  //这个值该为false后就不会在打印日志了
+
+       // String filePath = &quot;/sdcard/Test/&quot;;
+        if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+//            Toast.makeText(getApplicationContext(),
+//                    &quot;没有SD卡,无法保存图像.&quot;, Toast.LENGTH_SHORT).show();
+            Log.e(&quot;ImagesUtil.java&quot;, &quot;没有SD卡,无法保存图像.&quot;);
+            return ;
+        }
+
+        //文件命名的时间成分
+        Calendar calendar=Calendar.getInstance();
+        Date data=calendar.getTime();
+        SimpleDateFormat format=new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        String time=format.format(data);
+
+        // 获得外部SD卡,创建本应用程序的保存目录,保存相片
+        File sdCard = Environment.getExternalStorageDirectory();
+        // File photoDir = new1 File(sdCard.getAbsolutePath() + &quot;/mycamera&quot;);
+        File photoDir = new File(sdCard.getAbsolutePath() + &quot;/&quot;+&quot;LogTan&quot;);
+       // MyLog.ShowLog(&quot;保存图像地址&quot;+photoDir.getAbsolutePath());
+        if(!photoDir.exists()){
+            photoDir.mkdirs();
+        }
+
+        /*File photo = new1 File(photoDir,fileName+time+&quot;.txt&quot;);
+        MyLog.ShowLog(&quot;创建photo文件&quot;);
+*/
+        // 每次写入时，都换行写
+        String strContent = context +&quot;     &quot;+time+&quot;\r\n&quot;;
+        //String strContent = context;
+        try {
+           // File file = new File(photoDir,fileName+time+&quot;.txt&quot;);
+            File file = new File(photoDir,fileName+&quot;.txt&quot;);
+            if (!file.exists()) {
+                //Log.d(&quot;TestFile&quot;, &quot;Create the file:&quot; + strFilePath);
+                file.createNewFile();
+            }
+            RandomAccessFile raf = new RandomAccessFile(file, &quot;rwd&quot;);
+            // 获取文件的长度即字节数  // 将写文件指针移到文件尾
+            raf.seek(file.length());
+            raf.write(strContent.getBytes());
+            raf.close();
+
+           /* OutputStream outstream = new FileOutputStream(file);
+            OutputStreamWriter out = new OutputStreamWriter(outstream);
+            out.write(strContent);
+            out.close();*/
+        } catch (Exception e) {
+            Log.e(&quot;TestFile&quot;, &quot;Error on write File:&quot; + e);
+        }
+        }
+    }
+}
+</code></pre><h2 id="-8-"><a href="#8">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0804-0804-dp-sp-h1-"><h1 id="0804">0804. 像素和dp和sp单位的换算</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import android.content.Context;
+
+//   这个是将dp单位转化成像素值  用来适配布局的尺寸   DensityUtil.dip2px(this, 48)
+public class DensityUtil
+{
+    /**
+     * 将px值转换为dip或dp值，保证尺寸大小不变
+     * 
+     * @param pxValue
+     * @param
+     *            （DisplayMetrics类中属性density）
+     * @return
+     */
+    public static int px2dip(Context context, float pxValue)
+    {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+
+    /**
+     * 将dip或dp值转换为px值，保证尺寸大小不变
+     * 
+     * @param dipValue
+     * @param
+     *            （DisplayMetrics类中属性density）
+     * @return
+     */
+    public static int dip2px(Context context, float dipValue)
+    {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
+    }
+
+    /**
+     * 将px值转换为sp值，保证文字大小不变
+     * 
+     * @param pxValue
+     * @param
+     *            （DisplayMetrics类中属性scaledDensity）
+     * @return
+     */
+    public static int px2sp(Context context, float pxValue)
+    {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (pxValue / fontScale + 0.5f);
+    }
+
+    /**
+     * 将sp值转换为px值，保证文字大小不变
+     * 
+     * @param spValue
+     * @param
+     *            （DisplayMetrics类中属性scaledDensity）
+     * @return
+     */
+    public static int sp2px(Context context, float spValue)
+    {
+        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
+        return (int) (spValue * fontScale + 0.5f);
+    }
+}
+</code></pre><h2 id="-8-"><a href="#8">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0805-0805-json-h1-"><h1 id="0805">0805. 对象和Json字符串的相互转化</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import com.google.gson.Gson;
+/**
+ * 对象和Json字符串的相互转化
+ */
+public class JsonUtil&lt;T&gt; {
+
+    public Object convertJsonToObject(String value,Class&lt;T&gt; object){
+        Object resultObject = new Object();
+        Gson gson = new Gson();
+        resultObject = gson.fromJson(value, object);
+        return resultObject;
+    }
+
+    //使用Gson将JSON字符串转换为Java对象
+    public static Object convertJsonToObject(String value){
+        Object resultObject = new Object();
+        Gson gson = new Gson();
+        resultObject = gson.fromJson(value, Object.class);
+        return resultObject;
+    }
+
+    //使用Gson将Java对象转换为JSON字符串
+    public static String convertObjectToJson(Object obj){
+        String result = &quot;&quot;;
+        Gson gson = new Gson();
+        result = gson.toJson(obj);
+        return result;
+    }
+}
+</code></pre><h2 id="-8-"><a href="#8">返回目录</a></h2>
+<blockquote>
+<h2 id="-h1-id-0806-0806-api-h1-"><h1 id="0806">0806. 日期APi的工具类</h1></h2>
+</blockquote>
+<pre><code>package codewarehouse.yzkj.com.ceshi;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import android.annotation.SuppressLint;
+import android.text.format.Time;
+import android.util.Log;
+
+@SuppressLint(&quot;SimpleDateFormat&quot;)
+@SuppressWarnings(&quot;static-access&quot;)
+public class DateUtil {
+    public static final String DATE_ALL_ALL = &quot;yyyy-MM-dd HH:mm:ss&quot;;
+    public static final String YEAR_MONTH_DAY = &quot;yyyy-MM-dd&quot;;
+    public static final String YEAR_MONTH = &quot;yyyy-MM&quot;;
+    public static final String DATE_ALL = &quot;yyyy-MM-dd HH:mm&quot;;
+    public static final String DATE_TIME = &quot;MM-dd HH:mm&quot;;
+    public static final String DATE_HOUR_MINUTE = &quot;HH:mm&quot;;
+    public static final String DATE_HOUR_MINUTE_SEC = &quot;HH:mm:ss&quot;;
+      public static final long DAY_MILLIS = 86400000L;  //一天有多少秒
+    public static final long WEEK_MILLIS = 604800000L;   //一周有多少秒
+    //只有最后一位表明L 表明数据类型
+  public static final long MONTH_MILLIS = 2592000000L;  //一月有多少秒
+
+    /**
+     * 某月的天数
+     */
+    private static int daysOfMonth = 0;
+
+    /**
+     * 判断是否为闰年
+     * 
+     * @param year
+     *            指定的年份
+     * @return
+     */
+    public static boolean isLeapYear(int year) {
+        if (year % 100 == 0 &amp;&amp; year % 400 == 0) {
+            return true;
+        } else if (year % 100 != 0 &amp;&amp; year % 4 == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 获取当前日期   用指定的格式来显示
+     * 
+     * @return
+     */
+
+    public static String getNowDate(String dateFormat) {
+        SimpleDateFormat sDateFormat = new SimpleDateFormat(dateFormat);
+
+        return sDateFormat.format(new Date());
+    }
+
+    /**
+     * 得到某月有多少天数
+     * 
+     * @param year
+     *            目标年份
+     * @param month
+     *            目标月份
+     * @return
+     */
+    public static int getDaysOfMonth(int year, int month) {
+        switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            daysOfMonth = 31;
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            daysOfMonth = 30;
+            break;
+        case 2:
+            if (isLeapYear(year)) {  //判断是否为闰年
+                daysOfMonth = 29;
+            } else {
+                daysOfMonth = 28;
+            }
+
+        }
+        return daysOfMonth;
+    }
+
+    private final static ThreadLocal&lt;SimpleDateFormat&gt; dateFormater2 = new ThreadLocal&lt;SimpleDateFormat&gt;() {
+        @Override
+        protected SimpleDateFormat initialValue() {
+            return new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+        }
+    };
+
+    //将指定的时间 以指定的格式进行格式化成字符串
+    public static String stringFromDate(Date date, String formatString) {
+        DateFormat df = new SimpleDateFormat(formatString);
+        return df.format(date);
+    }
+
+    //将指定的字符串格式的日期转换成时间对象
+    public static Date dateFromString(String dateStr, String formatString) {
+        DateFormat df = new SimpleDateFormat(formatString);
+        Date date = null;
+
+        try {
+            date = df.parse(dateStr);
+        } catch (ParseException e) {
+            //Log.i(&quot;dateFromString exception:&quot;, Log.getStackTraceString(e));
+            LogTxt.writeLog(Log.getStackTraceString(e),&quot;dateFromString exception:&quot;);
+        }
+        return date;
+    }
+
+    //指定的时间 推迟多少天后的日期
+    public static Date addDateOfDay(Date date, int addDay) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_YEAR, addDay);
+        Date d = calendar.getTime();
+
+        return d;
+    }
+
+    //指定的时间 推迟多少月后的日期 例如现在是2017-05-30 11:00:34
+    // 推迟4天后是 2017-06-03 11:02:08  不过得出的是手机上的时间
+    public static Date addDateOfMonth(Date date, int addMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MONTH, addMonth);
+        Date d = calendar.getTime();
+
+        return d;
+    }
+
+    //返回现在的时间的时间码   格式为Long型  例如：1496121576992
+    /*System.currentTimeMillis()产生一个当前的毫秒，这个毫秒其实就是自1970年1月1日0时起的毫秒数，*/
+    public static long getNowTimeInMillis() {
+        Calendar nowCalendar = Calendar.getInstance();
+        nowCalendar.getTimeInMillis();
+
+        return System.currentTimeMillis();
+    }
+
+    //返回当前天是当前月份的第多少天
+    public static int getTadayOfMonth() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.DAY_OF_MONTH);
+    }
+
+    //将Long型时间转化为小时 分钟  秒的形式 例如：415589:19:36
+    @SuppressLint(&quot;DefaultLocale&quot;)
+    public static String getStringUseTime(long useTime) {
+        int sec = 0;
+        int minute = 0;
+        int hour = 0;
+        String timeText = &quot;&quot;;
+        //这个是转化成秒值
+        sec = (int) (useTime / 1000);
+        minute = sec / 60;
+        hour = minute / 60;
+        timeText = String.format(&quot;%02d:%02d:%02d&quot;, hour, minute % 60, sec % 60);
+        return timeText;
+    }
+
+    /**
+     * 以友好的方式显示时间  DATE_ALL = &quot;yyyy-MM-dd HH:mm&quot;;
+     * 和现在的时间比较，超过24小时是前天，24小时以内是昨天
+     * 给出的时间和现在的时间相比   是几小时前  或前天  昨天 例如：2017-05-30 06:08  是 8小时前
+     * @param sdate
+     * @return
+     */
+    public static String friendly_time(String sdate) {
+        Date time = dateFromString(sdate, DATE_ALL);  //将指定的字符串格式的日期转换成时间对象
+        if (time == null) {
+            return &quot;Unknown&quot;;
+        }
+        String ftime = &quot;&quot;;
+        Calendar cal = Calendar.getInstance();
+
+        // 判断是否是同一天
+        String curDate = dateFormater2.get().format(cal.getTime());
+        String paramDate = dateFormater2.get().format(time);
+
+        if (curDate.equals(paramDate)) {//表明是同一天
+            int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);
+            if (hour == 0)
+                ftime = Math.max(  //两者取最大值
+                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
+                        + &quot;分钟前&quot;;
+            else
+                ftime = hour + &quot;小时前&quot;;
+            return ftime;
+        }
+
+        long lt = time.getTime() / 86400000;
+        long ct = cal.getTimeInMillis() / 86400000;
+        int days = (int) (ct - lt);
+        if (days == 0) {
+            int hour = (int) ((cal.getTimeInMillis() - time.getTime()) / 3600000);
+            if (hour == 0)
+                ftime = Math.max(
+                        (cal.getTimeInMillis() - time.getTime()) / 60000, 1)
+                        + &quot;分钟前&quot;;
+            else
+                ftime = hour + &quot;小时前&quot;;
+        } else if (days == 1) {
+            ftime = &quot;昨天&quot;;
+        } else if (days == 2) {
+            ftime = &quot;前天&quot;;
+        } else if (days &gt; 2 &amp;&amp; days &lt;= 10) {
+            ftime = days + &quot;天前&quot;;
+        } else if (days &gt; 10) { //这个是大于10天的情形
+            ftime = dateFormater2.get().format(time);
+        }
+        return ftime;
+    }
+
+    /**
+     * 判断给定字符串时间是否为今日
+     * 
+     * @param sdate
+     * @return boolean
+     */
+    public static boolean isToday(String sdate) {
+        boolean b = false;
+        Date time = dateFromString(sdate, DATE_ALL);  //将指定的字符串格式的日期转换成时间对象
+        Date today = new Date();
+        if (time != null) {
+            String nowDate = dateFormater2.get().format(today);
+            String timeDate = dateFormater2.get().format(time);
+            if (nowDate.equals(timeDate)) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
+    //获取到今年
+    public static int getThisYear() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.YEAR);
+    }
+
+    //获取到当月 这个月份需要加 1
+    public static int getThisMonth() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.MONTH);
+    }
+
+    //获取到当日的信息
+    public static int getThisDay() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.DAY_OF_MONTH);
+    }
+
+
+    //得到现在是周几
+    public static int getThisWeek() {
+        Calendar cal = Calendar.getInstance();
+        return cal.get(Calendar.DAY_OF_WEEK) - 1;
+    }
+
+    //判断现在的时间是今年的第几周  全年是52周
+    // 测试的语句  MyLog.ShowLog(String.valueOf(DateUtil.getWeekOfYear(DateUtil.getNowTimeInMillis())));
+    public static int getWeekOfYear(long times) {
+        Calendar mCal = Calendar.getInstance();
+        mCal.setFirstDayOfWeek(Calendar.MONDAY);
+        mCal.setTimeInMillis(times);
+        return mCal.get(Calendar.WEEK_OF_YEAR);
+    }
+
+    //获得本周日的时间的毫秒值   得到现在是周几减1才是东方的时间，国际上是星期天为一周第一天
+    // dayOfMonth + (7 - (dayOfWeek - 1))  30+(7-(3-1)))=35  也就是当前天比周日少5天
+    public static long getThisWeekOfSunday() {
+        Calendar cal = Calendar.getInstance();
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        cal.set(year, month, dayOfMonth + (7 - (dayOfWeek - 1)),23,59,59);
+        return cal.getTimeInMillis();
+    }
+
+    // MyLog.ShowLog(DateUtil.longToString(DateUtil.getThisWeekOfMonday())); 测试的代码
+    //获得本周一的时间戳
+//    System.out.println(cal.get(Calendar.DAY_OF_MONTH)); //输出当前日期对象cal是当前月份的第几天
+//    dayOfMonth - (dayOfWeek - 2)  30-(3-2)=29  也就是第29天使周一  当前天比周一多2天
+    public static long getThisWeekOfMonday() {
+        Calendar cal = Calendar.getInstance();
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        cal.set(year, month, dayOfMonth - (dayOfWeek - 2),0,0,0);
+        return cal.getTimeInMillis();
+    }
+
+    //得到年份的值  android.text.format.Time包中的Time类是android平台的一个时间类，但是这个类目前已经不建议使用了
+    public static int longTimeToYear(long times) {
+        Time mTime = new Time();
+        mTime.set(times);
+        return mTime.year;
+    }
+    //得到月份的值
+    public static int longTimeToMonth(long times) {
+        Time mTime = new Time();
+        mTime.set(times);
+        return mTime.month;
+    }
+
+    //获得beforeOfMonth个月前那个月的第一天  0表示当月的第一天，例如 2017-07-01 00:00:00
+    public static long getLongOfFirstDayOfMonth(int beforeOfMonth) {
+        Calendar localCalendar = Calendar.getInstance();
+        int latestMonth = localCalendar.get(Calendar.MONTH);
+        localCalendar.set(localCalendar.MONTH, latestMonth - beforeOfMonth);
+        //获取月中的最小值
+        int latestDay = localCalendar.getActualMinimum(Calendar.DAY_OF_MONTH);
+
+        localCalendar.set(localCalendar.DATE, latestDay);
+        localCalendar.set(localCalendar.HOUR, 0);
+        localCalendar.set(localCalendar.MINUTE, 0);
+        localCalendar.set(localCalendar.SECOND, 0);
+        localCalendar.set(localCalendar.MILLISECOND, 0);
+        return localCalendar.getTimeInMillis();
+    }
+
+    //获得beforeOfMonth月前的最后一天  0为当月 2017-07-31 00:00:00
+    public static long getLongOfLatestDayOfMonth(int beforeOfMonth) {
+
+        Calendar localCalendar = Calendar.getInstance();
+        int latestMonth = localCalendar.get(Calendar.MONTH);
+        localCalendar.set(localCalendar.MONTH, latestMonth - beforeOfMonth);
+        int latestDay = localCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        localCalendar.set(localCalendar.DATE, latestDay);
+        localCalendar.set(localCalendar.HOUR, 0);
+        localCalendar.set(localCalendar.MINUTE, 0);
+        localCalendar.set(localCalendar.SECOND, 0);
+        localCalendar.set(localCalendar.MILLISECOND, 0);
+        return localCalendar.getTimeInMillis();
+    }
+
+    // 通过string 指定  hh：ss  时间      获取long型时间码
+    public static long getLongOfTime(String time) {
+        int hour = Integer.valueOf(time.substring(0, 2));
+        int min = Integer.valueOf(time.substring(3, 5));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.HOUR_OF_DAY, hour);//get 和 set 的字段数字，指示一天中的小时。
+        calendar.set(calendar.MINUTE, min);// get 和 set 的字段数字，指示一小时中的分钟。
+        calendar.set(Calendar.SECOND, 0);       //get 和 set 的字段数字，指示一分钟中的秒。
+        calendar.set(Calendar.MILLISECOND, 0); //get 和 set 的字段数字，指示一秒中的毫秒。
+        return calendar.getTimeInMillis();
+    }
+
+    // 通过string yyyy-mm-dd 时间获取时间码
+    public static long getLongOfDayTime(String time) {
+        int year = Integer.valueOf(time.substring(0, 4));
+        int month = Integer.valueOf(time.substring(5, 7));
+        int day = Integer.valueOf(time.substring(8, 10));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.YEAR, year);
+        calendar.set(calendar.MONTH, month - 1);
+        calendar.set(calendar.DAY_OF_MONTH, day);
+
+        return calendar.getTimeInMillis();
+    }
+
+    // 通过string yyyy-mm-dd, time    时间获取时间码
+    public static long getLongOfDayTimeAll(String date, String time) {
+        //依次获得年月日 时分秒 转换成时间的毫秒值
+        int year = Integer.valueOf(date.substring(0, 4));
+        int month = Integer.valueOf(date.substring(5, 7));
+        int day = Integer.valueOf(date.substring(8, 10));
+
+        int hour = Integer.valueOf(time.substring(0, 2));
+        int min = Integer.valueOf(time.substring(3, 5));
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.YEAR, year);
+        calendar.set(calendar.MONTH, month - 1);
+        calendar.set(calendar.DAY_OF_MONTH, day);
+        calendar.set(calendar.HOUR_OF_DAY, hour);
+        calendar.set(calendar.MINUTE, min);
+        calendar.set(Calendar.SECOND, 0);           
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTimeInMillis();
+    }
+
+    //将字符串时间转化为星期几   2017:07:03
+    public static int getTimeForWeek(String time){
+        int year = Integer.valueOf(time.substring(0, 4));
+        int month = Integer.valueOf(time.substring(5, 7));
+        int day = Integer.valueOf(time.substring(8, 10));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(calendar.YEAR, year);
+        calendar.set(calendar.MONTH, month-1);
+        calendar.set(calendar.DAY_OF_MONTH, day);
+        return calendar.get(Calendar.DAY_OF_WEEK)-1;
+    }
+
+    //将毫秒值转化成 字符串时间
+    public static String longToString(long time){
+        Calendar nowCalendar = Calendar.getInstance();
+        nowCalendar.setTimeInMillis(time);
+        //Calendar和Date的相互转化
+        Date d = nowCalendar.getTime();
+        SimpleDateFormat sDateFormat = new SimpleDateFormat(DateUtil.DATE_ALL_ALL);
+        return sDateFormat.format(d);
+    }
+}
+</code></pre><blockquote>
+<h2 id="-h1-id-0807-7-h1-"><h1 id="0807">7. 缓存数据的工具类</h1></h2>
+</blockquote>
+<h2 id="-8-"><a href="#8">返回目录</a></h2>
+<pre><code>这个是进行初始化
+public static PreferenceUtil mPrefUtil;  //用于配制信息的业务类  继成了各种方法
+ mPrefUtil = new PreferenceUtil(this, Constant.prefName, Context.MODE_PRIVATE);
+
+
+package com.linyou.lifedelivery.activity.utils;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.text.TextUtils;
+
+import com.linyou.lifedelivery.activity.Constant;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
+import java.util.HashMap;
+import java.util.Iterator;
+
+/**
+ * 
+ * 配置存储工具类
+ * 
+ * @author zeroangus
+ * 
+ */
+public class PreferenceUtil {
+
+    private SharedPreferences preferences;
+
+    public PreferenceUtil(Context context, String name, int Mode) {
+        preferences = context.getSharedPreferences(name, Mode);
+    }
+
+
+    //是否是第一次使用
+    public static boolean getFirstUse(Context context) {
+        SharedPreferences settings = context.getSharedPreferences(
+                Constant.prefName, Context.MODE_PRIVATE);
+        return settings.getBoolean(&quot;firstUse&quot;, true);
+        //return true;
+    }
+
+    /**
+     * 保存对象  将对象序列化后再转化为16进制的字符串保存
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, Object value) {
+        Editor editor = preferences.edit();
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(value);
+            // 将序列化的数据转为16进制保存
+            String value2 = bytesToHexString(baos.toByteArray());
+            editor.putString(key, value2);
+            editor.commit();
+        } catch (Exception e) {
+            System.out.println(&quot;putSetting ----&gt; &quot;+e.toString());
+        }
+    }
+
+    /**
+     * desc:将数组转为16进制  将数组转化为字符串
+     * 
+     * @param bArray
+     * @return modified:
+     */
+    public static String bytesToHexString(byte[] bArray) {
+        if (bArray == null) {
+            return null;
+        }
+        if (bArray.length == 0) {
+            return &quot;&quot;;
+        }
+        StringBuffer sb = new StringBuffer(bArray.length);
+        String sTemp;
+        for (int i = 0; i &lt; bArray.length; i++) {
+            sTemp = Integer.toHexString(0xFF &amp; bArray[i]);
+            if (sTemp.length() &lt; 2)
+                sb.append(0);
+            sb.append(sTemp.toUpperCase());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * desc:获取保存的Object对象
+     * 
+     * @param key
+     * @return modified:
+     */
+    public Object readObject(String key) {
+        try {
+            if (preferences.contains(key)) {
+                System.out.println(&quot;配置信息preferences.contains -------------&gt; &quot; + key);
+                String string = preferences.getString(key, &quot;&quot;);
+                if (TextUtils.isEmpty(string)) {
+
+                    System.out.println( key + &quot;配置信息 -----&gt; is empty&quot;  );
+                    return null;
+                } else {
+
+                    System.out.println( key + &quot; 配置信息-----&gt; is not empty&quot;  );
+                    // 将16进制的数据转为数组，准备反序列化
+                    byte[] stringToBytes = StringToBytes(string);
+                    ByteArrayInputStream bis = new ByteArrayInputStream(
+                            stringToBytes);
+                    ObjectInputStream is = new ObjectInputStream(bis);
+                    // 返回反序列化得到的对象
+                    Object readObject = is.readObject();
+                    return readObject;
+                }
+            }
+        } catch (StreamCorruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        // 所有异常返回null
+        return null;
+
+    }
+
+    /**
+     * desc:将16进制的数据转为数组  也就是把字符串转化为数组 一个单词一个组
+     * &lt;p&gt;
+     * 创建人：聂旭阳 , 2014-5-25 上午11:08:33
+     * &lt;/p&gt;
+     * 
+     * @param data
+     * @return modified:
+     */
+    public static byte[] StringToBytes(String data) {
+        String hexString = data.toUpperCase().trim();
+        if (hexString.length() % 2 != 0) {
+            return null;
+        }
+        byte[] retData = new byte[hexString.length() / 2];
+        for (int i = 0; i &lt; hexString.length(); i++) {
+            int int_ch; // 两位16进制数转化后的10进制数
+            char hex_char1 = hexString.charAt(i); // //两位16进制数中的第一位(高位*16)
+            int int_ch1;
+            if (hex_char1 &gt;= &#39;0&#39; &amp;&amp; hex_char1 &lt;= &#39;9&#39;)
+                int_ch1 = (hex_char1 - 48) * 16; // // 0 的Ascll - 48
+            else if (hex_char1 &gt;= &#39;A&#39; &amp;&amp; hex_char1 &lt;= &#39;F&#39;)
+                int_ch1 = (hex_char1 - 55) * 16; // // A 的Ascll - 65
+            else
+                return null;
+            i++;
+            char hex_char2 = hexString.charAt(i); // /两位16进制数中的第二位(低位)
+            int int_ch2;
+            if (hex_char2 &gt;= &#39;0&#39; &amp;&amp; hex_char2 &lt;= &#39;9&#39;)
+                int_ch2 = (hex_char2 - 48); // // 0 的Ascll - 48
+            else if (hex_char2 &gt;= &#39;A&#39; &amp;&amp; hex_char2 &lt;= &#39;F&#39;)
+                int_ch2 = hex_char2 - 55; // // A 的Ascll - 65
+            else
+                return null;
+            int_ch = int_ch1 + int_ch2;
+            retData[i / 2] = (byte) int_ch;// 将转化后的数放入Byte里
+        }
+        return retData;
+    }
+
+    /**
+     * 
+     * 插入单个配置信息（string,string）
+     * 
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, String value) {
+        Editor editor = preferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    /**
+     * 
+     * 插入单个配置信息（string,int）
+     * 
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, int value) {
+        Editor editor = preferences.edit();
+        editor.putInt(key, value);
+        editor.commit();
+    }
+
+    /**
+     * 插入单个配置信息（string,boolean）
+     * 
+     * @param key
+     * @param value
+     */
+    public void putSetting(String key, Boolean value) {
+
+        Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
+    /**
+     * 
+     * 插入多个配置信息
+     * Java学习之Iterator(迭代器)的一般用法 （转）
+     * @param params
+     */
+    public void putSettings(HashMap&lt;String, Object&gt; params) {
+        Editor editor = preferences.edit();
+        Iterator&lt;String&gt; iter = params.keySet().iterator();
+        while (iter.hasNext()) {
+            String name = (String) iter.next();
+            if (params.get(name).getClass() == Boolean.class) {
+                editor.putBoolean(name, (Boolean) params.get(name));
+            } else {
+                editor.putString(name, (String) params.get(name));
+            }
+        }
+        editor.commit();
+    }
+
+    /**
+     * 缺省返回-1
+     * 
+     * @param key
+     * @return
+     */
+    public int getIntSetting(String key) {
+        return preferences.getInt(key, -1);
+    }
+
+    /**
+     * 缺省返回null
+     * 
+     * @param key
+     * @return
+     */
+    public String getStrSetting(String key) {
+        return preferences.getString(key, null);
+    }
+
+    /**
+     * 缺省返回false
+     * 
+     * @param key
+     * @return
+     */
+    public boolean getBoolean(String key) {
+        return preferences.getBoolean(key, false);
+    }
+
+}
+</code></pre><blockquote>
+<h2 id="-h1-id-0808-8-3-h1-"><h1 id="0808">8. 按钮加入 3次点击的监听</h1></h2>
+</blockquote>
+<h2 id="-8-"><a href="#8">返回目录</a></h2>
+<pre><code>mImgeTitle.setOnClickListener(new  View.OnClickListener() {
+              //需要监听几次点击事件数组的长度就为几
+              //如果要监听双击事件则数组长度为2，如果要监听3次连续点击事件则数组长度为3...
+              long[] mHints = new long[3];//初始全部为0
+
+              @Override
+              public void onClick(View v) {
+                  //将mHints数组内的所有元素左移一个位置
+                  System.arraycopy(mHints, 1, mHints, 0,
+                          mHints.length - 1);
+                  //获得当前系统已经启动的时间
+                  mHints[mHints.length - 1] =SystemClock.uptimeMillis();
+                  if (SystemClock.uptimeMillis() - mHints[0] &lt;= 500) {
+                      mPrefUtil.putSetting(&quot;isLog&quot;, true);
+                      PublicUtil.ShowToast(&quot;3次点击设置成功&quot;);
+                  }
+              }
+          });
+</code></pre><blockquote>
+<h1 id="002">2. 常用的快捷键</h1>
+
+</blockquote>
+<p><a href="#00">返回目录</a></p>
+<pre><code>最常用的调用方法代码
+</code></pre>
+
+</body>
+
+</html>
+
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
