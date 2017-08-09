@@ -1,503 +1,970 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <title>谈银青Aar包</title>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <style type="text/css">
+
 /* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+
 /* Author: Nicolas Hery - http://nicolashery.com */
+
 /* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+
 /* Source: https://github.com/nicolahery/markdownpad-github */
 
+
+
 /* RESET
+
 =============================================================================*/
+
+
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+
   margin: 0;
+
   padding: 0;
+
   border: 0;
+
 }
+
+
 
 /* BODY
+
 =============================================================================*/
+
+
 
 body {
+
   font-family: Helvetica, arial, freesans, clean, sans-serif;
+
   font-size: 14px;
+
   line-height: 1.6;
+
   color: #333;
+
   background-color: #fff;
+
   padding: 20px;
+
   max-width: 960px;
+
   margin: 0 auto;
+
 }
+
+
 
 body>*:first-child {
+
   margin-top: 0 !important;
+
 }
+
+
 
 body>*:last-child {
+
   margin-bottom: 0 !important;
+
 }
+
+
 
 /* BLOCKS
+
 =============================================================================*/
+
+
 
 p, blockquote, ul, ol, dl, table, pre {
+
   margin: 15px 0;
+
 }
+
+
 
 /* HEADERS
+
 =============================================================================*/
+
+
 
 h1, h2, h3, h4, h5, h6 {
+
   margin: 20px 0 10px;
+
   padding: 0;
+
   font-weight: bold;
+
   -webkit-font-smoothing: antialiased;
+
 }
+
+
 
 h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+
   font-size: inherit;
+
 }
+
+
 
 h1 {
+
   font-size: 28px;
+
   color: #000;
+
 }
+
+
 
 h2 {
+
   font-size: 24px;
+
   border-bottom: 1px solid #ccc;
+
   color: #000;
+
 }
+
+
 
 h3 {
+
   font-size: 18px;
+
 }
+
+
 
 h4 {
+
   font-size: 16px;
+
 }
+
+
 
 h5 {
+
   font-size: 14px;
+
 }
+
+
 
 h6 {
+
   color: #777;
+
   font-size: 14px;
+
 }
+
+
 
 body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+
   margin-top: 0;
+
   padding-top: 0;
+
 }
+
+
 
 a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+
   margin-top: 0;
+
   padding-top: 0;
+
 }
+
+
 
 h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+
   margin-top: 10px;
+
 }
+
+
 
 /* LINKS
+
 =============================================================================*/
+
+
 
 a {
+
   color: #4183C4;
+
   text-decoration: none;
+
 }
+
+
 
 a:hover {
+
   text-decoration: underline;
+
 }
+
+
 
 /* LISTS
+
 =============================================================================*/
+
+
 
 ul, ol {
+
   padding-left: 30px;
+
 }
+
+
 
 ul li > :first-child, 
+
 ol li > :first-child, 
+
 ul li ul:first-of-type, 
+
 ol li ol:first-of-type, 
+
 ul li ol:first-of-type, 
+
 ol li ul:first-of-type {
+
   margin-top: 0px;
+
 }
+
+
 
 ul ul, ul ol, ol ol, ol ul {
+
   margin-bottom: 0;
+
 }
+
+
 
 dl {
+
   padding: 0;
+
 }
+
+
 
 dl dt {
+
   font-size: 14px;
+
   font-weight: bold;
+
   font-style: italic;
+
   padding: 0;
+
   margin: 15px 0 5px;
+
 }
+
+
 
 dl dt:first-child {
+
   padding: 0;
+
 }
+
+
 
 dl dt>:first-child {
+
   margin-top: 0px;
+
 }
+
+
 
 dl dt>:last-child {
+
   margin-bottom: 0px;
+
 }
+
+
 
 dl dd {
+
   margin: 0 0 15px;
+
   padding: 0 15px;
+
 }
+
+
 
 dl dd>:first-child {
+
   margin-top: 0px;
+
 }
+
+
 
 dl dd>:last-child {
+
   margin-bottom: 0px;
+
 }
+
+
 
 /* CODE
+
 =============================================================================*/
+
+
 
 pre, code, tt {
+
   font-size: 12px;
+
   font-family: Consolas, "Liberation Mono", Courier, monospace;
+
 }
+
+
 
 code, tt {
+
   margin: 0 0px;
+
   padding: 0px 0px;
+
   white-space: nowrap;
+
   border: 1px solid #eaeaea;
+
   background-color: #f8f8f8;
+
   border-radius: 3px;
+
 }
+
+
 
 pre>code {
+
   margin: 0;
+
   padding: 0;
+
   white-space: pre;
+
   border: none;
+
   background: transparent;
+
 }
+
+
 
 pre {
+
   background-color: #f8f8f8;
+
   border: 1px solid #ccc;
+
   font-size: 13px;
+
   line-height: 19px;
+
   overflow: auto;
+
   padding: 6px 10px;
+
   border-radius: 3px;
+
 }
+
+
 
 pre code, pre tt {
+
   background-color: transparent;
+
   border: none;
+
 }
+
+
 
 kbd {
+
     -moz-border-bottom-colors: none;
+
     -moz-border-left-colors: none;
+
     -moz-border-right-colors: none;
+
     -moz-border-top-colors: none;
+
     background-color: #DDDDDD;
+
     background-image: linear-gradient(#F1F1F1, #DDDDDD);
+
     background-repeat: repeat-x;
+
     border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+
     border-image: none;
+
     border-radius: 2px 2px 2px 2px;
+
     border-style: solid;
+
     border-width: 1px;
+
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
     line-height: 10px;
+
     padding: 1px 4px;
+
 }
+
+
 
 /* QUOTES
+
 =============================================================================*/
+
+
 
 blockquote {
+
   border-left: 4px solid #DDD;
+
   padding: 0 15px;
+
   color: #777;
+
 }
+
+
 
 blockquote>:first-child {
+
   margin-top: 0px;
+
 }
+
+
 
 blockquote>:last-child {
+
   margin-bottom: 0px;
+
 }
+
+
 
 /* HORIZONTAL RULES
+
 =============================================================================*/
+
+
 
 hr {
+
   clear: both;
+
   margin: 15px 0;
+
   height: 0px;
+
   overflow: hidden;
+
   border: none;
+
   background: transparent;
+
   border-bottom: 4px solid #ddd;
+
   padding: 0;
+
 }
+
+
 
 /* TABLES
+
 =============================================================================*/
+
+
 
 table th {
+
   font-weight: bold;
+
 }
+
+
 
 table th, table td {
+
   border: 1px solid #ccc;
+
   padding: 6px 13px;
+
 }
+
+
 
 table tr {
+
   border-top: 1px solid #ccc;
+
   background-color: #fff;
+
 }
+
+
 
 table tr:nth-child(2n) {
+
   background-color: #f8f8f8;
+
 }
+
+
 
 /* IMAGES
+
 =============================================================================*/
 
+
+
 img {
+
   max-width: 100%
+
 }
+
 </style>
+
 <style type="text/css">
+
 .highlight  { background: #ffffff; }
+
 .highlight .c { color: #999988; font-style: italic } /* Comment */
+
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+
 .highlight .k { font-weight: bold } /* Keyword */
+
 .highlight .o { font-weight: bold } /* Operator */
+
 .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+
 .highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+
 .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+
 .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+
 .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+
 .highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+
 .highlight .ge { font-style: italic } /* Generic.Emph */
+
 .highlight .gr { color: #aa0000 } /* Generic.Error */
+
 .highlight .gh { color: #999999 } /* Generic.Heading */
+
 .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+
 .highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+
 .highlight .go { color: #888888 } /* Generic.Output */
+
 .highlight .gp { color: #555555 } /* Generic.Prompt */
+
 .highlight .gs { font-weight: bold } /* Generic.Strong */
+
 .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+
 .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+
 .highlight .kc { font-weight: bold } /* Keyword.Constant */
+
 .highlight .kd { font-weight: bold } /* Keyword.Declaration */
+
 .highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+
 .highlight .kr { font-weight: bold } /* Keyword.Reserved */
+
 .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+
 .highlight .m { color: #009999 } /* Literal.Number */
+
 .highlight .s { color: #d14 } /* Literal.String */
+
 .highlight .na { color: #008080 } /* Name.Attribute */
+
 .highlight .nb { color: #0086B3 } /* Name.Builtin */
+
 .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+
 .highlight .no { color: #008080 } /* Name.Constant */
+
 .highlight .ni { color: #800080 } /* Name.Entity */
+
 .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+
 .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+
 .highlight .nn { color: #555555 } /* Name.Namespace */
+
 .highlight .nt { color: #000080 } /* Name.Tag */
+
 .highlight .nv { color: #008080 } /* Name.Variable */
+
 .highlight .ow { font-weight: bold } /* Operator.Word */
+
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+
 .highlight .mf { color: #009999 } /* Literal.Number.Float */
+
 .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+
 .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+
 .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+
 .highlight .sb { color: #d14 } /* Literal.String.Backtick */
+
 .highlight .sc { color: #d14 } /* Literal.String.Char */
+
 .highlight .sd { color: #d14 } /* Literal.String.Doc */
+
 .highlight .s2 { color: #d14 } /* Literal.String.Double */
+
 .highlight .se { color: #d14 } /* Literal.String.Escape */
+
 .highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+
 .highlight .si { color: #d14 } /* Literal.String.Interpol */
+
 .highlight .sx { color: #d14 } /* Literal.String.Other */
+
 .highlight .sr { color: #009926 } /* Literal.String.Regex */
+
 .highlight .s1 { color: #d14 } /* Literal.String.Single */
+
 .highlight .ss { color: #990073 } /* Literal.String.Symbol */
+
 .highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+
 .highlight .vc { color: #008080 } /* Name.Variable.Class */
+
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
+
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
 .pl-c {
+
     color: #969896;
+
 }
+
+
 
 .pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+
     color: #0086b3;
+
 }
+
+
 
 .pl-e,.pl-en {
+
     color: #795da3;
+
 }
+
+
 
 .pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+
     color: #333;
+
 }
+
+
 
 .pl-ent {
+
     color: #63a35c;
+
 }
+
+
 
 .pl-k,.pl-s,.pl-st {
+
     color: #a71d5d;
+
 }
+
+
 
 .pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+
     color: #df5000;
+
 }
+
+
 
 .pl-id {
+
     color: #b52a1d;
+
 }
+
+
 
 .pl-ii {
+
     background-color: #b52a1d;
+
     color: #f8f8f8;
+
 }
+
+
 
 .pl-sr .pl-cce {
+
     color: #63a35c;
+
     font-weight: bold;
+
 }
+
+
 
 .pl-ml {
+
     color: #693a17;
+
 }
+
+
 
 .pl-mh,.pl-mh .pl-en,.pl-ms {
+
     color: #1d3e81;
+
     font-weight: bold;
+
 }
+
+
 
 .pl-mq {
+
     color: #008080;
+
 }
+
+
 
 .pl-mi {
+
     color: #333;
+
     font-style: italic;
+
 }
+
+
 
 .pl-mb {
+
     color: #333;
+
     font-weight: bold;
+
 }
+
+
 
 .pl-md,.pl-mdhf {
+
     background-color: #ffecec;
+
     color: #bd2c00;
+
 }
+
+
 
 .pl-mdht,.pl-mi1 {
+
     background-color: #eaffea;
+
     color: #55a532;
+
 }
+
+
 
 .pl-mdr {
+
     color: #795da3;
+
     font-weight: bold;
+
 }
+
+
 
 .pl-mo {
+
     color: #1d3e81;
+
 }
+
 .task-list {
+
 padding-left:10px;
+
 margin-bottom:0;
+
 }
+
+
 
 .task-list li {
+
     margin-left: 20px;
+
 }
+
+
 
 .task-list-item {
+
 list-style-type:none;
+
 padding-left:10px;
+
 }
+
+
 
 .task-list-item label {
+
 font-weight:400;
+
 }
+
+
 
 .task-list-item.enabled label {
+
 cursor:pointer;
+
 }
+
+
 
 .task-list-item+.task-list-item {
+
 margin-top:3px;
+
 }
+
+
 
 .task-list-item-checkbox {
+
 display:inline-block;
+
 margin-left:-20px;
+
 margin-right:3px;
+
 vertical-align:1px;
+
 }
+
 </style>
+
 </head>
+
 <body>
+
 <h1 id="2017-06-09">2017 06 09</h1>
-<p><a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3" title="查看">文档地址</a> —— <a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%2FAndBaseDemo%E6%A1%86%E6%9E%B6" title="查看">源文件相关</a></p>
-<h1 id="01">1. 简介</h1><br><a href="#0101">说明</a> —— <a href="#0102">如何创建</a><br><h1 id="02">2. 资源的引用</h1><br><a href="#0201">资源的引用</a><br><br>参考文档<br><a href="5%9D%97" title="查看">订单</a><br><br>1. 简介<br><br><h1 id="0101">1. 说明</h1>
+<p><a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3" title="查看">文档地址</a> —— <a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%2F%E6%A8%A1%E5%9D%97%E7%B3%BB%E5%88%97%2FTanYinQingAar" title="查看">源文件相关</a>——  <a href="https://tanyinqing.github.io/">个人首页</a></p>
+<ul>
+<li><h3 id="-h1-id-1-h1-">暂留  <h1 id="1"></h1></h3>
+<p><a href="#101">1. Android不同版本的判断</a> ——  <a href="#102">2. 需要的权限</a> ——  <a href="#103">3. 如何制作Jar</a> ——  <a href="#104">4. 常用的模板代码</a></p>
+</li><li><h3 id="-h1-id-2-h1-">创建  <h1 id="2"></h1></h3>
+</li><li><h3 id="-201-202-">其他 →<a href="#201">说明</a> —— <a href="#202">如何创建</a></h3>
+</li><li><h3 id="global-3-myapplication-203-4-constant-204-">global →<a href="#203">3. MyApplication</a>→<a href="#204">4. Constant</a></h3>
+</li><li><h3 id="-h1-id-3-h1-">资源  <h1 id="3"></h1></h3>
+<p><a href="#301">1. 资源的引用</a>→<a href="#302">2. AndroidManifest.xml</a>→<a href="#303">3. styles.xml</a>→<a href="#304">4. themes.xml</a>→<a href="#305">5. colors.xml</a>→<a href="#306">6. dimens.xml</a>→<a href="#307">7. strings.xml</a></p>
+</li></ul>
+<p>参考文档<br><a href="5%9D%97" title="查看">订单</a></p>
+<ol>
+<li>简介  </li></ol>
+<h1 id="201">1. 说明</h1>
 
-<p><a href="#01">返回目录</a></p>
+<p><a href="#2">返回目录</a></p>
+<p>包含的Jar有andbase.jar→universal-image-loader-1.9.3.jar→xUtils-2.6.14.jar</p>
 <p>源代码的名字叫 TanYinQingJar  这个文件的作用就是一些资源文件，记住包里不加入依赖，都是源代码，不和别的项目绑定。</p>
-<h1 id="0102">2. 如何创建</h1>
+<h1 id="202">2. 如何创建</h1>
 
-<p><a href="#01">返回目录</a></p>
-<pre><code>使用Aar文件时要进行配置
- compile(name: &#39;tanyinqingmyaar-release&#39;, ext: &#39;aar&#39;)
-
-本地电脑地址
-D:\studiospace\AndroidCodeWareHouse\TanYinQing\TanYinQingAar
-
+<p><a href="#2">返回目录</a></p>
+<p>使用Aar文件时要进行配置<br> compile(name: &#39;tanyinqingmyaar-release&#39;, ext: &#39;aar&#39;)</p>
+<p>使用AAr包时 这个是app的module中的配置<br>  buildTypes {<br>        release {<br>            minifyEnabled false<br>            proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;<br>                    }<br>                }<br>      repositories {<br>              flatDir {<br>                    dirs &#39;libs&#39;<br>                        }<br>                    }</p>
+<p>本地电脑地址<br>D:\studiospace\MyCode</p>
+<pre><code>
 建立子模块时一定要选中Android Library
-使用AAr包时 这个是app的module中的配置
-  buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
-                    }
-                }
-      repositories {
-              flatDir {
-                    dirs &#39;libs&#39;
-                        }
-                    }
-
-
 
 
 但是必须apk要加入对module的依赖才可以生成jar
@@ -506,7 +973,7 @@ D:\studiospace\AndroidCodeWareHouse\TanYinQing\TanYinQingAar
 在android studio 提供的Terminal中（目录默认伟当前工程的）键入 gradlew makeJar 回车看到如下所示就OK了
 
 
-//Copy类型  这个的子module中配置
+//Copy类型  这个的子module中配置 放到最后的位置
 task makeJar(type: Copy) {
     //删除存在的
     delete &#39;build/libs/mysdk.jar&#39;
@@ -525,11 +992,487 @@ task makeJar(type: Copy) {
 makeJar.dependsOn(build)
 //在终端执行生成JAR包
 // gradlew makeJar
-</code></pre><h1 id="0201">2. 资源的引用</h1>
+</code></pre><h1 id="301">1. 资源的引用</h1>
 
-<p><a href="#02">返回目录</a></p>
+<p><a href="#3">返回目录</a></p>
+<pre><code>android:theme=&quot;@style/myTheme&quot;
+</code></pre><h1 id="302">2. AndroidManifest.xml</h1>
+
+<p><a href="#3">返回目录</a></p>
+<p>四大组件的声明</p>
+<pre><code> &lt;activity
+            android:name=&quot;.aar_Activity.MainActivity&quot;
+            android:label=&quot;@string/app_name&quot;
+            android:configChanges=&quot;keyboardHidden|orientation&quot;&gt;
+        &lt;/activity&gt;
+</code></pre><p>application</p>
+<pre><code> &lt;application                    android:name=&quot;.andbase.global.MyApplication&quot;
+        android:allowBackup=&quot;true&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:theme=&quot;@style/myTheme&quot;&gt;
+</code></pre><p>权限</p>
+<pre><code>&lt;!--bar--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.EXPAND_STATUS_BAR&quot; /&gt;
+    &lt;!--读写内存--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+    &lt;!--flashlight--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.CAMERA&quot; /&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.camera&quot; /&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.camera.autofocus&quot; /&gt;
+    &lt;uses-feature android:name=&quot;android.hardware.camera.flash&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.FLASHLIGHT&quot; /&gt;
+    &lt;!--位置--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+    &lt;!--&lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot; /&gt;--&gt;
+    &lt;!--网络--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+    &lt;!--&lt;uses-permission android:name=&quot;android.permission.MODIFY_PHONE_STATE&quot; /&gt;--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+    &lt;!--打电话--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
+    &lt;!--拨打电话--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot; /&gt;
+    &lt;!--发送短信--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot; /&gt;
+    &lt;!--获取手机联系人--&gt;
+    &lt;!--&lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/&gt;--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_CONTACTS&quot; /&gt;
+    &lt;!--获取短信--&gt;
+    &lt;!--&lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/&gt;--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot; /&gt;
+    &lt;!--进程--&gt;
+    &lt;uses-permission android:name=&quot;android.permission.KILL_BACKGROUND_PROCESSES&quot; /&gt;
+    &lt;!-- 其他 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
+    &lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot; /&gt; //振动
+    &lt;uses-permission android:name=&quot;android.permission.RECORD_AUDIO&quot; /&gt;
+    &lt;!-- --&gt;
+    &lt;uses-permission android:name=&quot;com.android.launcher.permission.INSTALL_SHORTCUT&quot; /&gt;
+    &lt;uses-permission android:name=&quot;com.android.browser.permission.READ_HISTORY_BOOKMARKS&quot; /&gt;
+    &lt;uses-permission android:name=&quot;com.android.browser.permission.WRITE_HISTORY_BOOKMARKS&quot; /&gt;
+</code></pre><h1 id="303">3. styles.xml</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>&lt;resources&gt;
+
+    &lt;!-- Base application theme. --&gt;
+    &lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;&gt;
+        &lt;!-- Customize your theme here. --&gt;
+    &lt;/style&gt;
+
+
+    &lt;style name=&quot;Widget&quot; parent=&quot;android:Widget&quot;&gt;&lt;/style&gt;
+
+    &lt;style name=&quot;mCustomWindowTitleBackground&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:background&quot;&gt;@color/transparent&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!--这个对可扩展列表的修改--&gt;
+    &lt;style name=&quot;mExpandableListView&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:groupIndicator&quot;&gt;@drawable/expander_group&lt;/item&gt;
+        &lt;item name=&quot;android:indicatorLeft&quot;&gt;10dip&lt;/item&gt;
+        &lt;item name=&quot;android:indicatorRight&quot;&gt;
+            ?android:attr/expandableListPreferredItemIndicatorRight
+        &lt;/item&gt;
+        &lt;item name=&quot;android:childDivider&quot;&gt;@drawable/list_divider&lt;/item&gt;
+
+    &lt;/style&gt;
+    &lt;!--这个对条形进度条的修改--&gt;
+    &lt;style name=&quot;mProgressBarHorizontal&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:indeterminateOnly&quot;&gt;false&lt;/item&gt;
+        &lt;item name=&quot;android:progressDrawable&quot;&gt;@drawable/progress_horizontal&lt;/item&gt;
+        &lt;item name=&quot;android:indeterminateDrawable&quot;&gt;@drawable/progress_indeterminate_horizontal
+        &lt;/item&gt;
+        &lt;item name=&quot;android:minHeight&quot;&gt;5dip&lt;/item&gt;
+        &lt;item name=&quot;android:maxHeight&quot;&gt;5dip&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!--这个圆形进度条的修改--&gt;
+    &lt;style name=&quot;mProgressBarCircular&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:indeterminateOnly&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:indeterminateDrawable&quot;&gt;@drawable/progress_circular&lt;/item&gt;
+        &lt;item name=&quot;android:minHeight&quot;&gt;5dip&lt;/item&gt;
+        &lt;item name=&quot;android:maxHeight&quot;&gt;5dip&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!--这个对白按钮的修改--&gt;
+    &lt;style name=&quot;mButtonWhite&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:background&quot;&gt;@drawable/button_selector_white&lt;/item&gt;
+        &lt;item name=&quot;android:focusable&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:clickable&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:textAppearance&quot;&gt;?android:attr/textAppearanceSmallInverse&lt;/item&gt;
+        &lt;item name=&quot;android:gravity&quot;&gt;center_vertical|center_horizontal&lt;/item&gt;
+        &lt;item name=&quot;android:textColor&quot;&gt;@android:color/primary_text_light&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!--这个对列表样式的修改--&gt;
+    &lt;style name=&quot;mListView&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:listSelector&quot;&gt;@drawable/list_selector_background&lt;/item&gt;
+        &lt;item name=&quot;android:cacheColorHint&quot;&gt;?android:attr/colorBackgroundCacheHint&lt;/item&gt;
+        &lt;item name=&quot;android:divider&quot;&gt;@drawable/list_divider&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;!--这个对输入框的修改--&gt;
+    &lt;style name=&quot;mEditText&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;item name=&quot;android:focusable&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:focusableInTouchMode&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:clickable&quot;&gt;true&lt;/item&gt;
+        &lt;item name=&quot;android:background&quot;&gt;@drawable/input_bg&lt;/item&gt;
+        &lt;item name=&quot;android:textAppearance&quot;&gt;?android:attr/textAppearanceMediumInverse&lt;/item&gt;
+        &lt;item name=&quot;android:textColor&quot;&gt;@color/gray&lt;/item&gt;
+        &lt;item name=&quot;android:gravity&quot;&gt;center_vertical&lt;/item&gt;
+    &lt;/style&gt;
+
+    &lt;!--这个是后来自己添加的 对文本的修改--&gt;
+    &lt;style name=&quot;mTextView&quot; parent=&quot;@style/Widget&quot;&gt;
+        &lt;!--&lt;item name=&quot;android:textColor&quot;&gt;@color/red&lt;/item&gt;--&gt;
+    &lt;/style&gt;
+    &lt;!--这个对选项框的修改--&gt;
+    &lt;style name=&quot;mCheckBox&quot; parent=&quot;@android:style/Widget.CompoundButton.CheckBox&quot;&gt;
+        &lt;item name=&quot;android:textSize&quot;&gt;18sp&lt;/item&gt;
+        &lt;item name=&quot;android:textColor&quot;&gt;@color/gray&lt;/item&gt;
+        &lt;item name=&quot;android:paddingLeft&quot;&gt;10dip&lt;/item&gt;
+        &lt;item name=&quot;android:button&quot;&gt;@drawable/check_box&lt;/item&gt;
+    &lt;/style&gt;
+
+
+&lt;/resources&gt;
+</code></pre><h1 id="304">4. themes.xml</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;resources xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;style name=&quot;myTheme&quot; parent=&quot;android:Theme&quot;&gt;
+        &lt;!-- &lt;item name=&quot;android:windowBackground&quot;&gt;@drawable/start&lt;/item&gt; --&gt;
+        &lt;item name=&quot;android:windowFullscreen&quot;&gt;false&lt;/item&gt;  //是否全屏
+        &lt;item name=&quot;android:windowContentOverlay&quot;&gt;@null&lt;/item&gt;  &lt;!--定义ActionBar窗体的背景--&gt;
+        &lt;item name=&quot;android:windowNoTitle&quot;&gt;false&lt;/item&gt;  //没有标题
+        &lt;item name=&quot;android:windowTitleSize&quot;&gt;55dip&lt;/item&gt;
+        &lt;item name=&quot;android:windowTitleBackgroundStyle&quot;&gt;@style/mCustomWindowTitleBackground&lt;/item&gt;
+        &lt;!--这个的各种常用控件的样式--&gt;
+        &lt;item name=&quot;android:expandableListViewStyle&quot;&gt;@style/mExpandableListView&lt;/item&gt;
+        &lt;item name=&quot;android:listViewStyle&quot;&gt;@style/mListView&lt;/item&gt;
+        &lt;item name=&quot;android:buttonStyle&quot;&gt;@style/mButtonWhite&lt;/item&gt;
+        &lt;item name=&quot;android:editTextStyle&quot;&gt;@style/mEditText&lt;/item&gt;
+        &lt;item name=&quot;android:checkboxStyle&quot;&gt;@style/mCheckBox&lt;/item&gt;
+      &lt;!-- 这个是后来自己添加的--&gt;
+         &lt;item name=&quot;android:textViewStyle&quot;&gt;@style/mTextView&lt;/item&gt;
+
+        &lt;item name=&quot;android:progressBarStyleHorizontal&quot;&gt;@style/mProgressBarHorizontal&lt;/item&gt;
+
+        &lt;item name=&quot;android:scrollbarSize&quot;&gt;15dip&lt;/item&gt;
+        &lt;item name=&quot;android:scrollbarThumbVertical&quot;&gt;@drawable/scrollbar_handle_vertical&lt;/item&gt;
+        &lt;item name=&quot;android:scrollbarTrackVertical&quot;&gt;@drawable/scrollbar_vertical&lt;/item&gt;
+    &lt;/style&gt;
+
+&lt;/resources&gt;
+</code></pre><h1 id="305">5. colors.xml</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;resources&gt;
+    &lt;color name=&quot;red&quot;&gt;#FF0000&lt;/color&gt;
+    &lt;color name=&quot;green&quot;&gt;#00FF00&lt;/color&gt;
+    &lt;color name=&quot;green_dark&quot;&gt;#9CDC6A&lt;/color&gt;
+    &lt;color name=&quot;blue&quot;&gt;#33B5E5&lt;/color&gt;
+    &lt;color name=&quot;white&quot;&gt;#FFFFFFFF&lt;/color&gt;
+    &lt;color name=&quot;black&quot;&gt;#000000&lt;/color&gt;
+    &lt;color name=&quot;gray&quot;&gt;#7c7c7c&lt;/color&gt;
+    &lt;color name=&quot;gray_white&quot;&gt;#ebebeb&lt;/color&gt;
+    &lt;color name=&quot;gray_light&quot;&gt;#887c7c7c&lt;/color&gt;
+    &lt;color name=&quot;gray_dark&quot;&gt;#2e2e2e&lt;/color&gt;
+    &lt;color name=&quot;yellow&quot;&gt;#FFFC00&lt;/color&gt;
+    &lt;color name=&quot;pink&quot;&gt;#FF87EF&lt;/color&gt;
+    &lt;color name=&quot;orange&quot;&gt;#ff6200&lt;/color&gt;
+    &lt;color name=&quot;list_divider&quot;&gt;#D3D3D3&lt;/color&gt;
+    &lt;!--这个是透明色--&gt;
+    &lt;color name=&quot;transparent&quot;&gt;#00000000&lt;/color&gt;
+    &lt;color name=&quot;transparent_bg&quot;&gt;#88838B8B&lt;/color&gt;
+
+&lt;/resources&gt;
+</code></pre><h1 id="306">6. dimens.xml</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>&lt;resources&gt;
+    &lt;!-- Default screen margins, per the Android Design guidelines. --&gt;
+    &lt;dimen name=&quot;activity_horizontal_margin&quot;&gt;16dp&lt;/dimen&gt;
+    &lt;dimen name=&quot;activity_vertical_margin&quot;&gt;16dp&lt;/dimen&gt;
+
+    &lt;!-- slidingmenu配置 --&gt;
+    &lt;dimen name=&quot;slidingmenu_offset&quot;&gt;60dp&lt;/dimen&gt;
+    &lt;dimen name=&quot;shadow_width&quot;&gt;16dp&lt;/dimen&gt;
+&lt;/resources&gt;
+</code></pre><h1 id="307">7. strings.xml</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;TanYinQingMyAar&lt;/string&gt;
+
+    &lt;string name=&quot;hello_world&quot;&gt;Hello world!&lt;/string&gt;
+    &lt;string name=&quot;action_settings&quot;&gt;Settings&lt;/string&gt;
+    &lt;string name=&quot;copyright&quot;&gt;© 2012 amsoft.cn&lt;/string&gt;
+
+    &lt;!--登录页面--&gt;
+    &lt;string name=&quot;rem_pwd&quot;&gt;记住密码&lt;/string&gt;
+    &lt;string name=&quot;register&quot;&gt;注册&lt;/string&gt;
+    &lt;string name=&quot;login&quot;&gt;登录&lt;/string&gt;
+    &lt;string name=&quot;find_pwd&quot;&gt;找回密码&lt;/string&gt;
+    &lt;string name=&quot;userPwd&quot;&gt;密码&lt;/string&gt;
+    &lt;string name=&quot;userName&quot;&gt;用户名&lt;/string&gt;
+    &lt;string name=&quot;im_login&quot;&gt;登录&lt;/string&gt;
+    &lt;string name=&quot;error_name_expr&quot;&gt;用户名只能是字母和数字&lt;/string&gt;
+    &lt;string name=&quot;error_pwd_expr&quot;&gt;密码只能是字母和数字&lt;/string&gt;
+    &lt;string name=&quot;error_name&quot;&gt;请输入用户名！&lt;/string&gt;
+    &lt;string name=&quot;error_name_length1&quot;&gt;用户名长度不能少于3个字符&lt;/string&gt;
+    &lt;string name=&quot;error_name_length2&quot;&gt;用户名长度不能超过20个字符&lt;/string&gt;
+    &lt;string name=&quot;error_pwd&quot;&gt;请输入密码！&lt;/string&gt;
+    &lt;string name=&quot;error_pwd_length1&quot;&gt;密码长度不能少于6个字符&lt;/string&gt;
+    &lt;string name=&quot;error_pwd_length2&quot;&gt;密码长度不能超过20个字符&lt;/string&gt;
+
+
+    &lt;string name=&quot;agreement_name&quot;&gt;用户注册协议&lt;/string&gt;
+    &lt;string name=&quot;read_desc&quot;&gt;请仔细阅读如下条款&lt;/string&gt;
+    &lt;string name=&quot;agreement_desc&quot;&gt;\t提醒：本程序是一款Android学习产品，使用本程序即同意如下条款。
+        \n1、服务修订
+        \n本程序所有者保留随时修改或中断服务而不需通知用户的权利。
+        \n2、用户隐私制度
+        \n尊重用户个人隐私是本公司的一项基本政策。本公司一定不会在用户不允许的情况下公开、或透露用户的注册资料。
+        \n3、用户的帐号、密码和安全性
+        \n如果您未保管好自己的帐号和密码而对您或第三方造成的损害，责任由用户个人承担。
+        \n4、拒绝提供担保和免责声明
+        \n用户明确同意使用本项服务的风险由用户个人承担。服务提供是建立在免费的基础上。本公司不提供任何类型的担保。
+        \n5、用户管理
+        \n用户单独承担发布内容的责任。用户对服务的使用是根据所有适用于服务的地方法律、国家法律和国际法律标准的。
+        \n6、通告
+        \n所有发给用户的通告都可通过电子邮件或常规的信件传送。
+    &lt;/string&gt;
+
+    &lt;string name=&quot;user_email&quot;&gt;邮箱&lt;/string&gt;
+    &lt;string name=&quot;register_name&quot;&gt;新用户注册&lt;/string&gt;
+    &lt;string name=&quot;error_email_expr&quot;&gt;邮箱格式不正确!&lt;/string&gt;
+    &lt;string name=&quot;error_email_expr2&quot;&gt;邮箱不能输入中文!&lt;/string&gt;
+    &lt;string name=&quot;error_email&quot;&gt;请输入邮箱！&lt;/string&gt;
+    &lt;string name=&quot;okBtn&quot;&gt;确定&lt;/string&gt;
+    &lt;string name=&quot;about&quot;&gt;关于&lt;/string&gt;
+    &lt;string name=&quot;version_lable&quot;&gt;程序版本：&lt;/string&gt;
+    // n是换行符 t是空格
+    &lt;string name=&quot;about_desc&quot;&gt;
+      \t\tAndroid开发宝
+      \n\t\t又“andBase开发框架”
+      andbase是为Android开发者量身打造的一款开源类库产品，
+                 您可以在amsoft.cn中获取到最新的代码，示例以及开发文档。
+      \n\t\tandbase中包含了大量的开发常用手段，如网络下载，Http请求,线程与线程池的管理，
+          图片缓存管理，图片文件下载上传，数据库ORM框架，并封装了大量常用工具类入如字符串，日期，文件处理，图片处理等，
+          能够使您的应用在团队开发中减少冗余代码，很大的提高了代码的维护性与开发高效性，
+          能很好的规避由于开发疏忽而导致常犯的错误。
+      \n\t\t同时andbase也包含一些常用的控件，如侧边栏，下拉刷新，Tab滑动等，
+          不会使你的程序包变大，却能大幅度缩小您的程序。
+          而这一切都是免费的。
+       \n
+       \n\t\t官方主页：www.amsoft.cn
+       \n\t\t交流QQ群：38535812
+    &lt;/string&gt;
+    &lt;string name=&quot;firm_pwd&quot;&gt;确认密码&lt;/string&gt;
+    &lt;string name=&quot;agreement&quot;&gt;同意注册协议&lt;/string&gt;
+    &lt;string name=&quot;email&quot;&gt;邮箱,用于找回密码&lt;/string&gt;
+    &lt;string name=&quot;error_pwd_match&quot;&gt;两次密码输入不一致！&lt;/string&gt;
+    &lt;string name=&quot;error_agreement&quot;&gt;请阅读用户协议条款并同意!&lt;/string&gt;
+    &lt;string name=&quot;clear_cache&quot;&gt;清空缓存&lt;/string&gt;
+    &lt;string name=&quot;share_desc&quot;&gt;分享什么呢&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre><h1 id="203">3. MyApplication</h1>
+
+<p><a href="#2">返回目录</a></p>
+<pre><code>package codewarehouse.yzkj.com.tanyinqingmyaar.andbase.global;
+
+import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+
+import com.ab.global.AbAppConfig;
+import com.ab.global.AbConstant;
+
+import codewarehouse.yzkj.com.tanyinqingmyaar.Exception.CrashHandler;
+import codewarehouse.yzkj.com.tanyinqingmyaar.andbase.User;
+
+
+public class MyApplication extends Application {
+
+    // 登录用户
+    public User mUser = null;
+//默认的城市id和名字
+    public String cityid = Constant.DEFAULTCITYID;
+    public String cityName = Constant.DEFAULTCITYNAME;
+    public boolean userPasswordRemember = false;
+    public boolean ad = false;
+    public boolean isFirstStart = true;
+    public SharedPreferences mSharedPreferences = null;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //临时数据 初始化
+        mSharedPreferences = getSharedPreferences(AbAppConfig.SHARED_PATH,
+                Context.MODE_PRIVATE);
+        //对登录信息进行初始化
+        initLoginParams();
+        //这个是对长连接的信息进行初始化
+        initIMConfig();
+
+        //将捕捉未知异常的类初始化
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getApplicationContext());
+
+    }
+
+    /**
+     * 上次登录参数
+     */
+    private void initLoginParams() {
+        SharedPreferences preferences = getSharedPreferences(
+                AbAppConfig.SHARED_PATH, Context.MODE_PRIVATE);
+        String userName = preferences.getString(Constant.USERNAMECOOKIE, null);
+        String userPwd = preferences.getString(Constant.USERPASSWORDCOOKIE,
+                null);
+        Boolean userPwdRemember = preferences.getBoolean(
+                Constant.USERPASSWORDREMEMBERCOOKIE, false);
+        if (userName != null) {
+            mUser = new User();
+            mUser.setUserName(userName);
+            mUser.setPassword(userPwd);
+            userPasswordRemember = userPwdRemember;
+        }
+    }
+
+    //记忆常规登录参数
+    public void updateLoginParams(User user) {
+        mUser = user;
+        if (userPasswordRemember) {
+            Editor editor = mSharedPreferences.edit();
+            editor.putString(Constant.USERNAMECOOKIE, user.getUserName());
+            editor.putString(Constant.USERPASSWORDCOOKIE, user.getPassword());
+            editor.putBoolean(Constant.ISFIRSTSTART, false);
+            editor.commit();
+        } else {
+            Editor editor = mSharedPreferences.edit();
+            editor.putBoolean(Constant.ISFIRSTSTART, false);
+            editor.commit();
+        }
+        isFirstStart = false;
+    }
+
+    /**
+     * 清空上次登录参数
+     */
+    public void clearLoginParams() {
+        Editor editor = mSharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+        mUser = null;
+    }
+
+    /**
+     * IM配置  这个是对长连接的信息进行初始化
+     */
+    public void initIMConfig() {
+     /*   IMConfig mIMConfig = new IMConfig();
+
+        mIMConfig.setXmppHost(mSharedPreferences.getString(
+                IMConstant.XMPP_HOST,
+                getResources().getString(R.string.xmpp_host)));
+
+        mIMConfig.setXmppPort(mSharedPreferences.getInt(
+                IMConstant.XMPP_PORT,
+                getResources().getInteger(R.integer.xmpp_port)));
+
+        mIMConfig.setXmppServiceName(mSharedPreferences.getString(
+                IMConstant.XMPP_SEIVICE_NAME,
+                getResources().getString(R.string.xmpp_service_name)));
+
+        mIMConfig.setNovisible(mSharedPreferences.getBoolean(
+                IMConstant.IS_NOVISIBLE,
+                getResources().getBoolean(R.bool.is_novisible)));
+
+        IMUtil.setIMConfig(this.getApplicationContext(),mIMConfig);*/
+
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+    }
+
+}
+</code></pre><h1 id="204">4. Constant</h1>
+
+<p><a href="#2">返回目录</a></p>
+<pre><code>package codewarehouse.yzkj.com.tanyinqingmyaar.andbase.global;
+
+
+
+public class Constant {
+
+    public static final Boolean CeShiBanKai =true;//正式版为 false   测试版为 true
+
+    public static final boolean DEBUG = true;
+    public static final String sharePath = &quot;andbase_share&quot;;
+    public static final String USERSID = &quot;user&quot;;
+    //页面默认显示南京，登陆后显示注册用户的城市
+    public static final String CITYID = &quot;cityId&quot;;
+    public static final String CITYNAME = &quot;cityName&quot;;
+    public static final String DEFAULTCITYID = &quot;1001&quot;;//默认城市id
+    public static final String DEFAULTCITYNAME = &quot;南京&quot;;//默认城市名字
+
+    //cookies
+    public static final String USERNAMECOOKIE = &quot;cookieName&quot;;
+    public static final String USERPASSWORDCOOKIE = &quot;cookiePassword&quot;;
+    public static final String USERPASSWORDREMEMBERCOOKIE = &quot;cookieRemember&quot;;
+    public static final String ISFIRSTSTART = &quot;isfirstStart&quot;;
+
+    // 连接超时
+     public static final int timeOut = 12000;
+     // 建立连接
+     public static final int connectOut = 12000;
+     // 获取数据
+     public static final int getOut = 60000;
+
+     //1表示已下载完成
+     public static final int downloadComplete = 1;
+     //1表示未开始下载
+     public static final int undownLoad = 0;
+     //2表示已开始下载
+     public static final int downInProgress = 2;
+     //3表示下载暂停
+     public static final int downLoadPause = 3;
+
+     public static final String BASEURL = &quot;http://www.amsoft.cn/&quot;;
+
+     //应用的key
+     //1512528
+     public final static String APPID = &quot;1512528&quot;;
+
+     //jfa97P4HIhjxrAgfUdq1NoKC
+     public final static String APIKEY = &quot;jfa97P4HIhjxrAgfUdq1NoKC&quot;;
+
+
+}
+</code></pre><h1 id="301">1. 资源的引用</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>android:theme=&quot;@style/myTheme&quot;
+</code></pre><h1 id="301">1. 资源的引用</h1>
+
+<p><a href="#3">返回目录</a></p>
+<pre><code>android:theme=&quot;@style/myTheme&quot;
+</code></pre><h1 id="301">1. 资源的引用</h1>
+
+<p><a href="#3">返回目录</a></p>
 <pre><code>android:theme=&quot;@style/myTheme&quot;
 </code></pre>
+
 </body>
+
 </html>
+
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+
