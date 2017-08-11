@@ -1,139 +1,538 @@
- # 2017 07 18
->  [文档地址](http://pan.baidu.com/disk/home?errno=0&errmsg=Auth%20Login%20Sucess&&bduss=&ssnerror=0&#list/vmode=list&path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%2F%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3 "查看")——[总目录](https://tanyinqing.github.io/ "查看")
+<!DOCTYPE html>
+<html>
+<head>
+<title>解读开发文档</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
 
->  [本地开发文档](file:///D:/tanyinqing%20%20%E4%B8%AA%E4%BA%BA%E7%9A%84/%E5%AE%89%E5%8D%93%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3docs/docs/reference/android/app/Activity.html "查看") 
+/* RESET
+=============================================================================*/
 
-D:\studiospace\MyCode\谈安卓文档定制修改docs
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
-## 安卓开发文档 ## 
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="2017-07-18">2017 07 18</h1>
+<blockquote>
+<p> <a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%2F%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3" title="查看">文档地址</a>——<a href="https://tanyinqing.github.io/" title="查看">总目录</a></p>
+<p> <a href="file:///D:/tanyinqing%20%20%E4%B8%AA%E4%BA%BA%E7%9A%84/%E5%AE%89%E5%8D%93%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3docs/docs/reference/android/app/Activity.html" title="查看">本地开发文档</a> </p>
+</blockquote>
+<p>D:\studiospace\MyCode\谈安卓文档定制修改docs</p>
+<h2 id="-">安卓开发文档</h2>
 <h1 id="android_1"></h1> 
 
-* ### view包→[1. 类 ContextThemeWrapper](#android_101)→[2. 类 View](#android_102)
-
-* ### content.res包→[1. 类 Resources](#android_201)
-
-* ### widget包→[1. 类 PopupWindow](#android_301)
-
-* ### app包→[1. 类 Activity](#android_401)
-
-## Java开发文档 ## 
+<ul>
+<li><h3 id="view-1-contextthemewrapper-android_101-2-view-android_102-">view包→<a href="#android_101">1. 类 ContextThemeWrapper</a>→<a href="#android_102">2. 类 View</a></h3>
+</li><li><h3 id="content-res-1-resources-android_201-">content.res包→<a href="#android_201">1. 类 Resources</a></h3>
+</li><li><h3 id="widget-1-popupwindow-android_301-">widget包→<a href="#android_301">1. 类 PopupWindow</a></h3>
+</li><li><h3 id="app-1-activity-android_401-">app包→<a href="#android_401">1. 类 Activity</a></h3>
+</li></ul>
+<h2 id="java-">Java开发文档</h2>
 <h1 id="Java_1"></h1> 
 
-* ### java.lang包→[1. 类 String](#Java_101)
-
-参考文档
-[百度项目地址](97 "查看")
-
+<ul>
+<li><h3 id="java-lang-1-string-java_101-">java.lang包→<a href="#Java_101">1. 类 String</a></h3>
+</li></ul>
+<p>参考文档<br><a href="97" title="查看">百度项目地址</a></p>
  <h1 id="Java_101">1. 类 String</h1>
- 
- [返回目录](#Java_1) 
 
-String[] split(String regex) 
-          根据给定正则表达式的匹配拆分此字符串。 
- String toUpperCase() 
-          使用默认语言环境的规则将此 String 中的所有字符都转换为大写。 
-
+<p> <a href="#Java_1">返回目录</a> </p>
+<p>String[] split(String regex)<br>          根据给定正则表达式的匹配拆分此字符串。<br> String toUpperCase()<br>          使用默认语言环境的规则将此 String 中的所有字符都转换为大写。 </p>
  <h1 id="android_101">1. 类 ContextThemeWrapper</h1>
- 
- [返回目录](#android_1) 
- 
 
-ContextThemeWrapper extends ContextWrapper
-
-java.lang.Object
-   ↳	android.content.Context
- 	   ↳	android.content.ContextWrapper
- 	 	   ↳	android.view.ContextThemeWrapper
-
-
-Resources	getResources()
-返回给应用程序的包一个资源实例。
-
+<p> <a href="#android_1">返回目录</a> </p>
+<p>ContextThemeWrapper extends ContextWrapper</p>
+<p>java.lang.Object<br>   ↳    android.content.Context<br>        ↳    android.content.ContextWrapper<br>             ↳    android.view.ContextThemeWrapper</p>
+<p>Resources    getResources()<br>返回给应用程序的包一个资源实例。</p>
 <h1 id="android_102">2. 类 View</h1>
- 
- [返回目录](#android_1) 
- 
-本地目录
-D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\view  [本地链接](file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/view/View.html)
 
-
-
-### public class View extends Object implements Drawable.Callback KeyEvent.Callback AccessibilityEventSource
-
-java.lang.Object
-   ↳	android.view.View
-Known Direct Subclasses 子类
-AnalogClock, ImageView, KeyboardView, MediaRouteButton, ProgressBar, Space, SurfaceView, TextView, TextureView, ViewGroup, ViewStub
-Known Indirect Subclasses 间接子类
-AbsListView, AbsSeekBar, AbsSpinner, AbsoluteLayout, AdapterView<T extends Adapter>, AdapterViewAnimator, AdapterViewFlipper, AppWidgetHostView, AutoCompleteTextView, Button, CalendarView, CheckBox, CheckedTextView, and 55 others.
-
-Implementing a Custom View
-实现自定义视图
-要实现自定义视图，通常首先要为框架调用的所有标准方法提供覆盖。你不需要重写这些方法。事实上，你可以只是重写
-
-onFinishInflate()	Called after a view and all of its children has been inflated from XML.
-onfinishinflate()后视图和所有孩子的大涨从XML称为。
-
-Layout	
-onMeasure(int, int)	Called to determine the size requirements for this view and all of its children.
-调用以确定此视图及其所有子视图的大小要求。
-onLayout(boolean, int, int, int, int)	
-当这种观点应该指定大小和位置的所有孩子。
-onSizeChanged(int, int, int, int)	
-
-
-
+<p> <a href="#android_1">返回目录</a> </p>
+<p>本地目录<br>D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\view  <a href="file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/view/View.html">本地链接</a></p>
+<h3 id="public-class-view-extends-object-implements-drawable-callback-keyevent-callback-accessibilityeventsource">public class View extends Object implements Drawable.Callback KeyEvent.Callback AccessibilityEventSource</h3>
+<p>java.lang.Object<br>   ↳    android.view.View<br>Known Direct Subclasses 子类<br>AnalogClock, ImageView, KeyboardView, MediaRouteButton, ProgressBar, Space, SurfaceView, TextView, TextureView, ViewGroup, ViewStub<br>Known Indirect Subclasses 间接子类<br>AbsListView, AbsSeekBar, AbsSpinner, AbsoluteLayout, AdapterView<T extends Adapter>, AdapterViewAnimator, AdapterViewFlipper, AppWidgetHostView, AutoCompleteTextView, Button, CalendarView, CheckBox, CheckedTextView, and 55 others.</p>
+<p>Implementing a Custom View<br>实现自定义视图<br>要实现自定义视图，通常首先要为框架调用的所有标准方法提供覆盖。你不需要重写这些方法。事实上，你可以只是重写</p>
+<p>onFinishInflate()    Called after a view and all of its children has been inflated from XML.<br>onfinishinflate()后视图和所有孩子的大涨从XML称为。</p>
+<p>Layout<br>onMeasure(int, int)    Called to determine the size requirements for this view and all of its children.<br>调用以确定此视图及其所有子视图的大小要求。<br>onLayout(boolean, int, int, int, int)<br>当这种观点应该指定大小和位置的所有孩子。<br>onSizeChanged(int, int, int, int)    </p>
  <h1 id="android_201">1. 类 Resources</h1>
- 
- [返回目录](#android_1) 
- 
-D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\content\res [链接](file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/content/res/Resources.html)
 
-Drawable	getDrawable(int id)
- 返回一个与特定的资源ID相关联的Drawable对象
-
+<p> <a href="#android_1">返回目录</a> </p>
+<p>D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\content\res <a href="file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/content/res/Resources.html">链接</a></p>
+<p>Drawable    getDrawable(int id)<br> 返回一个与特定的资源ID相关联的Drawable对象</p>
  <h1 id="android_301">3. 类 PopupWindow</h1>
- 
- [返回目录](#android_1) 
- 
 
-PopupWindow
-extends Object
-java.lang.Object
-   ↳	android.widget.PopupWindow
-
-
-类概述
-一个弹出窗口，可以用来显示任意视图。弹出窗口是一个浮在当前活动顶部的容器。
-Summary 总结
-
-Nested Classes 内部类
-interface	PopupWindow.OnDismissListener	Listener that is called when this popup window is dismissed. 
-
-Constants
-int	INPUT_METHOD_FROM_FOCUSABLE	
- 模式setinputmethodmode（int）：对输入法的要求应根据弹出的集中度。
-
-void	showAtLocation(View parent, int gravity, int x, int y)
-在指定窗口的弹出窗口中显示内容视图。
-
+<p> <a href="#android_1">返回目录</a> </p>
+<p>PopupWindow<br>extends Object<br>java.lang.Object<br>   ↳    android.widget.PopupWindow</p>
+<p>类概述<br>一个弹出窗口，可以用来显示任意视图。弹出窗口是一个浮在当前活动顶部的容器。<br>Summary 总结</p>
+<p>Nested Classes 内部类<br>interface    PopupWindow.OnDismissListener    Listener that is called when this popup window is dismissed. </p>
+<p>Constants<br>int    INPUT_METHOD_FROM_FOCUSABLE<br> 模式setinputmethodmode（int）：对输入法的要求应根据弹出的集中度。</p>
+<p>void    showAtLocation(View parent, int gravity, int x, int y)<br>在指定窗口的弹出窗口中显示内容视图。</p>
  <h1 id="android_401">类 Activity</h1>
- 
- [返回目录](#android_1) 
 
-D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\app [链接](file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/app/Activity.html)
+<p> <a href="#android_1">返回目录</a> </p>
+<p>D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\app <a href="file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/app/Activity.html">链接</a></p>
+ <h1 id="android_301">3. 类 PopupWindow</h1>
 
+<p> <a href="#android_1">返回目录</a><br> <h1 id="android_301">3. 类 PopupWindow</h1></p>
+<p> <a href="#android_1">返回目录</a><br> <h1 id="android_301">3. 类 PopupWindow</h1></p>
+<p> <a href="#android_1">返回目录</a><br> <h1 id="android_301">3. 类 PopupWindow</h1></p>
+<p> <a href="#android_1">返回目录</a> </p>
 
-
- <h1 id="android_301">3. 类 PopupWindow</h1>
- 
- [返回目录](#android_1) 
- <h1 id="android_301">3. 类 PopupWindow</h1>
- 
- [返回目录](#android_1) 
- <h1 id="android_301">3. 类 PopupWindow</h1>
- 
- [返回目录](#android_1) 
- <h1 id="android_301">3. 类 PopupWindow</h1>
- 
- [返回目录](#android_1) 
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
