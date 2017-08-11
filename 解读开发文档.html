@@ -1,0 +1,139 @@
+ # 2017 07 18
+>  [文档地址](http://pan.baidu.com/disk/home?errno=0&errmsg=Auth%20Login%20Sucess&&bduss=&ssnerror=0&#list/vmode=list&path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%2F%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3 "查看")——[总目录](https://tanyinqing.github.io/ "查看")
+
+>  [本地开发文档](file:///D:/tanyinqing%20%20%E4%B8%AA%E4%BA%BA%E7%9A%84/%E5%AE%89%E5%8D%93%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3docs/docs/reference/android/app/Activity.html "查看") 
+
+D:\studiospace\MyCode\谈安卓文档定制修改docs
+
+## 安卓开发文档 ## 
+<h1 id="android_1"></h1> 
+
+* ### view包→[1. 类 ContextThemeWrapper](#android_101)→[2. 类 View](#android_102)
+
+* ### content.res包→[1. 类 Resources](#android_201)
+
+* ### widget包→[1. 类 PopupWindow](#android_301)
+
+* ### app包→[1. 类 Activity](#android_401)
+
+## Java开发文档 ## 
+<h1 id="Java_1"></h1> 
+
+* ### java.lang包→[1. 类 String](#Java_101)
+
+参考文档
+[百度项目地址](97 "查看")
+
+ <h1 id="Java_101">1. 类 String</h1>
+ 
+ [返回目录](#Java_1) 
+
+String[] split(String regex) 
+          根据给定正则表达式的匹配拆分此字符串。 
+ String toUpperCase() 
+          使用默认语言环境的规则将此 String 中的所有字符都转换为大写。 
+
+ <h1 id="android_101">1. 类 ContextThemeWrapper</h1>
+ 
+ [返回目录](#android_1) 
+ 
+
+ContextThemeWrapper extends ContextWrapper
+
+java.lang.Object
+   ↳	android.content.Context
+ 	   ↳	android.content.ContextWrapper
+ 	 	   ↳	android.view.ContextThemeWrapper
+
+
+Resources	getResources()
+返回给应用程序的包一个资源实例。
+
+<h1 id="android_102">2. 类 View</h1>
+ 
+ [返回目录](#android_1) 
+ 
+本地目录
+D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\view  [本地链接](file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/view/View.html)
+
+
+
+### public class View extends Object implements Drawable.Callback KeyEvent.Callback AccessibilityEventSource
+
+java.lang.Object
+   ↳	android.view.View
+Known Direct Subclasses 子类
+AnalogClock, ImageView, KeyboardView, MediaRouteButton, ProgressBar, Space, SurfaceView, TextView, TextureView, ViewGroup, ViewStub
+Known Indirect Subclasses 间接子类
+AbsListView, AbsSeekBar, AbsSpinner, AbsoluteLayout, AdapterView<T extends Adapter>, AdapterViewAnimator, AdapterViewFlipper, AppWidgetHostView, AutoCompleteTextView, Button, CalendarView, CheckBox, CheckedTextView, and 55 others.
+
+Implementing a Custom View
+实现自定义视图
+要实现自定义视图，通常首先要为框架调用的所有标准方法提供覆盖。你不需要重写这些方法。事实上，你可以只是重写
+
+onFinishInflate()	Called after a view and all of its children has been inflated from XML.
+onfinishinflate()后视图和所有孩子的大涨从XML称为。
+
+Layout	
+onMeasure(int, int)	Called to determine the size requirements for this view and all of its children.
+调用以确定此视图及其所有子视图的大小要求。
+onLayout(boolean, int, int, int, int)	
+当这种观点应该指定大小和位置的所有孩子。
+onSizeChanged(int, int, int, int)	
+
+
+
+ <h1 id="android_201">1. 类 Resources</h1>
+ 
+ [返回目录](#android_1) 
+ 
+D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\content\res [链接](file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/content/res/Resources.html)
+
+Drawable	getDrawable(int id)
+ 返回一个与特定的资源ID相关联的Drawable对象
+
+ <h1 id="android_301">3. 类 PopupWindow</h1>
+ 
+ [返回目录](#android_1) 
+ 
+
+PopupWindow
+extends Object
+java.lang.Object
+   ↳	android.widget.PopupWindow
+
+
+类概述
+一个弹出窗口，可以用来显示任意视图。弹出窗口是一个浮在当前活动顶部的容器。
+Summary 总结
+
+Nested Classes 内部类
+interface	PopupWindow.OnDismissListener	Listener that is called when this popup window is dismissed. 
+
+Constants
+int	INPUT_METHOD_FROM_FOCUSABLE	
+ 模式setinputmethodmode（int）：对输入法的要求应根据弹出的集中度。
+
+void	showAtLocation(View parent, int gravity, int x, int y)
+在指定窗口的弹出窗口中显示内容视图。
+
+ <h1 id="android_401">类 Activity</h1>
+ 
+ [返回目录](#android_1) 
+
+D:\studiospace\MyCode\谈安卓文档定制修改docs\reference\android\app [链接](file:///D:/studiospace/MyCode/%E8%B0%88%E5%AE%89%E5%8D%93%E6%96%87%E6%A1%A3%E5%AE%9A%E5%88%B6%E4%BF%AE%E6%94%B9docs/reference/android/app/Activity.html)
+
+
+
+ <h1 id="android_301">3. 类 PopupWindow</h1>
+ 
+ [返回目录](#android_1) 
+ <h1 id="android_301">3. 类 PopupWindow</h1>
+ 
+ [返回目录](#android_1) 
+ <h1 id="android_301">3. 类 PopupWindow</h1>
+ 
+ [返回目录](#android_1) 
+ <h1 id="android_301">3. 类 PopupWindow</h1>
+ 
+ [返回目录](#android_1) 
