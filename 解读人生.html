@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>解读人生</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="2017-07-28">2017 07 28</h1>
+<blockquote>
+<p> <a href="http://pan.baidu.com/disk/home?errno=0&amp;errmsg=Auth%20Login%20Sucess&amp;&amp;bduss=&amp;ssnerror=0&amp;#list/vmode=list&amp;path=%2F%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E5%A4%B9%2F%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%2FMarkDown%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3" title="查看">文档地址</a></p>
+</blockquote>
+<h1 id="1">1 其他杂谈</h1>  
+
+<ul>
+<li><h3 id="-1-goeasyway-101-2-102-3-103-">其他→<a href="#101">1. goeasyway总结人生</a>→<a href="#102">2. 对于愚蠢的人的原则</a>→<a href="#103">3. 蒸菜大全</a></h3>
+</li></ul>
+<p>参考文档<br><a href="http://www.jianshu.com/u/f9fbc7a39b36" title="查看">goeasyway的106篇文章</a></p>
+ <h1 id="101">1. goeasyway总结人生</h1>
+
+<p> <a href="#1">返回目录</a> </p>
+<p>人生，比的不就是谁有更多的选择吗？<br>正如一个后来参与我们讨论的阿里项目经理所说的观点一样，在面试时不一定非要看对方的技术能力，对方的理解力和解决问题的思路也很重要，而对理解力这方面的问题其实可以通过简单的交谈技巧来得到答案。</p>
+<p>你会使用了，不代表你就真地明白了</p>
+<p>是的，现在很多android的开源库，我们会用但不代表我们理解它们内部的实现机制，</p>
+<p>勿ctrl v ctrl c，勿百度，多点思考，多点钻研，多点研究开发文档。</p>
+<p>我觉得，先去把机制那一块了解了，然后自己尝试写，这样写的时候，才会舒服，不然这个类不会，那个方法不知道。瞬间就让你觉得很那。</p>
+<p>不怕神一样的对手，就怕猪一样的队友.</p>
+ <h1 id="102">2. 对于愚蠢的人的原则</h1>
+
+<p> <a href="#1">返回目录</a> </p>
+<p>对于一个愚蠢的人，你永远不要幻想唤醒她的灵知。因为她就是一个愚蠢的人。对愚蠢的人，千万要记住，一定不可以让她踏入高薪行业。因为她只有在有求于人的情况下，才会进行妥协。一旦她有了大量的资金，就会做出很多愚蠢的行为，会和所有的人发生碰撞，从而天下大乱。</p>
+  <h1 id="103">3.蒸菜大全</h1>
+
+<p> <a href="#1">返回目录</a><br><a href="http://www.xinshipu.com/zuofa/177788" title="查看">红枣百合蒸南瓜</a></p>
+<ul>
+<li><h3 id="-1-103-01-2-103-02-3-103-03-103-04-103-05-103-06-103-07-103-08-103-09-103-10-103-11-103-12-103-13-103-14-103-15-103-16-diy-103-17-103-18-103-19-103-20-103-21-103-22-103-23-103-24-103-25-">详情 →<a href="#103.01">1. 红枣百合蒸南瓜</a>→<a href="#103.02">2. 肉松蒸酿凉瓜</a>→<a href="#103.03">3. 滑嫩蒸鸡翅</a>→<a href="#103.04">香菇蒸翅中 炎炎夏日“蒸”滋味</a>→<a href="#103.05">龙井蒸牛肉</a>→<a href="#103.06">海鲜蒸蛋</a>→<a href="#103.07">肉米蒸茄子</a>→<a href="#103.08">南瓜蒸蛋糕</a>→<a href="#103.09">枸杞蒸蛋</a>→<a href="#103.10">蒸蒸日上</a>→<a href="#103.11">豆瓣酱蒸鸡翅</a>→<a href="#103.12">鸡翅爱上南瓜-鸡翅蒸南瓜</a>→<a href="#103.13">蒸糯米豆腐丸子</a>→<a href="#103.14">牛奶蒸蛋</a>→<a href="#103.15">南瓜蒸排骨</a>→<a href="#103.16">粤菜小点:豉椒蒸排骨</a>→<a href="#103.17">DIY肉末蒸豆腐</a>→<a href="#103.18">醉心蒸虾</a>→<a href="#103.19">豉椒蒸活鱼</a>→<a href="#103.20">蒸葡萄干蛋糕</a>→<a href="#103.21">蒸金针姑</a>→<a href="#103.22">补肝健脾 化痰止咳——清蒸鲈鱼</a>→<a href="#103.23">南瓜山药蒸饭</a>→<a href="#103.24">蒜茸蒸白菜</a>→<a href="#103.25">蒸地三鲜</a></h3>
+</li></ul>
+<h1 id="103.01">1. 红枣百合蒸南瓜</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>南瓜700克，红枣10只，百合1个，白芝麻1小把，蜂蜜2汤匙<br>做法<br>1.南瓜去籽，用不锈钢汤匙挖干净里面的瓜馕，削去外皮，做成一个南瓜碗<br>2.红枣清洗干净，去核（如果买无核的就只用洗洗就行）<br>3.鲜百合清洗后，一片片摘开<br>4.把红枣、百合装进南瓜碗里面<br>5.蒸锅里放一个蒸架，水开后，把南瓜碗放在蒸架上，中火蒸20分钟<br>6.等稍凉后，小心把南瓜碗移到碟子上<br>7.把碗里的汁水倒出来和蜂蜜搅拌一起，用刀切开南瓜碗，淋上蜂蜜汁，撒上白芝麻就可以吃了<br>关键词蒸南瓜  百合蒸南瓜  红枣百合蒸南瓜  南瓜  百合  红枣  </p>
+<h1 id="103.02">肉松蒸酿凉瓜</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>食材：凉瓜、香菇、肉馅、葱、姜、鲜马蹄。<br>调味料：盐、鸡粉、白砂糖、蚝油、花雕酒、胡椒粉、生粉。<br>做法<br>1.将干香菇提前浸泡、涨发好备用。葱、姜切末。<br>2.凉瓜洗净，顶刀横向切成3厘米左右的厚片。<br>3.用手轻轻推出瓜瓤，然后用小刀沿着圆形边缘修得工整一些，使其成环状。<br>4.涨发好的香菇挤干水分，切成小粒。鲜马蹄也同样切成小粒，挤干水分。<br>5.将肉馅倒入大碗，放入少许盐、鸡粉以及葱、姜末、香菇粒、花雕酒，顺时针搅拌摔打使其上劲。<br>6.当感觉肉馅上劲十足时，加入少许的水，继续搅拌，同时加入鲜马蹄粒，一个鸡蛋清，搅拌至肉馅细腻且任性十足即可。<br>7.锅中烧开水，水开后加入一点点盐，而后凉瓜环倒入焯水40秒，捞出立即过冷水。目的是使凉瓜更加翠绿。<br>8.用纸巾或干毛巾将凉瓜环上的水擦净，在瓜环内侧抹上一点干生粉，目的是使酿肉馅时肉馅与凉瓜黏合得更紧密。<br>9.小心地取一点肉馅在手中挤成丸子的形状，然后填入瓜环，稍作休整，使肉馅填满瓜环，底部不要露陷，顶部肉馅稍微出一点头即可。<br>10.将酿好的凉瓜整齐地摆在盘中，准备上锅蒸。<br>11.蒸锅的水烧开，将装有酿好凉瓜的盘子放入，大火蒸 10分钟，取出。<br>12.炒锅烧热，将盘中蒸凉瓜时溢出的汤汁倒入，如出汤较少可再加入一点高汤或水，烧开后，入蚝油、生抽、白砂糖、胡椒粉调味，而后加水淀粉勾一个薄薄的芡汁，淋在凉瓜上。就此，我们这道美味、营养且靓丽十足的肉松蒸酿凉瓜就大功告成啦。</p>
+<h1 id="103.03">滑嫩蒸鸡翅</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 香滑的嫩蒸鸡翅，美味的同时，营养绝不流失，赶紧试试吧！<br>材料<br>鸡中翅、木耳、姜、淀粉、料酒、生抽、花椒粉、胡椒粉、白糖、枸杞（没有可不放）<br>做法<br>1、鸡翅中浸泡半小时以上，期间换水一两次，沥干或擦干。<br>2、从中间剖开，剁小粒，加生抽、料酒、胡椒粉、少量花椒粉、白糖和姜片腌制半小时以上（时间越长越入味，可腌制过夜）。<br>3、木耳泡发洗净，枸杞洗净用凉开水浸泡。<br>4、将木耳铺在盘底，鸡翅拌入适量湿淀粉后铺在木耳上。<br>5、水开后放入蒸锅，中火蒸15分钟关火，撒入葱花和枸杞即可。<br>小诀窍<br>1、木耳换成香菇也很好吃，看个人喜好。<br>2、如果鸡翅量大或铺得较厚，可将蒸制时间延长至20分钟。<br>关键词蒸鸡  蒸鸡翅  鸡翅  滑嫩  </p>
+<h1 id="103.04">香菇蒸翅中 炎炎夏日“蒸”滋味</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 说，热吧，最近？热，很热，相当热！！热得我都不想进厨房了……周末还好点，菜头可以勇挑进厨房做饭的重任－－这点我很欣慰，菜头做菜也相当好吃～可是，现在，一个人的午饭，这么热的天，还是很令人抓狂……想想那炉火，那温度，还有那窗外的骄阳，实在很％￥^％×&amp;（×）（……所以，炎炎夏日，咱，还是想个法子可以离那炉火远点吧！那么“蒸”出来的滋味，该是个不错的选择！既不用一直在炉火边待着，又可以“蒸”出原汁原味，而且，还没煎炒炸等方式的火气和油腻，多好咧！今天，咱就来这个，香菇蒸翅中，炎炎夏日“蒸”滋味！<br>材料<br>原料：（1人份），鸡翅中4个，香菇2朵，姜10g，酱油2大勺（30ml），鸡精1/4小勺（1.2ml），小辣椒1个<br>做法<br>鸡翅中洗净，一切为二，香菇泡发切丝，姜去皮切丝<br>将除辣椒外的所有材料放入容器中，腌制20分钟<br>码入盘中<br>水开后上屉，大火蒸15分钟，出锅撒上辣椒圈即可<br>关键词滋味  夏日  翅中  香菇  </p>
+<h1 id="103.05">龙井蒸牛肉</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>鲜牛肉400克，龙井茶叶30克，鸡蛋1个。调料蚝油1大匙，酱油1大匙，味精1／2小匙，绍酒少许。<br>做法<br>1、将牛肉用清水冲洗干净，切成片，备用。<br>2、备好的牛肉片加入鸡蛋液、蚝油、酱油、味精、绍油腌渍3分钟。<br>3、龙井茶用温水泡开，拌入牛肉中，装入盘内，入蒸锅蒸3分钟即成。<br>材料替换<br>用虾仁替换牛肉，称龙井蒸虾仁。<br>口味变化<br>用香椿牙替换龙井茶，称为香椿蒸牛肉；用香菜替换龙井茶，称为香菜蒸牛肉。</p>
+<h1 id="103.06">海鲜蒸蛋</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 已丑年己巳月庚戌日，立夏宜婚娶、纳采、祭祀、祈福。。。<br>材料<br>鸡蛋1个，新鲜海虾2个，蛤蜊6个，盐2克，生抽2毫升，香菜叶2片<br>做法<br>1.鸡蛋在碗中打散，加盐、生抽调匀，然后加入2倍于蛋液的凉开水调匀后用细筛网过滤；（过滤后如果蛋羹液表面有泡沫也要一并捞除）<br>2.海虾去掉虾头剥去虾壳，虾尾的壳保留，用竹签剔除虾肠；蛤蜊用开水汆烫，剥出蛤蜊肉备用；<br>3.将准备好的海虾、蛤蜊放入两个小碗中，然后倒入蛋羹液至七、八分满，并用保鲜膜将碗口封住，大火烧开蒸锅中的水，将小碗放入，大火先蒸3分钟，转中火继续蒸8分钟，出锅时放上香菜叶点缀；<br>小诀窍<br>1、蛋液放入容器前一定要过筛，去除表面的泡沫。 2、碗口用保鲜膜封住，以防水汽进入造成蜂窝状的小孔，影响美观。<br>关键词蒸蛋  海鲜蒸蛋  海鲜  蛋  </p>
+<h1 id="103.07">肉米蒸茄子</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>猪肉 茄子 老姜 蒜头 香葱 料酒 老抽 豆豉辣酱 生粉<br>做法<br>1:茄子洗净上蒸锅 隔水蒸15-20分钟拿出撕成条摆盘<br>2:一小块猪肉剁碎 放姜 料酒 老抽 生粉抓匀腌5分钟<br>3:炒锅烧热倒油 放豆豉辣酱 肉糜煸炒 放少量水烧开 放盐 生粉勾芡浇淋在茄子上<br>4:蒜头切末 香葱切碎撒在上面即可<br>关键词蒸茄子  肉米蒸茄子  茄子  蒸  </p>
+<h1 id="103.08">南瓜蒸蛋糕</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>南瓜200克，鸡蛋两个，面粉40克，白糖45克<br>做法<br>1.南瓜切成块，放在微波炉转熟。然后过滤200克<br>2.蛋白分次加入白糖放入无油无水的容器中打至硬性发泡，打蛋盆倒扣不倒<br>3.南瓜泥加入两个蛋黄<br>4.搅拌均匀后，再加入过筛的面粉<br>5.搅拌均匀<br>6.再加入蛋白<br>7.用刮刀自下而上成均匀的面糊<br>8.倒入活底蛋糕模具中<br>9.上蒸笼，盖上保鲜膜，蒸38分钟左右<br>10.蒸好后，会涨高一点<br>11.取出从蛋糕底部将蛋糕取出来</p>
+<h1 id="103.09">3.蒸菜大全</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>蛋2颗，素高汤300cc，枸杞10公克，香菇丁30公克<br>做法<br>1.取一蒸碗，蛋加入素高汤搅拌均匀，再倒入滤网中仔细过滤后备用。<br>2.枸杞、香菇丁放入蛋液中搅散。<br>3.取一蒸锅，蒸锅水烧开，放入蒸碗盖上锅盖以中火蒸15分钟至熟即可。<br>关键词蒸蛋  枸杞蒸蛋  枸杞  蛋  </p>
+<h1 id="103.10">蒸蒸日上</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>猪肉馅（精肉），鸡蛋，葱，姜，盐，鸡精，花椒面<br>做法<br>做法：<br>1.锅中倒入少许油加热，待七成热时关火备用。<br>2.猪肉馅中加入葱花、姜末、花椒面、盐、鸡精，再倒入热好的油，按顺时针方向搅拌，要搅拌均匀，搅出劲儿。<br>3.将搅好的猪肉馅放入蒸碗中，铺平，直接在上面打鸡蛋。<br>4.上蒸锅开蒸，用大火让锅开始冒气后，转中火，再蒸25分钟就OK啦！<br>小诀窍<br>1.用熟油和陷好吃，特别香。<br>2.在打入鸡蛋之前，要按照鸡蛋的个数在铺平的肉馅上按几个小坑，这样能将打入的鸡蛋定位，不至于鸡蛋乱窜，影响了品相。<br>关键词蒸蒸日上  蒸  </p>
+<h1 id="103.11">豆瓣酱蒸鸡翅</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>鸡翅8个，六月鲜豆瓣酱，姜丝，葱段，料酒<br>做法<br>1.鸡翅洗净擦干表面水分，用刀在鸡翅上横切几刀，方便入味<br>2.把鸡翅放进容器中，放姜丝，葱段和一汤匙料酒，然后加一大勺豆瓣酱<br>3.所有材料拌匀，腌制0.5～1个小时<br>4.烧开锅中水，把腌制好的鸡翅放入大火蒸10分钟左右即可<br>关键词蒸鸡  蒸鸡翅  豆瓣酱蒸鸡翅  鸡翅  豆瓣  豆瓣酱  </p>
+<h1 id="103.12">鸡翅爱上南瓜-鸡翅蒸南瓜</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>鸡翅，南瓜，料酒、葱、姜、蚝油、盐、糖<br>做法<br>1、鸡翅清洗干净剁成合适大小；用料酒、盐、糖、蚝油、葱和姜将鸡翅腌制半小时入味。<br>2、南瓜去皮切成不均匀大小的块状。（为什么要切成不均匀大小块状因为我刀工不好）<br>3、将南瓜和鸡翅装盘，锅里水烧沸后放入鸡翅和南瓜大火蒸20分钟至鸡肉熟后即可享用拉。<br>关键词蒸南瓜  南瓜  鸡翅  瓜  </p>
+<h1 id="103.13">蒸糯米豆腐丸子</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 这个菜非常清爽，很好吃喔。<br>材料<br>绞肉150克，板豆腐一块，长糯米适量，胡椒粉，姜末，香油1茶匙，鸡蛋清一个，盐适量。<br>做法<br>1、长糯米泡水2小时沥干水份备用。<br>2、豆腐在开水中氽烫一下，压成泥。<br>3、绞肉中加入胡椒粉，姜末，香油一茶匙，鸡蛋清一个，盐搅拌均匀。<br>4、把步骤2的豆腐泥加入搅拌好调味料的绞肉中往一个方向搅拌均匀。<br>5、把搅拌好的豆腐肉泥在步骤1中的糯米里滚一滚。<br>6、上笼屉蒸15分钟即可。<br>关键词豆腐丸子  丸子  豆腐  豆腐丸  米豆腐  糯米  </p>
+<h1 id="103.14">牛奶蒸蛋</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>牛奶120ml，鸡蛋1个，白糖10克<br>做法<br>1.准备材料<br>2.鸡蛋打散<br>3.将牛奶慢慢的倒入鸡蛋液中<br>4.过滤进小碗中<br>5.包上保鲜膜就可以上锅蒸了，水开后蒸８分钟即可<br>关键词蒸蛋  牛奶蒸蛋  牛奶  蛋  </p>
+<h1 id="103.15">南瓜蒸排骨</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 早上去茶楼喝早茶，女儿很喜欢点蒸排骨。不过茶楼的早点蒸排骨就一点点，不够她塞牙缝，回来就经常缠着要我做。这个比较容易，茶楼的蒸排骨放的粉太多，还没我蒸的好吃。家里有个南瓜，小小的那种，我们叫金瓜，很好吃。这小金瓜和排骨一起蒸更好吃，排骨的味道渗透到南瓜里面，吃起来香喷喷的，甜绵绵的，好吃。<br>材料<br>肉排2根，南瓜1个，蒜适量，豆豉适量，生抽适量，盐适量，糖适量，生粉适量，鸡精适量<br>做法<br>1.将排骨切成小段，用蒜茸、豆豉、生抽、盐、糖、生粉、油、鸡精拌匀腌一会儿。<br>2.将南瓜去皮切块摆在盘底。<br>3.将排骨置于南瓜上面摆好，水开后入锅蒸20分钟。<br>4.香喷喷的南瓜蒸排骨出锅了。<br>小诀窍<br>生粉的分量不能太多，多了就不好吃了。<br>关键词蒸排骨  南瓜蒸排骨  排骨  南瓜 </p>
+<h1 id="103.16">粤菜小点:豉椒蒸排骨</h1>
+
+<p> <a href="#103">返回目录</a><br>材料<br>猪小排，豆豉1小匙，大蒜3粒，红辣椒1条，葱花少许，太白粉匙半，米酒1匙，盐，糖与味精少许，麻油半匙<br>做法<br>1、猪小排洗净切小块，豆豉泡热水再碾碎，大蒜垛成茸，红辣椒切钭片。<br>2、猪小排放两匙水用手微抓(让排骨吸收水份会更嫩与滑)，放豆豉、蒜茸、盐、糖与味精调味后，加米酒，再用手拌勺，再下生粉抓均，最后放进葱花、辣椒与麻油拌匀后，倒入蒸盘放进冷藏四小时备用。<br>3、大火烧锅热水，放入蒸盘隔水蒸十五分钟即可出菜。<br>关键词蒸排骨  豉椒蒸排骨  排骨  豉椒  </p>
+<h1 id="103.17">DIY肉末蒸豆腐</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>榨菜，豆腐，葱姜，肉泥，生抽，盐<br>做法<br>1、榨菜切成碎。<br>2、豆腐切小块，排入蒸碗中，撒上榨菜碎。<br>3、锅里热油，放入葱姜爆香，倒入肉泥，迅速划散，倒入生抽翻炒几分钟加盐即可。<br>4、把炒好的肉末连汤一起倒在豆腐上。<br>5、上锅蒸，水开后10分钟取出，撒香葱。搭配香菜更好。<br>关键词蒸豆腐  肉末蒸豆腐  豆腐  肉末  </p>
+<h1 id="103.18">醉心蒸虾</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 轻轻松松4个步骤，美味又好吃。<br>材料<br>虾，绍兴花雕酒，姜丝<br>做法<br>1.把虾放在铁盘上。<br>2.淋上绍兴花雕酒（越多越香）。<br>3.把姜丝放上。<br>4.用中火蒸10-15分钟。<br>小诀窍<br>1.可放一些小辣椒增添辣味。<br>关键词蒸虾  醉心蒸虾  虾  蒸  </p>
+<h1 id="103.19">豉椒蒸活鱼</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>活鱼1条约750克，豆鼓，红干椒各25克，姜，香葱各15克，料酒20克，精盐、鸡精各3克，味精2克，胡椒粉0.5克，香油10克，猪油50克。<br>做法<br>1、将活鱼宰杀去鳞，鳃，开膛去内脏及黑膜，洗净，从腹部至下额大开膛，按扁，两面鱼肉剞上斜刀。豆豉、红干椒、香葱、姜均切。<br>2、将鱼放入盘内，撒上精盐，鸡精，料酒略腌入味。<br>3、将姜末，豆豉，辣椒末，胡椒粉，味精均匀地撒在鱼上，淋上化猪油，放入蒸锅肉蒸熟取出，撒上葱末，淋上热香油鼠即成。<br>小诀窍<br>特点<br>鱼肉细嫩，咸香鲜辣，豉香浓郁。<br>操作提示<br>鱼一定要洗净血水，用旺火蒸制。<br>关键词豉椒蒸活鱼  活鱼  豉椒  鱼  </p>
+<h1 id="103.20">蒸葡萄干蛋糕</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 这款蛋糕用蒸的,没有烤箱或怕上火的用此法很好.算是中点吧.<br>材料<br>葡萄干50克，低粉110克，泡打粉0.5小匙，盐0.25小匙，香草精半小匙，鸡蛋3个，糖80克，炼乳1大匙，沙拉油1大匙<br>做法<br>1.葡萄干50克用温水泡半小后洗净沥干水.你只要有电动打蛋器(用手动也可以，只要你不怕累).<br>2.材料准备好后就可以把蒸锅的水烧上了.<br>3.低粉110克和半茶匙的泡打粉.1/4茶匙的盐，香草精半小匙(或用橙汁橙皮碎代替)一起过筛.<br>4.鸡蛋三个加糖80克打到浓稠发白(手指挑起蛋糊两秒内不滴落为好)加入炼乳一大勺(或用橙汁)和沙拉油一大勺用一档打匀后筛入面粉混合物.<br>5.轻手拌匀再加入葡萄干拌匀(留一些放在面糊上面)倒入八个布丁模中.<br>6.大火蒸十五分钟.香软可口，一点不比烤的差.<br>关键词葡萄干蛋糕  蒸葡萄干蛋糕  蛋糕  葡萄干  </p>
+<h1 id="103.21">蒸金针姑</h1>
+
+<p> <a href="#103">返回目录</a><br>菜谱简介 蒸过的金针菇很爽滑，保持原汁原味<br>材料<br>金针菇适量 蒜和姜适量 红辣椒适量<br>做法<br>1、金针菇洗净，攥干水（挤掉水）撕开平铺到盘子上。<br>2、一层金针菇撒入一些盐，一层层铺好。<br>3、用热油爆香姜和蒜末，略微焦黄就可以啦（可以放入一些切碎的红辣椒，买菜的时候没买到就没有放）<br>4、把蒜姜油倒在金针菇上，大火蒸10分钟就可以啦！<br>小诀窍<br>蒜和姜用油炸过，就这个油浇到金针菇上。把金针菇放到盘子上前，要挤干水。<br>关键词蒸  金针姑  金针  </p>
+<h1 id="103.22">补肝健脾 化痰止咳——清蒸鲈鱼</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>菜谱简介 清蒸鲈鱼，今天我一个人在家，蒸了米饭，蒸了鲈鱼，炒了菠菜，解决掉一顿午饭。鲈鱼含蛋白质、脂肪、碳水化合物等营养成分，还含有维生素B2、烟酸和微量的维生素B1、磷、铁等物质。能补肝肾、健脾胃、化痰止咳，对肝肾不足的人有很好的补益作用，还可以治胎动不安、产后少乳等症。准妈妈和产后妇女吃鲈鱼，既可补身，又不会造成营养过剩而导致肥胖。另外，鲈鱼血中含有较多的铜元素，铜是维持人体神经系统正常功能并参与数种物质代谢的关键酶功能发挥的不可缺少的矿物质。 对于新鲜的鱼类，最好的烹饪方法当然是清蒸了，最大限度的保持了它的营养和口感。<br>材料<br>【主料】<br>鲈鱼1条，火腿丝20克<br>【辅料】<br>姜数片，香葱3根<br>料酒2汤匙，盐适量<br>蚝油1汤匙，蒸鱼豉油3汤匙<br>猪油1汤匙，花椒10粒<br>柠檬汁数滴<br>做法<br>1.鲈鱼处理干净，两面抹上几刀，肚子里塞入姜片、葱白。加料酒、柠檬汁、适量盐抹匀，静置15分钟左右。<br>2.香葱切段，葱尾切丝泡水中，姜一段切片，一半切丝。火腿切丝。<br>3.把姜片、葱白平铺在盘底。这样做的目的是防止蒸的过程鱼皮与盘底粘连。<br>4.摆上腌好的鲈鱼，鱼身上摆一些姜丝。蒸锅水开后，上去蒸12分钟左右。具体时间视鱼的大小而定。<br>5.取一炒锅，加几粒花椒，猪油。烧开。出香味。<br>6.蒸好的鱼倒出里面的水，去掉姜丝，取一碗，加入蒸鱼豉油，蚝油，加适量烧好的猪油，搅匀，浇在鱼身上。<br>7.摆上火腿丝，撒葱花，几粒枸杞点缀。最后浇上烧好的花椒猪油。<br>小诀窍<br>蒸好的鱼，加入火腿丝，再浇上烧热的花椒猪油，油脂渗透进鱼肉，使鱼肉吃起来更香。<br>关键词蒸鲈鱼  清蒸鲈鱼  鲈鱼  清蒸  </p>
+<h1 id="103.23">南瓜山药蒸饭</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>发芽米饭1碗，南瓜1个，山药丁100g，盐适量，酱油适量<br>做法<br>1.南瓜对切去籽，一半去皮切小丁，另一半备用<br>2.米饭拌入南瓜丁和山药丁加入盐适量，酱油适量调味后填入南瓜内，用保鲜膜包住，移入蒸锅内中火蒸15分钟即可<br>关键词蒸饭  南瓜山药蒸饭  山药  南瓜  </p>
+<h1 id="103.24">蒜茸蒸白菜</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>主料：白菜一棵，蒜末，葱末。<br>做法<br>1、白菜洗干净切段，开水里烫一下，摆在盘子里<br>2、蒜末、葱末在油里爆香，铺在白菜上边<br>3、酱油、蚝油各一小勺，加少许味精，均匀的淋在白菜上<br>4、锅里烧开水，水开后放入白菜，大火蒸10分钟就OK了。<br>关键词蒜茸蒸  蒜茸蒸白菜  白菜  蒜茸  </p>
+<h1 id="103.25">蒸地三鲜</h1>
+
+<p> <a href="#103">返回目录</a> </p>
+<p>材料<br>茄子1根、土豆1个、青椒1个、红辣椒3片、盐、酱油、核桃油<br>做法<br>1、将茄子切好，放入小碗中蒸熟备用。<br>2、将土豆煮熟，将皮剥掉，切块后摆在碗中。<br>3、将青椒切成丁放入碗中，点缀上几个红辣椒片。<br>4、撒入核桃油、酱油、盐拌一拌即可。<br>关键词蒸  地三鲜  三鲜  鲜  </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
