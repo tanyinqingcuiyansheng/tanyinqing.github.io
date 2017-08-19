@@ -958,7 +958,7 @@ vertical-align:1px;
 <ul>
 <li><h3 id="8-io-">8数据存储与io→</h3>
 </li><li><h3 id="9contentprovider-">9ContentProvider实现数据共享→</h3>
-</li><li><h3 id="10-1001-intentservice-1002-1003-1004-1005-1006-1007-1008-">10 服务与广播→<a href="#1001">绑定服务并通信</a>→<a href="#1002">IntentService</a>→<a href="#1003">电话管理器</a>→<a href="#1004">短信管理器</a>→<a href="#1005"></a>→<a href="#1006"></a>→<a href="#1007"></a>→<a href="#1008"></a></h3>
+</li><li><h3 id="10-1001-intentservice-1002-1003-1004-1005-1006-1007-1008-1009-">10 服务与广播→<a href="#1001">绑定服务并通信</a>→<a href="#1002">IntentService</a>→<a href="#1003">电话管理器</a>→<a href="#1004">短信管理器</a>→<a href="#1005">音频管理器</a>→<a href="#1006">振动管理器</a>→<a href="#1007">手机闹钟服务</a>→<a href="#1008">接受广播服务</a>→<a href="#1009">接受系统广播</a></h3>
 </li></ul>
 <ul>
 <li><h3 id="11-">11多媒体应用开发→</h3>
@@ -1597,23 +1597,880 @@ public class MainActivity extends Activity
         return false;
     }
 }
-</code></pre><h1 id="1001">1. 绑定服务并通信</h1>
+</code></pre><h1 id="1005">1. 音频管理器</h1>
 
 <p><a href="#2">返回目录</a> </p>
+<p><img src="http://i.imgur.com/OMa078T.jpg" alt=""></p>
 <pre><code>测
 </code></pre><h1 id="1001">1. 绑定服务并通信</h1>
 
 <p><a href="#2">返回目录</a> </p>
-<pre><code>测
-</code></pre><h1 id="1001">1. 绑定服务并通信</h1>
+<p>静音或正常的按钮</p>
+<pre><code>&lt;ToggleButton
+    android:id=&quot;@+id/mute&quot;
+    android:layout_width=&quot;wrap_content&quot; 
+    android:layout_height=&quot;wrap_content&quot; 
+    android:textOn=&quot;@string/normal&quot;
+    android:textOff=&quot;@string/mute&quot;
+/&gt;
+</code></pre><p>实现的代码</p>
+<pre><code>package org.crazyit.manager;
+
+import android.app.Activity;
+import android.app.Service;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ToggleButton;
+
+
+public class MainActivity extends Activity
+{
+    Button play, up, down;
+    ToggleButton mute;
+    AudioManager aManager;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        // 获取系统的音频服务
+        aManager = (AudioManager) getSystemService(
+                Service.AUDIO_SERVICE);
+        // 获取界面中三个按钮和一个ToggleButton控件
+        play = (Button) findViewById(R.id.play);
+        up = (Button) findViewById(R.id.up);
+        down = (Button) findViewById(R.id.down);
+        mute = (ToggleButton) findViewById(R.id.mute);
+        // 为play按钮的单击事件绑定监听器
+        play.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View source)
+            {
+                //从raw文件夹中读取文件
+                // 初始化MediaPlayer对象，准备播放音乐
+                MediaPlayer mPlayer = MediaPlayer.create(
+                        MainActivity.this, R.raw.earth);
+                // 设置循环播放
+                mPlayer.setLooping(true);
+                // 开始播放
+                mPlayer.start();
+            }
+        });
+        up.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View source)
+            {
+                // STREAM_MUSIC指定调节音乐的音频，ADJUST_RAISE增大音量，FLAG_SHOW_UI而且显示音量图形示意
+                aManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,
+                        AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
+            }
+        });
+        down.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View source)
+            {
+                // 指定调节音乐的音频，降低音量，而且显示音量图形示意
+                aManager.adjustStreamVolume(AudioManager.STREAM_MUSIC,
+                        AudioManager.ADJUST_LOWER, AudioManager.FLAG_SHOW_UI);
+            }
+        });
+        mute.setOnCheckedChangeListener(new OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton source,
+                                         boolean isChecked)
+            {
+                // 指定调节音乐的音频，根据isChecked确定是否需要静音
+                aManager.setStreamMute(AudioManager.STREAM_MUSIC,
+                        isChecked);
+            }
+        });
+    }
+}
+</code></pre><h1 id="1006">1. 振动管理器</h1>
 
 <p><a href="#2">返回目录</a> </p>
-<pre><code>测
-</code></pre><h1 id="1001">1. 绑定服务并通信</h1>
+<pre><code>package org.crazyit.manager;
+
+import android.app.Activity;
+import android.app.Service;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.widget.Toast;
+
+
+public class MainActivity extends Activity
+{
+    Vibrator vibrator;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        // 获取系统的Vibrator服务
+        vibrator = (Vibrator) getSystemService(
+                Service.VIBRATOR_SERVICE);
+    }
+    // 重写onTouchEvent方法，当用户触碰触摸屏时触发该方法
+    @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        Toast.makeText(this, &quot;手机振动&quot;
+                , Toast.LENGTH_SHORT).show();
+        // 控制手机振动2秒
+        vibrator.vibrate(2000);
+        return super.onTouchEvent(event);
+    }
+}
+</code></pre><h1 id="1007">1. 手机闹钟服务</h1>
 
 <p><a href="#2">返回目录</a> </p>
-<pre><code>测
-</code></pre><h1 id="1001">1. 绑定服务并通信</h1>
+<p><a href="#1007_1">定时更换壁纸</a></p>
+<p>全局定时器使用，当宿主进程被杀死以后，运行在宿主进程上的组件也就不存在了。<br>如果进程关闭了，闹钟就不响了<br><img src="http://i.imgur.com/dF7XCtu.jpg" alt=""></p>
+<pre><code>package org.crazyit.manager;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+public class AlarmActivity extends Activity
+{
+    MediaPlayer alarmMusic;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        // 加载指定音乐，并为之创建MediaPlayer对象
+        alarmMusic = MediaPlayer.create(this, R.raw.alarm);
+        alarmMusic.setLooping(true);
+        // 播放音乐
+        alarmMusic.start();
+        // 创建一个对话框
+        new AlertDialog.Builder(AlarmActivity.this).setTitle(&quot;闹钟&quot;)
+                .setMessage(&quot;闹钟响了,Go！Go！Go！&quot;)
+                .setPositiveButton(&quot;确定&quot;, new OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        // 停止音乐
+                        alarmMusic.stop();
+                        // 结束该Activity
+                        AlarmActivity.this.finish();
+                    }
+                }).show();
+    }
+}
+</code></pre><p><img src="http://i.imgur.com/qVYss4F.jpg" alt=""></p>
+<pre><code>package org.crazyit.manager;
+
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import java.util.Calendar;
+
+public class MainActivity extends Activity
+{
+    Button setTime;
+    Calendar currentTime = Calendar.getInstance();
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        // 获取程序界面的按钮
+        setTime = (Button) findViewById(R.id.setTime);
+        // 为“设置闹铃”按钮绑定监听器。
+        setTime.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View source)
+            {
+                Calendar currentTime = Calendar.getInstance();
+                // 创建一个TimePickerDialog实例，并把它显示出来。
+                new TimePickerDialog(MainActivity.this, 0, // 绑定监听器
+                    new TimePickerDialog.OnTimeSetListener()
+                    {
+                        @Override
+                        public void onTimeSet(TimePicker tp,
+                            int hourOfDay, int minute)
+                        {
+                            // 指定启动AlarmActivity组件
+                            Intent intent = new Intent(MainActivity.this,
+                                AlarmActivity.class);
+                            // 创建PendingIntent对象  打开一个Activity页面
+                            PendingIntent pi = PendingIntent.getActivity(
+                                    MainActivity.this, 0, intent, 0);
+                            分割时间
+                            Calendar c = Calendar.getInstance();
+                            c.setTimeInMillis(System.currentTimeMillis());
+                            // 根据用户选择时间来设置Calendar对象
+                            c.set(Calendar.HOUR, hourOfDay);
+                            c.set(Calendar.MINUTE, minute);
+                            // 获取AlarmManager对象
+                            AlarmManager aManager = (AlarmManager)
+                                getSystemService(ALARM_SERVICE);
+                            // 设置AlarmManager将在Calendar对应的时间启动指定组件
+                            aManager.set(AlarmManager.RTC_WAKEUP,
+                                    c.getTimeInMillis(), pi);
+                            // 显示闹铃设置成功的提示信息
+                            Toast.makeText(MainActivity.this, &quot;闹铃设置成功啦&quot;
+                                , Toast.LENGTH_SHORT).show();
+                        }
+                    }, currentTime.get(Calendar.HOUR_OF_DAY), currentTime
+                    .get(Calendar.MINUTE), false).show();
+            }
+        });
+    }
+}
+</code></pre><h1 id="1007_1">1. 定时更换壁纸</h1>
+
+<p><a href="#1007">返回目录</a> </p>
+<p>壁纸管理服务</p>
+<pre><code>package org.crazyit.manager;
+
+import android.app.Service;
+import android.app.WallpaperManager;
+import android.content.Intent;
+import android.os.IBinder;
+
+public class ChangeService extends Service
+{
+    // 定义定时更换的壁纸资源
+    int[] wallpapers = new int[]{
+            R.drawable.shuangta,
+            R.drawable.lijiang,
+            R.drawable.qiao,
+            R.drawable.shui
+    };
+    // 定义系统的壁纸管理服务
+    WallpaperManager wManager;
+    // 定义当前所显示的壁纸
+    int current = 0;
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
+        // 如果到了最后一张，系统重新开始
+        if(current &gt;= 4)
+            current = 0;
+        try
+        {
+            // 改变壁纸
+            wManager.setResource(wallpapers[current++]);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return START_STICKY;
+    }
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+        // 初始化WallpaperManager
+        wManager = WallpaperManager.getInstance(this);
+    }
+    @Override
+    public IBinder onBind(Intent intent)
+    {
+        return null;
+    }
+}
+</code></pre><p>每5秒钟去启动一个服务</p>
+<pre><code>package org.crazyit.manager;
+
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+
+public class MainActivity extends Activity
+{
+    Button start, stop;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        start = (Button) findViewById(R.id.start);
+        stop = (Button) findViewById(R.id.stop);
+        // 指定启动ChangeService组件
+        Intent intent = new Intent(MainActivity.this, ChangeService.class);
+        // 创建PendingIntent对象 定时去启动一个服务
+        final PendingIntent pi = PendingIntent.getService(MainActivity.this, 0, intent, 0);
+        start.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0)
+            {
+                // 获取AlarmManager对象
+                AlarmManager aManager = (AlarmManager) getSystemService(
+                    Service.ALARM_SERVICE);
+                // 设置每隔5秒执行pi代表的组件一次
+                aManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP
+                    , 0, 5000, pi);
+                start.setEnabled(false);
+                stop.setEnabled(true);
+                Toast.makeText(MainActivity.this
+                    , &quot;壁纸定时更换启动成功啦&quot;,
+                    Toast.LENGTH_SHORT).show();
+            }
+        });
+        stop.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View arg0)
+            {
+            start.setEnabled(true);
+            stop.setEnabled(false);
+            // 获取AlarmManager对象
+            AlarmManager aManager = (AlarmManager) getSystemService(
+                Service.ALARM_SERVICE);
+            // 取消对pi的调度
+            aManager.cancel(pi);
+            }
+        });
+    }
+}
+</code></pre><h1 id="1008">1. 接受广播服务</h1>
+
+<p><a href="#2">返回目录</a> </p>
+<p>这是一个全局的、系统级别的监听器，拥有自己的进程。程序级别的监听器，当程序关闭后，就退出了。<br>如果进程内没有任何活动组件，当内存紧张时，就会有些接受该进程</p>
+<p><a href="#1008_1">有序广播</a><br><a href="#1008_2">音乐播放器</a><br>后台负责播放音乐，前台进行控制。通过广播进行通信</p>
+<p>简单的广播<br><img src="http://i.imgur.com/p1Sy47J.jpg" alt=""></p>
+<pre><code>注册全局广播
+&lt;receiver android:name=&quot;.MyReceiver&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;!-- 指定该BroadcastReceiver所响应的Intent的Action --&gt;
+                &lt;action android:name=&quot;org.crazyit.action.CRAZY_BROADCAST&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+
+
+广播接受的实例
+public class MyReceiver extends BroadcastReceiver
+{
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        Toast.makeText(context,
+            &quot;接收到的Intent的Action为：&quot; + intent.getAction()
+            + &quot;\n消息内容是：&quot; + intent.getStringExtra(&quot;msg&quot;)
+            , Toast.LENGTH_LONG).show();
+    }
+}
+
+发送一条广播
+send.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // 创建Intent对象
+                Intent intent = new Intent();
+                // 设置Intent的Action属性
+                intent.setAction(&quot;org.crazyit.action.CRAZY_BROADCAST&quot;);
+                intent.putExtra(&quot;msg&quot;, &quot;简单的消息&quot;);
+                // 发送广播
+                sendBroadcast(intent);
+            }
+        });
+</code></pre><h1 id="1008_1">1. 有序广播</h1>
+
+<p><a href="#1008">返回目录</a> </p>
+<p>注册优先级 两个广播的优先级不同</p>
+<pre><code>&lt;receiver android:name=&quot;.MyReceiver&quot;&gt;
+            &lt;intent-filter android:priority=&quot;20&quot;&gt;
+                &lt;action android:name=&quot;org.crazyit.action.CRAZY_BROADCAST&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+        &lt;receiver android:name=&quot;.MyReceiver2&quot;&gt;
+            &lt;intent-filter android:priority=&quot;0&quot;&gt;
+                &lt;action android:name=&quot;org.crazyit.action.CRAZY_BROADCAST&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+</code></pre><p>发送广播</p>
+<pre><code>// 创建Intent对象
+                Intent intent = new Intent();
+                intent.setAction(&quot;org.crazyit.action.CRAZY_BROADCAST&quot;);
+                intent.putExtra(&quot;msg&quot;, &quot;简单的消息&quot;);
+                // 发送有序广播
+                sendOrderedBroadcast(intent, null);
+</code></pre><p>第二个广播</p>
+<pre><code>public class MyReceiver2 extends BroadcastReceiver
+{
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        Bundle bundle = getResultExtras(true);
+        // 解析前一个BroadcastReceiver所存入的key为first的消息
+        String first = bundle.getString(&quot;first&quot;);
+        Toast.makeText(context, &quot;第一个Broadcast存入的消息为：&quot;
+            + first, Toast.LENGTH_LONG).show();
+    }
+}
+</code></pre><p>第一个广播</p>
+<pre><code>public class MyReceiver extends BroadcastReceiver
+{
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        Toast.makeText(context,    &quot;接收到的Intent的Action为：&quot;
+                + intent.getAction() + &quot;\n消息内容是：&quot;
+                + intent.getStringExtra(&quot;msg&quot;)
+                , Toast.LENGTH_LONG).show();
+        // 创建一个Bundle对象，并存入数据
+        Bundle bundle = new Bundle();
+        bundle.putString(&quot;first&quot;, &quot;第一个BroadcastReceiver存入的消息&quot;);
+        // 将bundle放入结果中
+        setResultExtras(bundle);
+        // 取消Broadcast的继续传播
+        //abortBroadcast(); // ①
+    }
+}
+</code></pre><h1 id="1008_2">1. 音乐播放器</h1>
+
+<p><a href="#1008">返回目录</a> </p>
+<p><img src="http://i.imgur.com/sJ1WkjM.jpg" alt=""></p>
+<p>activity与服务中各注册了一个监听器，相互监听，因为采用了后台播放程序，所以就是退出程序，只要进程还在，音乐就可以正常播放。<br>前台</p>
+<pre><code>package org.crazyit.broadcast;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+public class MainActivity extends Activity implements OnClickListener
+{
+    // 获取界面中显示歌曲标题、作者文本框
+    TextView title, author;
+    // 播放/暂停、停止按钮
+    ImageButton play, stop;
+    ActivityReceiver activityReceiver;
+    public static final String CTL_ACTION =
+            &quot;org.crazyit.action.CTL_ACTION&quot;;
+    public static final String UPDATE_ACTION =
+            &quot;org.crazyit.action.UPDATE_ACTION&quot;;
+    // 定义音乐的播放状态，0x11代表没有播放；0x12代表正在播放；0x13代表暂停
+    int status = 0x11;
+    String[] titleStrs = new String[] { &quot;心愿&quot;, &quot;约定&quot;, &quot;美丽新世界&quot; };
+    String[] authorStrs = new String[] { &quot;未知艺术家&quot;, &quot;周蕙&quot;, &quot;伍佰&quot; };
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        // 获取程序界面界面中的两个按钮
+        play = (ImageButton) this.findViewById(R.id.play);
+        stop = (ImageButton) this.findViewById(R.id.stop);
+        title = (TextView) findViewById(R.id.title);
+        author = (TextView) findViewById(R.id.author);
+        // 为两个按钮的单击事件添加监听器
+        play.setOnClickListener(this);
+        stop.setOnClickListener(this);
+        页面注册广播
+        activityReceiver = new ActivityReceiver();
+        // 创建IntentFilter
+        IntentFilter filter = new IntentFilter();
+        // 指定BroadcastReceiver监听的Action
+        filter.addAction(UPDATE_ACTION);
+        // 注册BroadcastReceiver
+        registerReceiver(activityReceiver, filter);
+        开启服务
+        Intent intent = new Intent(this, MusicService.class);
+        // 启动后台Service
+        startService(intent);
+    }
+    // 自定义的BroadcastReceiver，负责监听从Service传回来的广播
+    public class ActivityReceiver extends BroadcastReceiver
+    {
+        @Override
+        public void onReceive(Context context, Intent intent)
+        {
+            // 获取Intent中的update消息，update代表播放状态
+            int update = intent.getIntExtra(&quot;update&quot;, -1);
+            // 获取Intent中的current消息，current代表当前正在播放的歌曲
+            int current = intent.getIntExtra(&quot;current&quot;, -1);
+            -1代表返回的默认值
+            if (current &gt;= 0)
+            {
+                title.setText(titleStrs[current]);
+                author.setText(authorStrs[current]);
+            }
+            switch (update)
+            {
+                case 0x11:
+                    play.setImageResource(R.drawable.play);
+                    status = 0x11;
+                    break;
+                // 控制系统进入播放状态
+                case 0x12:
+                    // 播放状态下设置使用暂停图标
+                    play.setImageResource(R.drawable.pause);
+                    // 设置当前状态
+                    status = 0x12;
+                    break;
+                // 控制系统进入暂停状态
+                case 0x13:
+                    // 暂停状态下设置使用播放图标
+                    play.setImageResource(R.drawable.play);
+                    // 设置当前状态
+                    status = 0x13;
+                    break;
+            }
+        }
+    }
+    @Override
+    public void onClick(View source)
+    {
+        // 创建Intent
+        Intent intent = new Intent(&quot;org.crazyit.action.CTL_ACTION&quot;);
+        switch (source.getId())
+        {
+            // 按下播放/暂停按钮
+            case R.id.play:
+                intent.putExtra(&quot;control&quot;, 1);
+                break;
+            // 按下停止按钮
+            case R.id.stop:
+                intent.putExtra(&quot;control&quot;, 2);
+                break;
+        }
+        // 发送广播，将被Service组件中的BroadcastReceiver接收到
+        sendBroadcast(intent);
+    }
+}
+</code></pre><p>后台</p>
+<pre><code>package org.crazyit.broadcast;
+
+import java.io.IOException;
+
+import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.os.IBinder;
+
+public class MusicService extends Service
+{
+    MyReceiver serviceReceiver;
+    AssetManager am;
+    String[] musics = new String[] { &quot;wish.mp3&quot;, &quot;promise.mp3&quot;,
+            &quot;beautiful.mp3&quot; };
+    MediaPlayer mPlayer;
+    // 当前的状态，0x11代表没有播放；0x12代表正在播放；0x13代表暂停
+    int status = 0x11;
+    // 记录当前正在播放的音乐
+    int current = 0;
+    @Override
+    public IBinder onBind(Intent intent)
+    {
+        return null;
+    }
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+        am = getAssets();
+        // 创建BroadcastReceiver
+        serviceReceiver = new MyReceiver();
+        // 创建IntentFilter
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(MainActivity.CTL_ACTION);
+        registerReceiver(serviceReceiver, filter);
+        // 创建MediaPlayer
+        mPlayer = new MediaPlayer();
+        // 为MediaPlayer播放完成事件绑定监听器
+        mPlayer.setOnCompletionListener(new OnCompletionListener() // ①
+        {
+            @Override
+            public void onCompletion(MediaPlayer mp)
+            {
+                current++;
+                if (current &gt;= 3)
+                {
+                    current = 0;
+                }
+                //发送广播通知Activity更改文本框
+                Intent sendIntent = new Intent(MainActivity.UPDATE_ACTION);
+                sendIntent.putExtra(&quot;current&quot;, current);
+                // 发送广播，将被Activity组件中的BroadcastReceiver接收到
+                sendBroadcast(sendIntent);
+                // 准备并播放音乐
+                prepareAndPlay(musics[current]);
+            }
+        });
+    }
+    public class MyReceiver extends BroadcastReceiver
+    {
+        @Override
+        public void onReceive(final Context context, Intent intent)
+        {
+            int control = intent.getIntExtra(&quot;control&quot;, -1);
+            switch (control)
+            {
+                // 播放或暂停
+                case 1:
+                    // 原来处于没有播放状态
+                    if (status == 0x11)
+                    {
+                        // 准备并播放音乐
+                        prepareAndPlay(musics[current]);
+                        status = 0x12;
+                    }
+                    // 原来处于播放状态
+                    else if (status == 0x12)
+                    {
+                        // 暂停
+                        mPlayer.pause();
+                        // 改变为暂停状态
+                        status = 0x13;
+                    }
+                    // 原来处于暂停状态
+                    else if (status == 0x13)
+                    {
+                        // 播放
+                        mPlayer.start();
+                        // 改变状态
+                        status = 0x12;
+                    }
+                    break;
+                // 停止声音
+                case 2:
+                    // 如果原来正在播放或暂停
+                    if (status == 0x12 || status == 0x13)
+                    {
+                        // 停止播放
+                        mPlayer.stop();
+                        status = 0x11;
+                    }
+            }
+            // 广播通知Activity更改图标、文本框
+            Intent sendIntent = new Intent(MainActivity.UPDATE_ACTION);
+            sendIntent.putExtra(&quot;update&quot;, status);
+            sendIntent.putExtra(&quot;current&quot;, current);
+            // 发送广播，将被Activity组件中的BroadcastReceiver接收到
+            sendBroadcast(sendIntent);
+        }
+    }
+    private void prepareAndPlay(String music)
+    {
+        try
+        {
+            // 打开指定音乐文件
+            AssetFileDescriptor afd = am.openFd(music);
+            mPlayer.reset();
+            // 使用MediaPlayer加载指定的声音文件。
+            mPlayer.setDataSource(afd.getFileDescriptor(),
+                    afd.getStartOffset(), afd.getLength());
+            // 准备声音
+            mPlayer.prepare();
+            // 播放
+            mPlayer.start();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h1 id="1009">1. 接受系统广播</h1>
+
+<p><a href="#2">返回目录</a> </p>
+<p>开机自动运行服务</p>
+<pre><code>开机运行的权限
+&lt;!-- 授予应用程序访问系统开机事件的权限 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;/&gt;
+
+&lt;!-- 定义一个BroadcastReceiver,监听系统开机广播  --&gt;
+        &lt;receiver android:name=&quot;.LaunchReceiver&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.BOOT_COMPLETED&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+
+public class LaunchReceiver extends BroadcastReceiver
+{
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        Intent tIntent = new Intent(context
+                , LaunchService.class);
+        // 启动指定Service
+        context.startService(tIntent);
+    }
+}
+
+
+public class LaunchService extends Service
+{
+    @Override
+    public IBinder onBind(Intent intent)
+    {
+        return null;
+    }
+    @Override
+    public void onCreate()
+    {
+        // 定义1秒执行一行输出
+        new Timer().schedule(new TimerTask()
+        {
+
+            @Override
+            public void run()
+            {
+                System.out.println(&quot;-----&quot;
+                        + new Date() + &quot;-----&quot;);
+            }
+        }, 0, 1000);
+    }
+}
+</code></pre><p>短信提醒</p>
+<pre><code>&lt;receiver android:name=&quot;SmsReceiver&quot;&gt;
+            &lt;intent-filter android:priority=&quot;1000&quot;&gt;
+                &lt;action android:name=&quot;android.provider.Telephony.SMS_RECEIVED&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+
+&lt;!-- 授予程序接收短信的权限 --&gt;
+    &lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot;/&gt;
+
+
+package org.crazyit.broadcast;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.telephony.SmsMessage;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class SmsReceiver extends BroadcastReceiver
+{
+    // 当接收到短信时被触发
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        // 如果是接收到短信
+        if (intent.getAction().equals(
+                &quot;android.provider.Telephony.SMS_RECEIVED&quot;))
+        {
+            // 取消广播（这行代码将会让系统收不到短信）
+            abortBroadcast();  // ①
+            StringBuilder sb = new StringBuilder();
+            // 接收由SMS传过来的数据
+            Bundle bundle = intent.getExtras();
+            // 判断是否有数据
+            if (bundle != null)
+            {
+                // 通过pdus可以获得接收到的所有短信消息
+                Object[] pdus = (Object[]) bundle.get(&quot;pdus&quot;);
+                // 构建短信对象array,并依据收到的对象长度来创建array的大小
+                SmsMessage[] messages = new SmsMessage[pdus.length];
+                for (int i = 0; i &lt; pdus.length; i++)
+                {
+                    messages[i] = SmsMessage
+                            .createFromPdu((byte[]) pdus[i]);
+                }
+                // 将发送来的短信合并自定义信息于StringBuilder当中
+                for (SmsMessage message : messages)
+                {
+                    sb.append(&quot;短信来源:&quot;);
+                    // 获得接收短信的电话号码
+                    sb.append(message.getDisplayOriginatingAddress());
+                    sb.append(&quot;\n------短信内容------\n&quot;);
+                    // 获得短信的内容
+                    sb.append(message.getDisplayMessageBody());
+                }
+            }
+            Toast.makeText(context, sb.toString()
+                    , Toast.LENGTH_LONG).show();
+        }
+    }
+</code></pre><p>电量提醒</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.BATTERY_STATS&quot;/&gt;
+
+&lt;receiver android:name=&quot;.BatteryReceiver&quot;&gt;
+            &lt;!-- 监听电池电量改变 --&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.BATTERY_CHANGED&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/receiver&gt;
+
+package org.crazyit.broadcast;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Toast;
+
+public class BatteryReceiver extends BroadcastReceiver
+{
+    @Override
+    public void onReceive(Context context, Intent intent)
+    {
+        System.out.println(&quot;+++++++++++++++++++++++&quot;);
+        Bundle bundle = intent.getExtras();
+        // 获取当前电量
+        int current = bundle.getInt(&quot;level&quot;);
+        // 获取总电量
+        int total = bundle.getInt(&quot;scale&quot;);
+        // 如果当前电量小于总电量的15%
+        if (current * 1.0 / total &lt; 0.15)
+        {
+            Toast.makeText(context, &quot;电量过低，请尽快充电！&quot;
+                    , Toast.LENGTH_LONG).show();
+        }
+    }
+}
+</code></pre><h1 id="1008">1. 绑定服务并通信</h1>
 
 <p><a href="#2">返回目录</a> </p>
 <pre><code>测
