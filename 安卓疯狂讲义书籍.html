@@ -947,7 +947,7 @@ vertical-align:1px;
 <ul>
 <li><h3 id="1-">1应用和环境→</h3>
 </li><li><h3 id="2-">2界面编程→</h3>
-</li><li><h3 id="3-">3事件处理→</h3>
+</li><li><h3 id="3-0301-0302-0303-handler-0304-0305-">3事件处理→<a href="#0301">基于监听的事件处理</a>→<a href="#0302">基于回调的事件处理</a>→<a href="#0303">相应系统设置的事件和响应系统设置的更改</a>→<a href="#0304">Handler消息传递机制</a>→<a href="#0305">异步任务</a></h3>
 </li><li><h3 id="4activity-fragment-activity-0401-fragment-0402-">4Activity与Fragment→<a href="#0401">Activity</a>→<a href="#0402">Fragment</a></h3>
 </li><li><h3 id="5-">5意图和意图过滤器通信→</h3>
 </li><li><h3 id="6-">6资源→</h3>
@@ -3554,10 +3554,703 @@ public class BatteryReceiver extends BroadcastReceiver
         }
     }
 }
+</code></pre><h1 id="0301">基于监听的事件处理</h1>
+
+<p><a href="#1">返回目录</a> </p>
+<p>就是界面组件绑定特定的事件监听器。是一种更面向对象的事件处理。分为事件源，事件，事件监听器（一个特殊的Java对象）。是一种委派式的事件处理方式。<br>回调，就是重写组件特定的回调方法，或重写Activity的回调方法。处理一些具有通用性的事件。</p>
+<p><a href="#0301_1">基于监听的事件处理模型</a><br><a href="#0301_2">事件和事件监听器</a><br><a href="#0301_3">外部类作为事件监听器类</a><br>Activity本身作为事件监听器。<br>匿名内部类作为事件监听器<br>还有一种就是直接绑定到标签</p>
+<h1 id="0301_1">基于监听的事件处理模型</h1>
+
+<p><a href="#0301">返回目录</a> </p>
+<pre><code>// 获取应用程序中的bn按钮
+        Button bn = (Button) findViewById(R.id.bn);
+        // 为按钮绑定事件监听器
+        bn.setOnClickListener(new MyClickListener()); // ①
+
+
+// 定义一个单击事件的监听器
+    class MyClickListener implements View.OnClickListener
+    {
+        // 实现监听器类必须实现的方法，该方法将会作为事件处理器
+        @Override
+        public void onClick(View v)
+        {
+            EditText txt = (EditText) findViewById(R.id.txt);
+            txt.setText(&quot;bn按钮被单击了！&quot;);
+        }
+    }
+</code></pre><h1 id="0301_2">事件和事件监听器</h1>
+
+<p><a href="#0301">返回目录</a> </p>
+<p>这种多数采用内部类作为事件监听器，可以访问调用它的各个内部组件，所以比较普及。</p>
+<p><img src="http://i.imgur.com/3w0Qi2K.jpg" alt=""></p>
+<p>绘制一个飞机</p>
+<pre><code>package org.crazyit.event;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.view.View;
+
+public class PlaneView extends View
+{//通过设置这两个值，来设计飞机的位置
+    public float currentX;
+    public float currentY;
+    Bitmap plane;
+    public PlaneView(Context context)
+    {
+        super(context);
+        // 定义飞机图片
+        plane = BitmapFactory.decodeResource(context.getResources(),
+            R.drawable.plane);
+        setFocusable(true);
+    }
+    @Override
+    public void onDraw(Canvas canvas)
+    {
+        super.onDraw(canvas);
+        // 创建画笔
+        Paint p = new Paint();
+        // 绘制飞机
+        canvas.drawBitmap(plane, currentX, currentY, p);
+    }
+}
+</code></pre><p>启动键盘的事件监听器</p>
+<pre><code>package org.crazyit.event;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnKeyListener;
+import android.view.Window;
+import android.view.WindowManager;
+
+
+public class MainActivity extends Activity
+{
+    // 定义飞机的移动速度
+    private int speed = 10;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        // 去掉窗口标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 全屏显示
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // 创建PlaneView组件
+        final PlaneView planeView = new PlaneView(this);
+        setContentView(planeView);
+        planeView.setBackgroundResource(R.drawable.back);
+        // 获取窗口管理器
+        WindowManager windowManager = getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        // 获得屏幕宽和高
+        display.getMetrics(metrics);
+        // 设置飞机的初始位置
+        planeView.currentX = metrics.widthPixels / 2;
+        planeView.currentY = metrics.heightPixels - 100;
+        // 为planeView组件的键盘事件绑定监听器
+        planeView.setOnKeyListener(new OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View source, int keyCode, KeyEvent event)
+            {
+                // 获取由哪个键触发的事件
+                switch (event.getKeyCode())
+                {
+                    // 控制飞机下移
+                    case KeyEvent.KEYCODE_S:
+                        planeView.currentY += speed;
+                        break;
+                    // 控制飞机上移
+                    case KeyEvent.KEYCODE_W:
+                        planeView.currentY -= speed;
+                        break;
+                    // 控制飞机左移
+                    case KeyEvent.KEYCODE_A:
+                        planeView.currentX -= speed;
+                        break;
+                    // 控制飞机右移
+                    case KeyEvent.KEYCODE_D:
+                        planeView.currentX += speed;
+                        break;
+                }
+                // 通知planeView组件重绘
+                planeView.invalidate();
+                return true;
+            }
+        });
+    }
+}
+</code></pre><h1 id="0301_3">外部类作为事件监听器类</h1>
+
+<p><a href="#0301">返回目录</a> </p>
+<p>能为多个界面所共享，完成某种业务逻辑。可以写成抽象方法，运用泛型，调用的时候再去试下接口的方法。<br><img src="http://i.imgur.com/nYP6fHt.jpg" alt=""></p>
+<p>定义的外部类监听器</p>
+<pre><code>package org.crazyit.event;
+
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class SendSmsListener implements OnLongClickListener
+{
+    private Activity act;
+    private EditText address;
+    private EditText content;
+    public SendSmsListener(Activity act, EditText address
+        , EditText content)
+    {
+        this.act = act;
+        this.address = address;
+        this.content = content;
+    }
+    @Override
+    public boolean onLongClick(View source)
+    {
+        String addressStr = address.getText().toString();
+        String contentStr = content.getText().toString();
+        // 获取短信管理器 负责发送短信
+        SmsManager smsManager = SmsManager.getDefault();
+        // 创建发送短信的PendingIntent
+        PendingIntent sentIntent = PendingIntent.getBroadcast(act
+                , 0, new Intent(), 0);
+        // 发送文本短信
+        smsManager.sendTextMessage(addressStr, null, contentStr
+                , sentIntent, null);
+        Toast.makeText(act, &quot;短信发送完成&quot;, Toast.LENGTH_LONG).show();
+        return false;
+    }
+}
+</code></pre><p>界面调用外部类的逻辑</p>
+<pre><code>package org.crazyit.event;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+
+
+public class MainActivity extends Activity
+{
+    EditText address;
+    EditText content;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        // 获取页面中收件人地址、短信内容
+        address = (EditText)findViewById(R.id.address);
+        content = (EditText)findViewById(R.id.content);
+        Button bn = (Button)findViewById(R.id.send);
+        // 使用外部类的实例作为事件监听器
+        bn.setOnLongClickListener(new SendSmsListener(
+            this , address, content));
+    }
+}
+</code></pre><h1 id="0302">基于回调的事件处理</h1>
+
+<p><a href="#1">返回目录</a> </p>
+<p>基于回调的事件处理模型，事件源和事件监听器是统一的。安卓为所有的组件提供了一些事件处理的回调方法。</p>
+<p><a href="#0302_1">基于回调的事件传播</a><br><a href="#0302_2">通过回调实现跟随手指的小球</a></p>
+<h1 id="0302_1">基于回调的事件传播</h1>
+
+<p><a href="#0302">返回目录</a> </p>
+<p>这个没能实现，总是出现错误。<br><img src="http://i.imgur.com/x5deVDB.jpg" alt=""><br>系统最先触发的是按键上绑定的事件监听器</p>
+<pre><code>Button bn = (Button) findViewById(R.id.bn);
+        // 为bn绑定事件监听器
+        bn.setOnKeyListener(new OnKeyListener() {
+            @Override
+            public boolean onKey(View source
+                    , int keyCode, KeyEvent event) {
+                // 只处理按下键的事件
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    Log.v(&quot;-Listener-&quot;, &quot;the onKeyDown in Listener&quot;);
+                }
+                // 返回false，表明该事件会向外传播
+                return true; // ①
+            }
+        });
+</code></pre><p>然后触发的是组件提供的事件回调方法</p>
+<pre><code>package org.crazyit.event;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.widget.Button;
+
+public class MyButton extends Button
+{
+    public MyButton(Context context , AttributeSet set)
+    {
+        super(context , set);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        super.onKeyDown(keyCode , event);
+        Log.v(&quot;-MyButton-&quot;, &quot;the onKeyDown in MyButton&quot;);
+        // 返回false，表明并未完全处理该事件，该事件依然向外扩散
+        return false;
+    }
+}
+</code></pre><p>最后传播到组件所在的Activity</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    &gt;
+    &lt;!-- 使用自定义View时应使用全限定类名 --&gt;
+    &lt;studydiary.tyq.com.ceshi1.MyButton
+        android:id=&quot;@+id/bn&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;单击我&quot;/&gt;
+&lt;/LinearLayout&gt;
+
+
+// 重写onKeyDown方法，该方法可监听它所包含的所有组件的按键被按下事件
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        super.onKeyDown(keyCode , event);
+        Log.v(&quot;-Activity-&quot; , &quot;the onKeyDown in Activity&quot;);
+        //返回false，表明并未完全处理该事件，该事件依然向外扩散
+        return false;
+    }
+</code></pre><p>如果任何一个事件处理方法返回true，事件将不会继续向外传播。如果返回false，事件将会继续传播到下一层。</p>
+<h1 id="0302_2">通过回调实现跟随手指的小球</h1>
+
+<p><a href="#0302">返回目录</a> </p>
+<p><img src="http://i.imgur.com/Mbatq5N.jpg" alt=""><br>通过回调的方法把事件处理方法封装在View内部，可以提高程序的内聚性，更适合处理事件逻辑比较固定的view</p>
+<pre><code>&lt;!-- 使用自定义组件 --&gt;
+    &lt;org.crazyit.event.DrawView
+        android:orientation=&quot;vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;/&gt;
+
+package org.crazyit.event;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+
+public class DrawView extends View
+{
+    public float currentX = 40;
+    public float currentY = 50;
+    // 定义、创建画笔
+    Paint p = new Paint();
+    public DrawView(Context context, AttributeSet set)
+    {
+        super(context, set);
+    }
+    //这个方法在两个地方调用  一个是刚开始的时候，一个是重绘的时候
+    // 画布的大小就是这个控件的大小
+    @Override
+    public void onDraw(Canvas canvas)
+    {
+        super.onDraw(canvas);
+        // 设置画笔的颜色
+        p.setColor(Color.RED);
+        // 绘制一个小圆（作为小球） 15为半径
+        canvas.drawCircle(currentX, currentY, 15, p);
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        // 当前组件的currentX、currentY两个属性
+        this.currentX = event.getX();
+        this.currentY = event.getY();
+        // 通知改组件重绘
+        this.invalidate();
+        // 返回true表明处理方法已经处理该事件
+        return true;
+    }
+}
+</code></pre><h1 id="0303">相应系统设置的事件和响应系统设置的更改</h1>
+
+<p><a href="#1">返回目录</a> </p>
+<p><img src="http://i.imgur.com/UFhuiAv.jpg" alt=""><br><img src="http://i.imgur.com/kd9Dvx3.jpg" alt=""></p>
+<pre><code>bn.setOnClickListener(new OnClickListener()
+        {
+            // 为按钮绑定事件监听器
+            @Override
+            public void onClick(View source)
+            {
+                // 获取系统的Configuration对象
+                Configuration cfg = getResources().getConfiguration();
+
+                String screen = cfg.orientation ==
+                    Configuration.ORIENTATION_LANDSCAPE
+                    ? &quot;横向屏幕&quot;: &quot;竖向屏幕&quot;;
+                //这个是移动网络代号
+                String mncCode = cfg.mnc + &quot;&quot;;
+
+                String naviName = cfg.orientation ==
+                    Configuration.NAVIGATION_NONAV
+                    ? &quot;没有方向控制&quot; :
+                    cfg.orientation == Configuration.NAVIGATION_WHEEL
+                        ? &quot;滚轮控制方向&quot; :
+                        cfg.orientation == Configuration.NAVIGATION_DPAD
+                        ? &quot;方向键控制方向&quot; : &quot;轨迹球控制方向&quot;;
+                navigation.setText(naviName);
+
+                String touchName = cfg.touchscreen ==
+                    Configuration.TOUCHSCREEN_NOTOUCH
+                    ? &quot;无触摸屏&quot; : &quot;支持触摸屏&quot;;
+                ori.setText(screen);
+                mnc.setText(mncCode);
+                touch.setText(touchName);
+            }
+        });
+</code></pre><p>响应系统设置的更改<br><img src="http://i.imgur.com/k6trkeS.jpg" alt=""></p>
+<pre><code>&lt;!-- 设置Activity可以监听屏幕方向改变的事件 --&gt;
+        &lt;activity
+            android:configChanges=&quot;orientation|screenSize&quot;
+            android:name=&quot;.MainActivity&quot;
+            android:label=&quot;@string/app_name&quot; &gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+
+
+Button bn = (Button) findViewById(R.id.bn);
+        // 为按钮绑定事件监听器
+        bn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View source) {
+                Configuration config = getResources().getConfiguration();
+                // 如果当前是横屏
+                if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    // 设为竖屏
+                    MainActivity.this.setRequestedOrientation(
+                        ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                }
+                // 如果当前是竖屏
+                if (config.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    // 设为横屏
+                    MainActivity.this.setRequestedOrientation(
+                        ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                }
+            }
+        });
+
+
+// 重写该方法，用于监听系统设置的更改，主要是监控屏幕方向的更改
+    @Override
+    public void onConfigurationChanged(Configuration newConfig)
+    {
+        super.onConfigurationChanged(newConfig);
+        String screen = newConfig.orientation ==
+            Configuration.ORIENTATION_LANDSCAPE ? &quot;横向屏幕&quot; : &quot;竖向屏幕&quot;;
+        Toast.makeText(this, &quot;系统的屏幕方向发生改变&quot; + &quot;\n修改后的屏幕方向为：&quot;
+                + screen, Toast.LENGTH_LONG).show();
+    }
+</code></pre><h1 id="0304">Handler消息传递机制</h1>
+
+<p><a href="#1">返回目录</a> </p>
+<p><a href="#0304_1">自动播放的动画</a><br><a href="#0304_2">使用新线程计算质数</a></p>
+<p>主线程Main Thread，把相关的事件分发给对应的组件去处理。Handler是另外一种形式的事件处理，主要是为了解决多线程的问题，它允许新线程周期性的改变界面组件的属性值。</p>
+<h1 id="-">作用有两个：</h1>
+<p>1 在新线程中发送消息。<br>2在主线程中获取和处理消息。<br>原理 主要是通过回调的方式来实现。</p>
+<h1 id="0304_1">自动播放的动画</h1>
+
+<p><a href="#0304">返回目录</a> </p>
+<p><img src="http://i.imgur.com/BMXLoWF.jpg" alt=""></p>
+<pre><code>package org.crazyit.handler;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MainActivity extends Activity
+{
+    // 定义周期性显示的图片的ID
+    int[] imageIds = new int[]
+        {
+            R.drawable.java,
+            R.drawable.javaee,
+            R.drawable.ajax,
+            R.drawable.android,
+            R.drawable.swift
+        };
+    int currentImageId = 0;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        final ImageView show = (ImageView) findViewById(R.id.show);
+        final Handler myHandler = new Handler()
+        {
+            @Override
+            public void handleMessage(Message msg)
+            {
+                // 如果该消息是本程序所发送的
+                if (msg.what == 0x1233)
+                {
+                    // 动态地修改所显示的图片
+                    show.setImageResource(imageIds[currentImageId++
+                            % imageIds.length]);
+                }
+            }
+        };
+        // 定义一个计时器，让该计时器周期性地执行指定任务
+        //TimerTask 本质就是启动一条新线程
+        new Timer().schedule(new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                // 发送空消息
+                myHandler.sendEmptyMessage(0x1233);
+            }
+        }, 0, 1200);
+    }
+}
+</code></pre><h1 id="0304_2">使用新线程计算质数</h1>
+
+<p><a href="#0304">返回目录</a> </p>
+<p>Message Handler接受和处理的消息对象<br>Looper 每个线程只能有一个，它的loop方法复制读取MessageQueue中的消息，读到消息之后就把消息交给发送消息的Handler进行处理。<br>MessageQueue 消息队列，采用先进先从的方式来管理Message，<br>程序创建Looper对象是，会在他的构造器中创建MessageQueue对象。</p>
+<p>程序员自己启动的线程，必须自己创建一个Looper对象，并启动它，也就是调用它的prepare()方法。这个方法保证每个线程最多只有一个Looper对象。Looper对象调用静态的loop（）方法，使用一个死循环不断的取出MessageQueue中的消息。</p>
+<p><img src="http://i.imgur.com/kv3MNEv.jpg" alt=""></p>
+<pre><code>package org.crazyit.handler;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends Activity
+{
+    static final String UPPER_NUM = &quot;upper&quot;;
+    EditText etNum;
+    CalThread calThread;
+    // 定义一个线程类
+    class CalThread extends Thread
+    {
+        public Handler mHandler;
+        public void run()
+        {
+            Looper.prepare();//创建一个Looper的对象
+            mHandler = new Handler()
+            {
+                // 定义处理消息的方法
+                @Override
+                public void handleMessage(Message msg)
+                {
+                    if(msg.what == 0x123)
+                    {
+                        int upper = msg.getData().getInt(UPPER_NUM);
+                        List&lt;Integer&gt; nums = new ArrayList&lt;Integer&gt;();
+                        // 计算从2开始、到upper的所有质数
+                        outer:
+                        for (int i = 2 ; i &lt;= upper ; i++)
+                        {
+                            // 用i除以从2开始、到i的平方根的所有数
+                            for (int j = 2 ; j &lt;= Math.sqrt(i) ; j++)
+                            {
+                                // 如果可以整除，则表明这个数不是质数
+                                if(i != 2 &amp;&amp; i % j == 0)
+                                {
+                                    continue outer;
+                                }
+                            }
+                            nums.add(i);
+                        }
+                        // 使用Toast显示统计出来的所有质数  土司出来
+                        Toast.makeText(MainActivity.this, nums.toString()
+                            , Toast.LENGTH_LONG).show();
+                    }
+                }
+            };
+            Looper.loop();//启动Looper
+        }
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        etNum = (EditText)findViewById(R.id.etNum);
+        calThread = new CalThread();
+        // 启动新线程
+        calThread.start();
+    }
+    // 为按钮的点击事件提供事件处理方法
+    public void cal(View source)
+    {
+        // 创建消息
+        Message msg = new Message();
+        msg.what = 0x123;
+        Bundle bundle = new Bundle();
+        bundle.putInt(UPPER_NUM ,
+                Integer.parseInt(etNum.getText().toString()));
+        msg.setData(bundle);
+        // 向新线程中的Handler发送消息
+        calThread.mHandler.sendMessage(msg);
+    }
+}
+</code></pre><h1 id="0305">异步任务</h1>
+
+<p><a href="#1">返回目录</a> </p>
+<p><img src="http://i.imgur.com/ZUj9Jj8.jpg" alt=""></p>
+<p>针对新线程不能更新UI组件的问题，几种方案<br>1 使用Handler实现线程之间的通信<br>2 Activity.runOnUiThread(Runnable)<br>3 View.post(Runnable)<br>4 View.postDelayed(Runnable,long)<br>5 异步任务类。</p>
+<p>规则<br>必须在UI线程中创建实例，<br>主线程中调用execute()方法。<br>每个AsyncTask只能被执行一次，多次调用将会引发异常。</p>
+<pre><code>package studydiary.tyq.com.ceshi1;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class MainActivity extends Activity {
+    private TextView show;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        show = (TextView) findViewById(R.id.show);
+    }
+    // 重写该方法，为界面的按钮提供事件响应方法
+    public void download(View source) throws MalformedURLException
+    {
+        DownTask task = new DownTask(this);
+        task.execute(new URL(&quot;http://211.149.169.221:8080/umijoyappsvr/distribution/DistributionUserList.do?start=0&amp;limit=15&quot;));
+    }
+    //三个泛型参数 Params 启动任务执行的输入参数的类型  Progress 后台任务完成的进度值的类型
+    // Result 后台执行任务完成后返回结果的类型
+    class DownTask extends AsyncTask&lt;URL, Integer, String&gt;
+    {
+        // 可变长的输入参数，与AsyncTask.exucute()对应
+        ProgressDialog pdialog;
+        // 定义记录已经读取行的数量
+        int hasRead = 0;
+        Context mContext;
+        public DownTask(Context ctx)
+        {
+            mContext = ctx;
+        }
+        //后台线程将要完成的任务  调用publishProgress方法更新任务的执行进度
+        @Override
+        protected String doInBackground(URL... params)
+        {
+            StringBuilder sb = new StringBuilder();
+            try
+            {
+                URLConnection conn = params[0].openConnection();
+                // 打开conn连接对应的输入流，并将它包装成BufferedReader
+                BufferedReader br = new BufferedReader(
+                        new InputStreamReader(conn.getInputStream()
+                                , &quot;utf-8&quot;));
+                String line = null;
+                while ((line = br.readLine()) != null)
+                {
+                    sb.append(line + &quot;\n&quot;);
+                    hasRead++;
+                    publishProgress(hasRead);
+                }
+                //这个的值有onPostExecute 接受和使用这个值
+                return sb.toString();
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        //当doInBackground（）完成后，系统后自动调用该方法。并将doInBackground()方法的返回值传给该方法。
+        @Override
+        protected void onPostExecute(String result)
+        {
+            // 返回HTML页面的内容
+            show.setText(result);
+            pdialog.dismiss();
+        }
+        //这个方法将在耗时操作启动前调用，做一些初始化的准备工作
+        @Override
+        protected void onPreExecute()
+        {
+            pdialog = new ProgressDialog(mContext);
+            // 设置对话框的标题
+            pdialog.setTitle(&quot;任务正在执行中&quot;);
+            // 设置对话框显示的内容
+            pdialog.setMessage(&quot;任务正在执行中，敬请等待...&quot;);
+            // 设置对话框不能用“取消”按钮关闭
+            pdialog.setCancelable(false);
+            // 设置该进度条的最大进度值
+            pdialog.setMax(202);
+            // 设置对话框的进度条风格
+            pdialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            // 设置对话框的进度条是否显示进度
+            pdialog.setIndeterminate(false);
+            pdialog.show();
+        }
+
+        //在doInBackground()方法中调用publishProgress()方法更新任务的执行进度后，触发该方法
+        @Override
+        protected void onProgressUpdate(Integer... values)
+        {
+            // 更新进度
+            show.setText(&quot;已经读取了【&quot; + values[0] + &quot;】行！&quot;);
+            pdialog.setProgress(values[0]);
+        }
+    }
+}
 </code></pre><h1 id="0401">1. 使用Activity</h1>
 
-<p><a href="#0401_1">配置设置参数的Activity</a><br><a href="#0401_2">Activity跳转时交换数据</a><br><a href="#0401_3">启动Activity并返回结果</a><br><a href="#0401_4">Activity生命周期和加载模式</a></p>
 <p><a href="#1">返回目录</a> </p>
+<p><a href="#0401_1">配置设置参数的Activity</a><br><a href="#0401_2">Activity跳转时交换数据</a><br><a href="#0401_3">启动Activity并返回结果</a><br><a href="#0401_4">Activity生命周期和加载模式</a></p>
 <p><img src="http://i.imgur.com/mt8fJNc.jpg" alt=""></p>
 <p>一个点击项对应一个参数</p>
 <pre><code>public class MainActivity extends LauncherActivity
